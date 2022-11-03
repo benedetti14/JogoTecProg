@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <iostream>
 
-GerenciadorGrafico* GerenciadorGrafico::pGrafico = NULL;
+Gerenciadores::GerenciadorGrafico* Gerenciadores::GerenciadorGrafico::pGrafico = NULL;
 
-GerenciadorGrafico::GerenciadorGrafico() {
+Gerenciadores::GerenciadorGrafico::GerenciadorGrafico() {
 
 	janela = new sf::RenderWindow(sf::VideoMode(700, 700), "janela");
 	if (janela == NULL) {
@@ -13,39 +13,39 @@ GerenciadorGrafico::GerenciadorGrafico() {
 	}
 }
 
-GerenciadorGrafico::~GerenciadorGrafico() {
+Gerenciadores::GerenciadorGrafico::~GerenciadorGrafico() {
 	if (janela) {
 		delete (janela);
 		janela = NULL;
 	}
 }
 
-GerenciadorGrafico* GerenciadorGrafico::getGerenciadorGrafico() {
+Gerenciadores::GerenciadorGrafico* Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico() {
 	if (pGrafico == NULL) {
 		return new GerenciadorGrafico();
 	}
 	return pGrafico;
-}
+}				
 
-sf::RenderWindow* GerenciadorGrafico::getJanela() {
+sf::RenderWindow* Gerenciadores::GerenciadorGrafico::getJanela() {
 	return pGrafico->janela;
 }
 
-const bool GerenciadorGrafico::janelaAberta() {
+const bool Gerenciadores::GerenciadorGrafico::janelaAberta() {
 	if (janela->isOpen()) {
 		return true;
 	}
 	return false;
 }
 
-void GerenciadorGrafico::fechaJanela() {
+void Gerenciadores::GerenciadorGrafico::fechaJanela() {
 	janela->close();
 }
 
-void GerenciadorGrafico::limpaJanela() {
+void Gerenciadores::GerenciadorGrafico::limpaJanela() {
 	janela->clear();
 }
 
-void GerenciadorGrafico::mostrar() {
+void Gerenciadores::GerenciadorGrafico::mostrar() {
 	janela->display();
 }

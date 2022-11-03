@@ -133,19 +133,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Elemento.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Jogador.cpp" />
+    <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="JogoTecProg.cpp" />
+    <ClCompile Include="Lista.cpp" />
     <ClCompile Include="ListaEntidades.cpp" />
     <ClCompile Include="Personagem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Elemento.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Jogador.h" />
+    <ClInclude Include="Jogo.h" />
+    <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidades.h" />
     <ClInclude Include="Personagem.h" />
   </ItemGroup>
