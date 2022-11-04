@@ -14,7 +14,6 @@ namespace Listas {
 		ListaEntidades();
 		~ListaEntidades();
 		void incluiEntidade(Entidade* pEnt);
-		void executar(sf::RenderWindow* janela);
 	};
 }
 
