@@ -9,11 +9,13 @@ namespace Entidades {
 		{
 		protected:
 			sf::Vector2f velocidade;
+			bool podeAndar;
 		public:
 			Personagem(sf::Vector2f posi, sf::Vector2f velo, sf::Vector2f tam);
 			~Personagem();
+			void parar();
 			virtual void move() = 0;
-			void atualizar(float t);
+			void atualizar();
 		};
 	};
 }

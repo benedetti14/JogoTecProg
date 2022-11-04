@@ -7,15 +7,15 @@ namespace Listas {
 	class Lista
 	{
 	private:
-		Elemento<Tl>* pPrimeiro;
-		Elemento<Tl>* pUltimo;
+		Elemento<TL>* pPrimeiro;
+		Elemento<TL>* pUltimo;
 	public:
 		Lista();
 		~Lista();
-		void incluiElemento(Elemento<Tl>* pE);
-		void incluiElemento(Tl* i);
+		void incluiElemento(Elemento<TL>* pE);
+		void incluiElemento(TL* i);
 		void limpar();
-		Elemento<Tl>* getPrimeiro();
-		Elemento<Tl>* getAtual();
+		Elemento<TL>* getPrimeiro();
+		Elemento<TL>* getAtual();
 	};
 }
