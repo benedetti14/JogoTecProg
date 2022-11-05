@@ -8,6 +8,7 @@ namespace Entidades {
 		}
 
 		Jogador::~Jogador() {}
+
 		void Jogador::setAndar(bool a){
 			podeAndar = true;
 			this->andar = a;

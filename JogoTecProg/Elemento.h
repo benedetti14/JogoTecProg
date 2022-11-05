@@ -1,6 +1,4 @@
 #pragma once
-#include<iostream>
-
 
 namespace Listas {
 	
@@ -21,5 +19,7 @@ namespace Listas {
 		void setInfo(TIPO* i);
 		TIPO* getInfo();
 	};
+
+
 }
 
