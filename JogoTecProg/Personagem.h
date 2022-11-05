@@ -10,6 +10,7 @@ namespace Entidades {
 		protected:
 			sf::Vector2f velocidade;
 			bool podeAndar;
+			bool podeSubir;
 		public:
 			Personagem(sf::Vector2f posi, sf::Vector2f velo, sf::Vector2f tam);
 			~Personagem();

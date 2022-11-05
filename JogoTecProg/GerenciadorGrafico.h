@@ -16,6 +16,7 @@ namespace Gerenciadores {
 		void fechaJanela();
 		void limpaJanela();
 		void mostrar();
+		void desenhar(sf::RectangleShape corpo);
 	};
 }
 
