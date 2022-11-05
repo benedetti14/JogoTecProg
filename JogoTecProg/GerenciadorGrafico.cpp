@@ -2,14 +2,13 @@
 #include <stdlib.h>
 #include <iostream>
 
-Gerenciadores::GerenciadorGrafico* Gerenciadores::GerenciadorGrafico::pGrafico = NULL;
+Gerenciadores::GerenciadorGrafico* Gerenciadores::GerenciadorGrafico::pGrafico = nullptr;
 
-Gerenciadores::GerenciadorGrafico::GerenciadorGrafico() {
+Gerenciadores::GerenciadorGrafico::GerenciadorGrafico() : janela(new sf::RenderWindow(sf::VideoMode(700, 700), "Jogo")) {
 
-	janela = new sf::RenderWindow(sf::VideoMode(700, 700), "janela");
 	if (janela == NULL) {
 		std::cout << "Erro na criação da janela!";
-		return;
+		exit(1);
 	}
 }
 
@@ -21,14 +20,14 @@ Gerenciadores::GerenciadorGrafico::~GerenciadorGrafico() {
 }
 
 Gerenciadores::GerenciadorGrafico* Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico() {
-	if (pGrafico == NULL) {
-		return new GerenciadorGrafico();
+	if (pGrafico == nullptr) {
+		pGrafico = new GerenciadorGrafico();
 	}
 	return pGrafico;
 }				
 
 sf::RenderWindow* Gerenciadores::GerenciadorGrafico::getJanela() {
-	return pGrafico->janela;
+	return janela;
 }
 
 const bool Gerenciadores::GerenciadorGrafico::janelaAberta() {
@@ -48,4 +47,8 @@ void Gerenciadores::GerenciadorGrafico::limpaJanela() {
 
 void Gerenciadores::GerenciadorGrafico::mostrar() {
 	janela->display();
+}
+
+void Gerenciadores::GerenciadorGrafico::desenhar(sf::RectangleShape corpo) {
+	janela->draw(corpo);
 }

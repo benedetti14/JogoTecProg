@@ -1,7 +1,9 @@
 #include <iostream>
+#include "Jogo.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	Jogo objPrincipal;
+	return 0;
 }
 

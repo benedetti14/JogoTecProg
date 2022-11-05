@@ -2,7 +2,7 @@
 
 Gerenciadores::GerenciadorEventos* Gerenciadores::GerenciadorEventos::pEventos = NULL;
 
-Gerenciadores::GerenciadorEventos::GerenciadorEventos(): pGrafico(pGrafico->getGerenciadorGrafico()) {
+Gerenciadores::GerenciadorEventos::GerenciadorEventos() : pGrafico(pGrafico->getGerenciadorGrafico()), pJogador(NULL) {
 }
 
 Gerenciadores::GerenciadorEventos::~GerenciadorEventos()
@@ -11,7 +11,7 @@ Gerenciadores::GerenciadorEventos::~GerenciadorEventos()
 
 Gerenciadores::GerenciadorEventos* Gerenciadores::GerenciadorEventos::getGerenciadorEventos() {
     if (pEventos == NULL) {
-        return new GerenciadorEventos();
+        pEventos = new GerenciadorEventos();
     }
     return pEventos;
 }
