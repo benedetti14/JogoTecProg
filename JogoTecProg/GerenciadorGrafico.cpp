@@ -48,7 +48,7 @@ void Gerenciadores::GerenciadorGrafico::limpaJanela() {
 void Gerenciadores::GerenciadorGrafico::mostrar() {
 	janela->display();
 }
-
+/*
 void Gerenciadores::GerenciadorGrafico::desenhar(sf::RectangleShape corpo) {
 	janela->draw(corpo);
-}
+}*/
