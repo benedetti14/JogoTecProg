@@ -4,19 +4,21 @@
 #include "Entidade.h"
 #include "Personagem.h"
 
+#define VELOCIDADE_JOGADOR 200.0f
+#define TAMANHO_PULO 0.04f
 
 namespace Entidades {
 	namespace Personagens {
 		class Jogador : public Personagem {
 		private:
-			bool andar;
-			bool subir;
+			bool noChao;
+			void inicializa();
 		public:
-			Jogador(sf::Vector2f posi, sf::Vector2f velo, sf::Vector2f tam);
+			Jogador(sf::Vector2f posi, sf::Vector2f tam);
 			~Jogador();
-			void setAndar(bool a);
-			void setSubir(bool s);
 			void move();
+			void pular();
+			void podePular();
 		};
 	}
 };

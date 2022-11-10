@@ -39,6 +39,13 @@
     <ClCompile Include="Jogo.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="Elemento.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lista.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+
     <ClCompile Include="GerenciadorEventos.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
@@ -75,6 +82,10 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Ente.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="IDs.h">
+
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
