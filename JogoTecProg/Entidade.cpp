@@ -25,5 +25,5 @@ const sf::Vector2f Entidades::Entidade::getTamanho() {
 }
 
 void Entidades::Entidade::desenhar() {
-	pGrafico->desenhar(corpo);
+	pGrafico->getJanela()->draw(corpo);
 }
