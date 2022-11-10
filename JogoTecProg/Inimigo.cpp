@@ -1,6 +1,6 @@
 #include "Inimigo.h"
 
-Entidades::Personagens::Inimigo::Inimigo::Inimigo(const sf::Vector2f posi, const sf::Vector2f tam, Jogador* jogador) : Personagem(posi, tam, sf::Vector2f(VELOCIDADE_INIMIGO, VELOCIDADE_INIMIGO),IDs::IDs::inimigo), jogador(jogador), dtAux(0.0f) {
+Entidades::Personagens::Inimigo::Inimigo::Inimigo(const sf::Vector2f posi, const sf::Vector2f tam, Jogador* jogador) : Personagem(posi, tam, VELOCIDADE_INIMIGO,IDs::IDs::inimigo), jogador(jogador), dtAux(0.0f) {
 	inicializa();
 
     srand(time(NULL));
@@ -19,7 +19,6 @@ Entidades::Personagens::Inimigo::Inimigo::Inimigo(const sf::Vector2f posi, const
 }
 
 void Entidades::Personagens::Inimigo::inicializa() {
-    corpo.setOrigin(sf::Vector2f(tamanho.x / 12.0f, tamanho.y / 8.5f));
 	corpo.setFillColor(sf::Color::Red);
 }
 
@@ -58,4 +57,8 @@ void Entidades::Personagens::Inimigo::move() {
     atualizar();
     dtAux += relogio.getElapsedTime().asSeconds() * 100;
     relogio.restart();
+}
+
+void Entidades::Personagens::Inimigo::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
+	
 }

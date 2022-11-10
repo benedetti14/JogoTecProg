@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
+    <ClCompile Include="GerenciadorColisao.cpp" />
     <ClCompile Include="GerenciadorEventos.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
     <ClCompile Include="Inimigo.cpp" />
@@ -142,9 +143,12 @@
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="JogoTecProg.cpp" />
     <ClCompile Include="ListaEntidades.cpp" />
+    <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Personagem.cpp" />
+    <ClCompile Include="Plataforma.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GerenciadorColisao.h" />
     <ClInclude Include="GerenciadorEventos.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
@@ -155,7 +159,9 @@
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidades.h" />
+    <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Personagem.h" />
+    <ClInclude Include="Plataforma.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,7 +5,7 @@
 #include "Personagem.h"
 
 #define VELOCIDADE_JOGADOR 200.0f
-#define TAMANHO_PULO 0.04f
+#define TAMANHO_PULO 0.15f
 
 namespace Entidades {
 	namespace Personagens {
@@ -19,6 +19,7 @@ namespace Entidades {
 			void move();
 			void pular();
 			void podePular();
+			void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f));
 		};
 	}
 };
