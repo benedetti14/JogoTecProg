@@ -45,6 +45,7 @@
     <ClCompile Include="Lista.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+
     <ClCompile Include="GerenciadorEventos.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
@@ -74,9 +75,6 @@
     <ClInclude Include="Jogo.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Elemento.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
     <ClInclude Include="Lista.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
@@ -87,6 +85,7 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="IDs.h">
+
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>

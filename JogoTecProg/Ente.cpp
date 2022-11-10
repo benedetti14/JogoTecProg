@@ -12,4 +12,3 @@ Ente::~Ente() {
 
 const IDs::IDs Ente::getID() const {
     return ID;
-}

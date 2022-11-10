@@ -14,6 +14,8 @@ namespace Listas {
 		ListaEntidades();
 		~ListaEntidades();
 		void incluiEntidade(Entidade* pEnt);
+		void removeEntidade(Entidade* pEnt);
+		void executar();
 	};
 }
 
