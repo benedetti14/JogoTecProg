@@ -33,8 +33,7 @@ void Gerenciadores::GerenciadorEventos::verificaTeclaPressionada(sf::Keyboard::K
 }
 
 void Gerenciadores::GerenciadorEventos::verificaTeclaSolta(sf::Keyboard::Key tecla) {
-    if (tecla == sf::Keyboard::Right || tecla == sf::Keyboard::Left
-        || tecla == sf::Keyboard::Up || tecla == sf::Keyboard::Down) {
+    if (tecla == sf::Keyboard::Right || tecla == sf::Keyboard::Left) {
         pJogador->parar();
     }
 }
