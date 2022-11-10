@@ -1,14 +1,19 @@
 #pragma once
-#include<iostream>
 
-class Ente
-{
+#include <SFML\Graphics.hpp>
+#include <iostream>
+
+#include "IDs.h"
+#include "GerenciadorGrafico.h"
+
+class Ente {
 protected:
-	int id;
-
+    Gerenciadores::GerenciadorGrafico* pGrafico;
+    const IDs::IDs ID;
 public:
-	Ente();
-	~Ente();
-	virtual void executar() = 0;
+    Ente(const IDs::IDs ID);
+    ~Ente();
+    const IDs::IDs getID() const;
+    virtual void desenhar() = 0;
 };
 

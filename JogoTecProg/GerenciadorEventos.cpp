@@ -22,13 +22,11 @@ void Gerenciadores::GerenciadorEventos::setJogador(Entidades::Personagens::Jogad
 
 void Gerenciadores::GerenciadorEventos::verificaTeclaPressionada(sf::Keyboard::Key tecla){
     if (tecla == sf::Keyboard::Right) {
-        pJogador->setAndar(true);
+        pJogador->andar(false);
     } else if (tecla == sf::Keyboard::Left) {
-        pJogador->setAndar(false);
+        pJogador->andar(true);
     } else if (tecla == sf::Keyboard::Up) {
-        pJogador->setSubir(true);
-    } else if (tecla == sf::Keyboard::Down) {
-        pJogador->setSubir(false);
+        pJogador->pular();
     } else if (tecla == sf::Keyboard::Escape) {
         pGrafico->fechaJanela();
     }
