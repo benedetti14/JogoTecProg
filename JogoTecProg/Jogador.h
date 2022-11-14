@@ -17,6 +17,7 @@ namespace Entidades {
 			Jogador(sf::Vector2f posi, sf::Vector2f tam);
 			~Jogador();
 			void move();
+			void atualizarAnimacao();
 			void pular();
 			void podePular();
 			void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f));

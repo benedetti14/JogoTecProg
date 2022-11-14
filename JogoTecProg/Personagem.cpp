@@ -1,8 +1,9 @@
 #include "Personagem.h"
 
 
-Entidades::Personagens::Personagem::Personagem(sf::Vector2f posi, sf::Vector2f tam, const float velo, const IDs::IDs ID) 
-	: Entidade(posi, tam, ID), podeAndar(false), esquerda(false), relogio(), dt(0.0f), velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo)
+Entidades::Personagens::Personagem::Personagem(sf::Vector2f posi, sf::Vector2f tam, const float velo, const IDs::IDs ID) :
+	Entidade(posi, tam, ID), podeAndar(false), esquerda(false), atacando(false), relogio(), dt(0.0f), 
+	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(&corpo)
 {
 
 }
@@ -18,12 +19,18 @@ void Entidades::Personagens::Personagem::setVelocidadeFinal(sf::Vector2f veloFin
 }
 
 void Entidades::Personagens::Personagem::andar(const bool esquerda) {
+	atacando = false;
 	podeAndar = true;
 	this->esquerda = esquerda;
 }
 
 void Entidades::Personagens::Personagem::parar(){
 	podeAndar = false;
+}
+
+void Entidades::Personagens::Personagem::atacar(const bool atacando) {
+	podeAndar = false;
+	this->atacando = atacando;
 }
 
 void Entidades::Personagens::Personagem::atualizar() {
@@ -46,4 +53,12 @@ void Entidades::Personagens::Personagem::atualizar() {
 	velocidadeFinal.x = velocidadeMaxima;
 
 	desenhar();
+}
+
+void Entidades::Personagens::Personagem::atualizarAnimacao(){
+	if (podeAndar) {
+		animacao.atualizar(ElementosGraficos::anda, esquerda);
+	} else {
+		animacao.atualizar(ElementosGraficos::parado, esquerda);
+	}
 }

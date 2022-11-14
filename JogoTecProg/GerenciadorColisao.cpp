@@ -20,6 +20,7 @@ const sf::Vector2f Gerenciadores::GerenciadorColisao::calculaColisao(Entidades::
         fabs((pos1.x + tam1.x / 2.0f) - (pos2.x + tam2.x / 2.0f)),
         fabs((pos1.y + tam1.y / 2.0f) - (pos2.y + tam2.y / 2.0f))
     );
+
     sf::Vector2f somaMetadeRectangulo(tam1.x / 2.0f + tam2.x / 2.0f, tam1.y / 2.0f + tam2.y / 2.0f);
     return sf::Vector2f(distanciaEntreCentros.x - somaMetadeRectangulo.x, distanciaEntreCentros.y - somaMetadeRectangulo.y);
 }

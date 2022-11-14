@@ -6,7 +6,10 @@ namespace IDs {
         vazio = 0,
         jogador,
         inimigo,
-		plataforma
+		plataforma,
+        faseFloresta,
+        faseDeserto,
+        fundo
     };
 
 }

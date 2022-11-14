@@ -2,6 +2,7 @@
 #include<iostream>
 #include<SFML/Graphics.hpp>
 #include "Entidade.h"
+#include "Animacao.h"
 
 #define GRAVIDADE 0.7f;
 
@@ -10,10 +11,12 @@ namespace Entidades {
 		class Personagem : public Entidade
 		{
 		protected:
+			ElementosGraficos::Animacao animacao;
 			sf::Vector2f velocidadeFinal;
 			const float velocidadeMaxima;
 			bool podeAndar;
 			bool esquerda;
+			bool atacando;
 			sf::Clock relogio;
 			float dt;
 		public:
@@ -23,7 +26,9 @@ namespace Entidades {
 			void setVelocidadeFinal(sf::Vector2f veloFinal);
 			void andar(const bool esquerda);
 			void parar();
+			void atacar(const bool atacar);
 			void atualizar();
+			virtual void atualizarAnimacao();
 			virtual void move() = 0;
 			virtual void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f)) = 0;
 		};
