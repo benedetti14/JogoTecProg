@@ -22,7 +22,6 @@ void Listas::ListaEntidades::executar() {
 	Entidade* aux = listaEntidades.inicioLista();
 	while (aux != nullptr) {
 		aux->atualizar();
-		aux->desenhar();
 		aux = listaEntidades.getProximo();
 	}
 }

@@ -1,8 +1,9 @@
 #include "Plataforma.h"
+#define cPlataforma "../imagens/fase1/plataforma.png"
 
-Entidades::Obstaculos::Plataforma::Plataforma(const sf::Vector2f posi, const sf::Vector2f tam) : Obstaculo(posi, tam, IDs::IDs::plataforma)
+Entidades::Obstaculos::Plataforma::Plataforma(const sf::Vector2f posi, const sf::Vector2f tam) : Obstaculo(posi, tam, IDs::IDs::plataforma, cPlataforma)
 {
-	corpo.setFillColor(sf::Color::Green);
+	//corpo.setFillColor(sf::Color::Green);
 }
 
 Entidades::Obstaculos::Plataforma::~Plataforma()

@@ -6,6 +6,7 @@ namespace Gerenciadores {
 	class GerenciadorGrafico {
 	private:
 		sf::RenderWindow* janela;
+		sf::View camera;
 		static GerenciadorGrafico* pGrafico;
 		GerenciadorGrafico();
 	public:
@@ -16,7 +17,10 @@ namespace Gerenciadores {
 		void fechaJanela();
 		void limpaJanela();
 		void mostrar();
-		//void desenhar(sf::RectangleShape corpo);
+		sf::Vector2f fimJanela();
+		sf::Texture setTextura(const char* cTextura);
+		const sf::View getCamera();
+		void atualizaCamera(sf::Vector2f posJogador);
 	};
 }
 
