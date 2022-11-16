@@ -3,6 +3,7 @@
 
 namespace Fases {
 	class FaseFloresta : public Fase {
+	private:
 		Listas::ListaEntidades listaEntidades;
 		Fundo fundo;
 	public:
@@ -10,5 +11,6 @@ namespace Fases {
 		~FaseFloresta();
 		void inicializa();
 		void executar();
+		virtual void desenhar();
 	};
 }

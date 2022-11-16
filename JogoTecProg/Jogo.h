@@ -8,5 +8,6 @@ private:
 public:
 	Jogo();
 	~Jogo();
+	void criaFase();
 	void executar();
 };

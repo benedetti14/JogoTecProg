@@ -1,7 +1,7 @@
 #include "Jogo.h"
 
 Jogo::Jogo() : faseFloresta() {
-
+	criaFase();
 	executar();
 }
 
@@ -10,6 +10,10 @@ Jogo::~Jogo(){
 		delete (faseFloresta);
 		faseFloresta = nullptr;
 	}
+}
+
+void Jogo::criaFase() {
+	faseFloresta = new Fases::FaseFloresta();
 }
 
 void Jogo::executar(){

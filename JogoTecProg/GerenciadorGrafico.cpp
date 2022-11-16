@@ -31,6 +31,10 @@ Gerenciadores::GerenciadorGrafico* Gerenciadores::GerenciadorGrafico::getGerenci
 }				
 
 sf::RenderWindow* Gerenciadores::GerenciadorGrafico::getJanela() {
+	if (janela == nullptr) {
+		std::cout << "Erro na criação da janela!";
+		exit(1);
+	}
 	return janela;
 }
 

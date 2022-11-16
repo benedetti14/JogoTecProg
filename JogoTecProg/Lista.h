@@ -5,7 +5,7 @@ namespace Listas {
 	template<class TIPO>
 	class Lista
 	{
-	private:
+	public:
 		//classe aninhada
 		template <class TIPO>
 		class Elemento {
@@ -24,10 +24,12 @@ namespace Listas {
 			void setElemento(TIPO* pE) { elemento = pE; };
 			TIPO* getElemento() { return elemento; };
 		};
+	private:
 
 		Elemento<TIPO>* pPrimeiro;
 		Elemento<TIPO>* pUltimo;
 		Elemento<TIPO>* pAtual;
+		unsigned int tamanho;
 
 	public:
 		Lista();
@@ -37,14 +39,16 @@ namespace Listas {
 		void removeElemento(TIPO* pE);
 		void limpar();
 		Elemento<TIPO>* getPrimeiro() { return pPrimeiro; };
-		Elemento<TIPO>* getUltimo() { return pUltimo; };
+		Elemento<TIPO>* getUltimo() { return pUltimo; };/*
 		TIPO* inicioLista();
-		TIPO* getProximo();
+		TIPO* getProximo();*/
+		TIPO* operator[](int pos);
+		int getTamanho();
 
 	};
 
 	template <class TIPO>
-	Lista<TIPO>::Lista() : pPrimeiro(nullptr), pUltimo(nullptr), pAtual(nullptr) {
+	Lista<TIPO>::Lista() : pPrimeiro(nullptr), pUltimo(nullptr), pAtual(nullptr), tamanho(0) {
 	}
 
 	template <class TIPO>
@@ -79,6 +83,7 @@ namespace Listas {
 				elemento->setProximo(nullptr);
 				pUltimo = elemento;
 			}
+			tamanho++;
 		}
 	}
 
@@ -117,23 +122,41 @@ namespace Listas {
 			delete aux1;
 			aux1 = nullptr;
 			aux2 = nullptr;
-
+			tamanho--;
 		}
 	}
 	
 
-	template <class TIPO>
-	TIPO*Lista<TIPO>::inicioLista() {
+	/*template <class TIPO>
+	TIPO* Lista<TIPO>::inicioLista() {
 		pAtual = pPrimeiro;
 		if (pAtual) {
 			return pAtual->getElemento();
 		} else {
 			return nullptr;
 		}
+	}*/
+
+	template<class TIPO>
+	int Lista<TIPO>::getTamanho() {
+		return (int)tamanho;
+	}
+	
+	template<class TIPO>
+	TIPO* Lista<TIPO>::operator[](int pos) {
+		if (pos >= (int)tamanho || pos < 0) {
+			std::cout << "ERROR::Lista pos eh maior que o tamanho da lista" << std::endl;
+			exit(1);
+		}
+		Elemento<TIPO>* aux = pPrimeiro;
+		for (int i = 0; i < pos; i++) {
+			aux = aux->getProximo();
+		}
+		return aux->getElemento();
 	}
 
 
-	template <class TIPO>
+	/*template <class TIPO>
 	TIPO* Lista<TIPO>::getProximo() {
 		pAtual = pAtual->getProximo();
 		if (pAtual) {
@@ -141,5 +164,5 @@ namespace Listas {
 		} else {
 			return nullptr;
 		}
-	}
+	}*/
 }

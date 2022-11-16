@@ -1,10 +1,10 @@
 #include "Jogador.h"
-#define JOGADOR_ANDA "../imagens/jogador/Jogador_Anda.png"
-#define JOGADOR_CORRE "../imagens/jogador/Jogador_Corre.png"
-#define JOGADOR_PULA "../imagens/jogador/Jogador_Pula.png"
-#define JOGADOR_ATACA "../imagens/jogador/Jogador_Ataca.png"
-#define JOGADOR_MORRE "../imagens/jogador/Jogador_Morre.png"
-#define JOGADOR_PARADO "../imagens/jogador/Jogador_Parado.png"
+#define JOGADOR_ANDA "../JogoTecProg/imagens/jogador/Jogador_Anda.png"
+#define JOGADOR_CORRE "../JogoTecProg/imagens/jogador/Jogador_Corre.png"
+#define JOGADOR_PULA "../JogoTecProg/imagens/jogador/Jogador_Pula.png"
+#define JOGADOR_ATACA "../JogoTecProg/imagens/jogador/Jogador_Ataca.png"
+#define JOGADOR_MORRE "../JogoTecProg/imagens/jogador/Jogador_Morre.png"
+#define JOGADOR_PARADO "../JogoTecProg/imagens/jogador/Jogador_Parado.png"
 
 namespace Entidades {
 	namespace Personagens {

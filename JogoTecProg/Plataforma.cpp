@@ -1,5 +1,5 @@
 #include "Plataforma.h"
-#define cPlataforma "../imagens/fase1/plataforma.png"
+#define cPlataforma "../JogoTecProg/imagens/fase1/plataforma.png"
 
 Entidades::Obstaculos::Plataforma::Plataforma(const sf::Vector2f posi, const sf::Vector2f tam) : Obstaculo(posi, tam, IDs::IDs::plataforma, cPlataforma)
 {
