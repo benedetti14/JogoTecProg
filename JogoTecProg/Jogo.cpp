@@ -10,6 +10,7 @@ Jogo::~Jogo(){
 		delete (faseFloresta);
 		faseFloresta = nullptr;
 	}
+
 }
 
 void Jogo::criaFase() {

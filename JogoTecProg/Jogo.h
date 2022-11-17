@@ -1,8 +1,8 @@
 #pragma once
 #include "FaseFloresta.h"
 
-class Jogo
-{
+class Jogo{
+
 private:
 	Fases::FaseFloresta* faseFloresta;
 public:
