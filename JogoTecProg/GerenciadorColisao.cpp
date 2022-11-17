@@ -1,7 +1,8 @@
 #include "GerenciadorColisao.h"
 
-Gerenciadores::GerenciadorColisao::GerenciadorColisao(Entidades::Personagens::Jogador* jog, Entidades::Personagens::Inimigo* ini, Entidades::Obstaculos::Plataforma* plat) 
-    : jogador(jog), inimigo(ini), plataforma(plat) {
+Gerenciadores::GerenciadorColisao::GerenciadorColisao(Listas::ListaEntidades* listaPersonagem, Listas::ListaEntidades* listaObstaculo)
+	: listaPersonagem(listaPersonagem), listaObstaculo(listaObstaculo) 
+{
 }
 
 
@@ -26,20 +27,31 @@ const sf::Vector2f Gerenciadores::GerenciadorColisao::calculaColisao(Entidades::
 }
 
 void Gerenciadores::GerenciadorColisao::executar() {
-	
-	Entidades::Entidade* pEntidade1 = jogador;
-	Entidades::Entidade* pEntidade2 = plataforma;
-    sf::Vector2f ds = calculaColisao(pEntidade1, pEntidade2);
 
-    if (ds.x < 0.0f && ds.y < 0.0f) {
-		pEntidade2->colisao(pEntidade1, ds);
+    for (int i = 0; i < listaPersonagem->getTamanho() - 1; i++) {
+        Entidades::Entidade* ent1 = listaPersonagem->operator[](i);
+        for (int j = i + 1; j < listaPersonagem->getTamanho(); j++) {
+            Entidades::Entidade* ent2 = listaPersonagem->operator[](j);
+            sf::Vector2f ds = calculaColisao(ent1, ent2);
+            if (ds.x < 0.0f && ds.y < 0.0f) {
+                ent1->colisao(ent2);
+            }
+        }
     }
 
-    pEntidade1 = inimigo;
-    pEntidade2 = plataforma;
-    ds = calculaColisao(pEntidade1, pEntidade2);
-
-    if (ds.x < 0.0f && ds.y < 0.0f) {
-        pEntidade2->colisao(pEntidade1, ds);
+    for (int i = 0; i < listaPersonagem->getTamanho(); i++) {
+        Entidades::Entidade* ent1 = listaPersonagem->operator[](i);
+        for (int j = 0; j < listaObstaculo->getTamanho(); j++) {
+            Entidades::Entidade* ent2 = listaObstaculo->operator[](j);
+            sf::Vector2f ds = calculaColisao(ent1, ent2);
+            if (ds.x < 0.0f && ds.y < 0.0f) {
+                if (ent2->getID() == IDs::IDs::plataforma) {
+                    ent2->colisao(ent1, ds);
+                }
+                else {
+                    // outro obstáculo 
+                }
+            }
+        }
     }
 }

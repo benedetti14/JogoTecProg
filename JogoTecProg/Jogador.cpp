@@ -21,14 +21,14 @@ namespace Entidades {
 			animacao.incluiAnimacao(ElementosGraficos::pula, JOGADOR_PULA, 10, 0.15f, sf::Vector2f(6, 3));
 			animacao.incluiAnimacao(ElementosGraficos::ataca, JOGADOR_ATACA, 10, 0.15f, sf::Vector2f(6, 3));
 			animacao.incluiAnimacao(ElementosGraficos::morre, JOGADOR_MORRE, 10, 0.15f, sf::Vector2f(6, 3));
-			animacao.incluiAnimacao(ElementosGraficos::parado, JOGADOR_PARADO, 5, 0.15f, sf::Vector2f(6, 3));
+			animacao.incluiAnimacao(ElementosGraficos::parado, JOGADOR_PARADO, 10, 0.15f, sf::Vector2f(6, 3));
 			corpo.setOrigin(sf::Vector2f(tamanho.x / 2.5f, tamanho.y / 2.0f));
 		}
 
 		void Jogador::move() {
 			atualizar();
 			atualizarAnimacao();
-			pGrafico->atualizaCamera(posicao);
+			/*pGrafico->atualizaCamera(posicao);*/
 		}
 
 		void Jogador::atualizarAnimacao() {

@@ -12,6 +12,7 @@ namespace Entidades {
 		public:
 			Plataforma(const sf::Vector2f posi, const sf::Vector2f tam);
 			~Plataforma();
+			virtual void move();
 			void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f));
 		};
 	}

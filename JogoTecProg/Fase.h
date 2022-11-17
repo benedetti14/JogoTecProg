@@ -8,11 +8,11 @@
 #include "GerenciadorColisao.h"
 #include "ListaEntidades.h"
 #include "Fundo.h"
+#include "ListaEntidades.h"
 
 namespace Fases {
 	class Fase : public Ente {
 	protected:
-		Gerenciadores::GerenciadorColisao* colisor;
 		Gerenciadores::GerenciadorEventos* pEventos;
 		Entidades::Personagens::Jogador* jogador;
 	public:

@@ -25,7 +25,7 @@ void ElementosGraficos::Imagem::atualizar(const float dT, const bool esquerda){
 		}
 	}
 
-	if (!esquerda) {
+	if (esquerda) {
 		tamanho.left = (imagemAtual + 1) * abs(tamanho.width);
 		tamanho.width = -abs(tamanho.width);
 	} else {

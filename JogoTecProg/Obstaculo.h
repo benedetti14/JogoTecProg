@@ -14,6 +14,7 @@ namespace Entidades {
 			Obstaculo(const sf::Vector2f posi, const sf::Vector2f tama, const IDs::IDs ID, const char* cTextura);
 			~Obstaculo();
 			void atualizar();
+			void move() = 0;
 			virtual void colisaoObstaculo(sf::Vector2f ds, Personagens::Personagem* pPersonagem);
 		};
 	}

@@ -10,6 +10,11 @@ Entidades::Obstaculos::Plataforma::~Plataforma()
 {
 }
 
+void  Entidades::Obstaculos::Plataforma::move()
+{
+    desenhar();
+}
+
 void Entidades::Obstaculos::Plataforma::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
     sf::Vector2f posOutro = outraEntidade->getPosicao();
     sf::Vector2f tamOutro = outraEntidade->getTamanho();
