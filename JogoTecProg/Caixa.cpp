@@ -8,6 +8,11 @@ Entidades::Obstaculos::Caixa::~Caixa()
 {
 }
 
+
+void  Entidades::Obstaculos::Caixa::move(){
+    desenhar();
+}
+
 void Entidades::Obstaculos::Caixa::colisao(Entidade* outraEntidade, sf::Vector2f ds){
     sf::Vector2f posOutro = outraEntidade->getPosicao();
     sf::Vector2f tamOutro = outraEntidade->getTamanho();

@@ -18,6 +18,7 @@ namespace Listas {
 		int getTamanho();
 		Entidade* operator[](int pos);
 		void executar();
+		void limparLista();
 	};
 }
 
