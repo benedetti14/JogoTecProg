@@ -1,8 +1,8 @@
 #include "GerenciadorGrafico.h"
 #include <iostream>
 
-#define TELA_X 800
-#define TELA_Y 600
+#define TELA_X 1200
+#define TELA_Y 800
 
 Gerenciadores::GerenciadorGrafico* Gerenciadores::GerenciadorGrafico::pGrafico = nullptr;
 
