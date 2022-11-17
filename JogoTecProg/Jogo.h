@@ -1,9 +1,12 @@
 #pragma once
 #include "FaseFloresta.h"
 
-class Jogo{
+
+class Jogo {
+
 
 private:
+	Gerenciadores::GerenciadorGrafico* gGrafico;
 	Fases::FaseFloresta* faseFloresta;
 public:
 	Jogo();

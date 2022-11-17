@@ -1,6 +1,8 @@
 #include "Jogo.h"
 
-Jogo::Jogo() : faseFloresta() {
+Jogo::Jogo() : faseFloresta(), gGrafico(gGrafico->getGerenciadorGrafico()) {
+	//Ente::setGerenciadorGrafico(gGrafico);
+	//faseFloresta->setGerenciadorGrafico(gGrafico);
 	criaFase();
 	executar();
 }
@@ -11,6 +13,11 @@ Jogo::~Jogo(){
 		faseFloresta = nullptr;
 	}
 
+	if (gGrafico) {
+		delete gGrafico;
+		gGrafico = nullptr;
+	}
+
 }
 
 void Jogo::criaFase() {
@@ -18,9 +25,8 @@ void Jogo::criaFase() {
 }
 
 void Jogo::executar(){
-	Gerenciadores::GerenciadorGrafico * pGrafico = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
 	Gerenciadores::GerenciadorEventos* pEventos = Gerenciadores::GerenciadorEventos::getGerenciadorEventos();
-	while (pGrafico->janelaAberta()) {
+	while (gGrafico->janelaAberta()) {
 		//pEventos->executar();
 		//pGrafico->limpaJanela();
 		//jogador.move();
