@@ -3,7 +3,7 @@
 
 Entidades::Personagens::Personagem::Personagem(sf::Vector2f posi, sf::Vector2f tam, const float velo, const IDs::IDs ID) :
 	Entidade(posi, tam, ID), podeAndar(false), esquerda(false), atacando(false), relogio(), dt(0.0f), 
-	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(&corpo)
+	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(&corpo), vivo(true)
 {
 
 }
@@ -62,3 +62,12 @@ void Entidades::Personagens::Personagem::atualizarAnimacao(){
 		animacao.atualizar(ElementosGraficos::parado, esquerda);
 	}
 }
+
+bool Entidades::Personagens::Personagem::estaVivo() {
+	if (vivo) {
+		return true;
+	} else {
+		return false;
+	}
+}
+

@@ -1,7 +1,9 @@
 #pragma once
 #include "FaseFloresta.h"
 
+
 class Jogo {
+
 
 private:
 	Gerenciadores::GerenciadorGrafico* gGrafico;

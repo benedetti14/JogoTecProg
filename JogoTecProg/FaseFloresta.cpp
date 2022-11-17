@@ -1,44 +1,57 @@
 #include "FaseFloresta.h"
 
-Fases::FaseFloresta::FaseFloresta() : Fase(), 
-fundo("../JogoTecProg/imagens/fase1/fundo.png", (sf::Vector2f)pGrafico->getJanela()->getSize()), listaPersonagens(), listaObstaculos(), pColisor(new Gerenciadores::GerenciadorColisao(&listaPersonagens, &listaObstaculos)) {
+Fases::FaseFloresta::FaseFloresta() : Fase(IDs::IDs::faseFloresta) {
 	
 	pGrafico = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
-	pEventos = Gerenciadores::GerenciadorEventos::getGerenciadorEventos();
+	//pEventos = Gerenciadores::GerenciadorEventos::getGerenciadorEventos();
+	pColisor = new Gerenciadores::GerenciadorColisao(listaPersonagens, listaObstaculos);
 	inicializa();
-	//colisor = new Gerenciadores::GerenciadorColisao(jogador, &inimigo, &plataforma);
+	
 }
 
-Fases::FaseFloresta::~FaseFloresta()
-{
-	if (pColisor) {
-		delete(pColisor);
-		pColisor = nullptr;
-	}
+Fases::FaseFloresta::~FaseFloresta(){
+	
 }
 
 void Fases::FaseFloresta::desenhar() {
-	fundo.desenhar();
+	fundo->desenhar();
 }
 
 void Fases::FaseFloresta::inicializa(){
-	Entidades::Personagens::Inimigo* inimigo = new Entidades::Personagens::Inimigo(sf::Vector2f(500.0f, 270.0f), sf::Vector2f(50.0f, 90.0f), jogador);
-	Entidades::Obstaculos::Plataforma* plataforma = new Entidades::Obstaculos::Plataforma(sf::Vector2f(0.0f, 500.0f), sf::Vector2f(2000.0f, 50.0f)); //chao
 
-	listaPersonagens.incluiEntidade(static_cast<Entidades::Entidade*>(jogador));
-	listaPersonagens.incluiEntidade(static_cast<Entidades::Entidade*>(inimigo));
-	listaObstaculos.incluiEntidade(static_cast<Entidades::Entidade*>(plataforma));
+	fundo = new Fundo("../JogoTecProg/imagens/fase1/fundo.png", (sf::Vector2f)pGrafico->getJanela()->getSize());
+	listaPersonagens = new Listas::ListaEntidades();
+	listaObstaculos = new Listas::ListaEntidades();
+
+	listaPersonagens->incluiEntidade(jogador);
+
+	//chao
+	criaPlataforma(sf::Vector2f(0.0f, 550.0f), sf::Vector2f(2000.0f, 50.0f)); 
+	
+	for (int i = 0; i < 4; i++) { //cria Inimigos 
+		criaInimigo({ 300.0f + (i*150), 150.0f}, {50.0f, 90.0f});
+	}
+	
+	criaPlataforma(sf::Vector2f(150.0f, 420.0f), sf::Vector2f(200.0f, 50.0f)); 
+	criaPlataforma(sf::Vector2f(200.0f, 350.0f), sf::Vector2f(200.0f, 50.0f));
+	criaPlataforma(sf::Vector2f(300.0f, 290.0f), sf::Vector2f(200.0f, 50.0f));
+	criaPlataforma(sf::Vector2f(350.0f, 420.0f), sf::Vector2f(200.0f, 50.0f));
+	criaPlataforma(sf::Vector2f(400.0f, 350.0f), sf::Vector2f(200.0f, 50.0f));
+	criaPlataforma(sf::Vector2f(600.0f, 420.0f), sf::Vector2f(200.0f, 50.0f));
+	criaPlataforma(sf::Vector2f(750.0f, 420.0f), sf::Vector2f(200.0f, 50.0f));
+	
+
 }
 
 void Fases::FaseFloresta::executar(){
-	while (pGrafico->janelaAberta()) {
+	while (jogador->estaVivo() && jogador->getPosicao().x < pGrafico->getJanela()->getSize().x) {
 		pEventos->executar();
 		pGrafico->limpaJanela();
 
 		desenhar();
 
-		listaPersonagens.executar();
-		listaObstaculos.executar();
+		listaPersonagens->executar();
+		listaObstaculos->executar();
 
 		pGrafico->mostrar();
 		pColisor->executar();

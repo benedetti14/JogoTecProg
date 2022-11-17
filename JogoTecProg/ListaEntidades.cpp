@@ -35,3 +35,7 @@ void Listas::ListaEntidades::executar() {
 	}
 }
 
+void Listas::ListaEntidades::limparLista(){
+	listaEntidades.limpar();
+}
+

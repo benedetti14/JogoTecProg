@@ -13,11 +13,18 @@
 namespace Fases {
 	class Fase : public Ente {
 	protected:
+		Gerenciadores::GerenciadorColisao* pColisor;
 		Gerenciadores::GerenciadorEventos* pEventos;
 		Entidades::Personagens::Jogador* jogador;
+		Listas::ListaEntidades* listaPersonagens;
+		Listas::ListaEntidades* listaObstaculos;
+		Fundo* fundo;
 	public:
-		Fase();
+		Fase(IDs::IDs id);
 		virtual ~Fase();
+		void criaPlataforma(sf::Vector2f pos, sf::Vector2f tam);
+		void criaCaixa(sf::Vector2f pos, sf::Vector2f tam);
+		void criaInimigo(sf::Vector2f pos, sf::Vector2f tam);
 		virtual void inicializa() = 0;
 		virtual void executar() = 0;
 		virtual void desenhar() = 0;
