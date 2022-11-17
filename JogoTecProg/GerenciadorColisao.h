@@ -4,6 +4,8 @@
 #include "Inimigo.h"
 #include "Jogador.h"
 #include "Plataforma.h"
+#include "Lista.h"
+#include "ListaEntidades.h"
 #include <cmath>
 
 
@@ -11,11 +13,10 @@ namespace Gerenciadores {
 
     class GerenciadorColisao {
     private:
-        Entidades::Personagens::Jogador* jogador;
-        Entidades::Personagens::Inimigo* inimigo;
-        Entidades::Obstaculos::Plataforma* plataforma;
+        Listas::ListaEntidades* listaPersonagem;
+        Listas::ListaEntidades* listaObstaculo;
     public:
-		GerenciadorColisao(Entidades::Personagens::Jogador* jog, Entidades::Personagens::Inimigo* ini, Entidades::Obstaculos::Plataforma* plat);
+		GerenciadorColisao(Listas::ListaEntidades* listaPersonagem, Listas::ListaEntidades* listaObstaculo);
         ~GerenciadorColisao();
         const sf::Vector2f calculaColisao(Entidades::Entidade* ent1, Entidades::Entidade* ent2);
         void executar();
