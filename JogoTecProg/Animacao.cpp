@@ -19,21 +19,23 @@ ElementosGraficos::Animacao::~Animacao(){
 
 void ElementosGraficos::Animacao::atualizar(IdAnimacao imgAtual, const bool esquerda){
 	if (this->imgAtual != imgAtual) {
+		if (this->imgAtual == 0) {
+			mapaImagem[this->imgAtual]->reseta();
+		}
 		this->imgAtual = imgAtual;
-		mapaImagem[this->imgAtual]->reseta();
 	}
 
 	float dT = relogio.getElapsedTime().asSeconds();
 	relogio.restart();
 
-	Imagem* imagem = mapaImagem[imgAtual];
+	Imagem* imagem = mapaImagem[this->imgAtual];
 	sf::Vector2f escala = imagem->getEscala();
 	sf::IntRect tamImagem = imagem->getTamanho();
 
 	imagem->atualizar(dT, esquerda);
-	corpo->setScale(escala);
 	corpo->setTextureRect(tamImagem);
 	corpo->setTexture(imagem->getTexture());
+	corpo->setScale(escala);
 
 }
 
