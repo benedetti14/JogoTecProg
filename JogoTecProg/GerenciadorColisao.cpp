@@ -1,13 +1,18 @@
 #include "GerenciadorColisao.h"
 
-Gerenciadores::GerenciadorColisao::GerenciadorColisao(Listas::ListaEntidades* listaPersonagem, Listas::ListaEntidades* listaObstaculo)
-	: listaPersonagem(listaPersonagem), listaObstaculo(listaObstaculo) 
+Gerenciadores::GerenciadorColisao::GerenciadorColisao(Listas::ListaEntidades* listaPersonagens, Listas::ListaEntidades* listaObstaculos)
+	: listaPersonagem(listaPersonagens), listaObstaculo(listaObstaculos)
 {
 }
 
 
 Gerenciadores::GerenciadorColisao::~GerenciadorColisao() {
-
+    if (listaPersonagem) {
+        delete(listaPersonagem);
+    }
+    if (listaObstaculo) {
+        delete(listaObstaculo);
+    }
 }
 
 const sf::Vector2f Gerenciadores::GerenciadorColisao::calculaColisao(Entidades::Entidade* ent1, Entidades::Entidade* ent2) {
@@ -45,7 +50,7 @@ void Gerenciadores::GerenciadorColisao::executar() {
             Entidades::Entidade* ent2 = listaObstaculo->operator[](j);
             sf::Vector2f ds = calculaColisao(ent1, ent2);
             if (ds.x < 0.0f && ds.y < 0.0f) {
-                if (ent2->getID() == IDs::IDs::plataforma) {
+				if (ent2->getID() == IDs::IDs::plataforma || ent2->getID() == IDs::IDs::caixa) {
                     ent2->colisao(ent1, ds);
                 }
                 else {

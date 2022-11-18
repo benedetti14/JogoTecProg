@@ -1,8 +1,10 @@
 #pragma once
 #include<iostream>
+#include <fstream>
 #include "Jogador.h"
 #include "Inimigo.h"
 #include "Plataforma.h"
+#include "Caixa.h"
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEventos.h"
 #include "GerenciadorColisao.h"
@@ -16,8 +18,8 @@ namespace Fases {
 		Gerenciadores::GerenciadorColisao* pColisor;
 		Gerenciadores::GerenciadorEventos* pEventos;
 		Entidades::Personagens::Jogador* jogador;
-		Listas::ListaEntidades* listaPersonagens;
-		Listas::ListaEntidades* listaObstaculos;
+		Listas::ListaEntidades listaPersonagens;
+		Listas::ListaEntidades listaObstaculos;
 		Fundo* fundo;
 	public:
 		Fase(IDs::IDs id);
@@ -28,5 +30,7 @@ namespace Fases {
 		virtual void inicializa() = 0;
 		virtual void executar() = 0;
 		virtual void desenhar() = 0;
+		virtual void criarMapa() = 0;
+		void criarEntidades(char letra, sf::Vector2f pos);
 	};
 }

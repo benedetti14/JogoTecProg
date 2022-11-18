@@ -5,7 +5,7 @@
 #include "Personagem.h"
 
 #define VELOCIDADE_JOGADOR 200.0f
-#define TAMANHO_PULO 0.15f
+#define TAMANHO_PULO 0.18f
 
 namespace Entidades {
 	namespace Personagens {

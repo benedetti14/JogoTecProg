@@ -1,7 +1,8 @@
 #include "Jogo.h"
 
-Jogo::Jogo() : faseFloresta(), gGrafico(gGrafico->getGerenciadorGrafico()) {
-	//Ente::setGerenciadorGrafico(gGrafico);
+Jogo::Jogo() : faseFloresta(), gGrafico(nullptr) {
+	gGrafico = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
+	Ente::setGerenciadorGrafico(Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico());
 	//faseFloresta->setGerenciadorGrafico(gGrafico);
 	criaFase();
 	executar();
@@ -22,6 +23,9 @@ Jogo::~Jogo(){
 
 void Jogo::criaFase() {
 	faseFloresta = new Fases::FaseFloresta();
+	
+	fase = static_cast<Fases::Fase*>(faseFloresta);
+	fase->criarMapa();
 }
 
 void Jogo::executar(){

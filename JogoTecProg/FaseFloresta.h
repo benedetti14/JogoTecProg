@@ -10,5 +10,6 @@ namespace Fases {
 		void inicializa();
 		void executar();
 		virtual void desenhar();
+		void criarMapa();
 	};
 }

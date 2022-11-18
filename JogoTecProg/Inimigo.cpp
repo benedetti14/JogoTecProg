@@ -25,10 +25,10 @@ Personagem(posi, tam, VELOCIDADE_INIMIGO,IDs::IDs::inimigo), jogador(jogador), d
 }
 
 void Entidades::Personagens::Inimigo::inicializa() {
-    animacao.incluiAnimacao(ElementosGraficos::anda, DINOSSAURO_ANDA, 10, 0.15f, sf::Vector2f(6, 3));
+    animacao.incluiAnimacao(ElementosGraficos::anda, DINOSSAURO_ANDA, 10, 0.15f, sf::Vector2f(3, 1.5));
     //animacao.incluiAnimacao(ElementosGraficos::corre, DINOSSAURO_CORRE, 8, 0.15f, sf::Vector2f(6, 3));
-    animacao.incluiAnimacao(ElementosGraficos::parado, DINOSSAURO_PARADO, 5, 0.15f, sf::Vector2f(6, 3));
-    corpo.setOrigin(sf::Vector2f(tamanho.x / 2.5f, tamanho.y / 2.0f));
+    animacao.incluiAnimacao(ElementosGraficos::parado, DINOSSAURO_PARADO, 5, 0.15f, sf::Vector2f(3, 1.5));
+    corpo.setOrigin(sf::Vector2f(tamanho.x / 2.8f, tamanho.y / 3.5f));
 	//corpo.setFillColor(sf::Color::Red);
 }
 

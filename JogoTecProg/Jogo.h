@@ -8,6 +8,7 @@ class Jogo {
 private:
 	Gerenciadores::GerenciadorGrafico* gGrafico;
 	Fases::FaseFloresta* faseFloresta;
+	Fases::Fase* fase;
 public:
 	Jogo();
 	~Jogo();

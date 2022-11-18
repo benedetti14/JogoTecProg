@@ -16,7 +16,7 @@ namespace Gerenciadores {
         Listas::ListaEntidades* listaPersonagem;
         Listas::ListaEntidades* listaObstaculo;
     public:
-		GerenciadorColisao(Listas::ListaEntidades* listaPersonagem, Listas::ListaEntidades* listaObstaculo);
+		GerenciadorColisao(Listas::ListaEntidades* listaPersonagens, Listas::ListaEntidades* listaObstaculos);
         ~GerenciadorColisao();
         const sf::Vector2f calculaColisao(Entidades::Entidade* ent1, Entidades::Entidade* ent2);
         void executar();
