@@ -2,32 +2,17 @@
 
 #include <SFML\Graphics.hpp>
 #include <iostream>
-#include <map>
-#include "Imagem.h"
+#include "GerenciadorGrafico.h"
 
 namespace ElementosGraficos {
 
-	enum IdAnimacao {
-		vazio = 0,
-		anda,
-		corre,
-		pula,
-		parado,
-		ataca,
-		morre
-	};
-
 	class Animacao {
-	private:
+	protected:
 		sf::RectangleShape* corpo;
-		std::map<IdAnimacao, Imagem*> mapaImagem;
-		sf::Clock relogio;
-		IdAnimacao imgAtual;
+		static Gerenciadores::GerenciadorGrafico* pGrafico;
 	public:
 		Animacao(sf::RectangleShape* corpo);
-		~Animacao();
-		void atualizar(IdAnimacao imgAtual, const bool esquerda);
-		void incluiAnimacao(IdAnimacao id, const char* cTextura, unsigned int qtdImagens, const float tempoTroca, sf::Vector2f escala);
+		virtual ~Animacao();
 
 	};
 }

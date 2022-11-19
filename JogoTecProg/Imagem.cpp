@@ -1,8 +1,10 @@
 #include "Imagem.h"
 #include <iostream>
 
+using namespace Gerenciadores;
+
 ElementosGraficos::Imagem::Imagem(const char* cTextura, const unsigned int qtdImg, const float tTroca, sf::Vector2f escala) :
-	pGrafico(pGrafico->getGerenciadorGrafico()), textura(pGrafico->setTextura(cTextura)), qtdImagens(qtdImg),
+	textura(GerenciadorGrafico::getGerenciadorGrafico()->setTextura(cTextura)), qtdImagens(qtdImg),
 	tempoTroca(tTroca), escala(escala), tempoTotal(0.0f), imagemAtual(0), tamanho(0,0,0,0)
 {
 	tamanho.width = textura.getSize().x / (float) qtdImagens;
