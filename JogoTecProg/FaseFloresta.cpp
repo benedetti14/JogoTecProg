@@ -1,6 +1,8 @@
 #include "FaseFloresta.h"
+#include "Estado.h"
 
-Fases::FaseFloresta::FaseFloresta() : Fase(IDs::IDs::faseFloresta) {
+Fases::FaseFloresta::FaseFloresta(Estados::MaquinaEstado* pME) : 
+Fase(IDs::IDs::faseFloresta), Estado(pME, Estados::IdEstado::jogando) {
 	
 	pGrafico = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
 	//pEventos = Gerenciadores::GerenciadorEventos::getGerenciadorEventos();
@@ -83,4 +85,12 @@ void Fases::FaseFloresta::criarMapa() {
 		j++;
 	}
 	arquivo.close();
+}
+
+void Fases::FaseFloresta::resetarEstado(){
+
+}
+
+void Fases::FaseFloresta::terminarFase(){
+	faseTerminada = true;
 }

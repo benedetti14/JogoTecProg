@@ -6,7 +6,12 @@
 
 #include "Observer.h"
 
+namespace Controle {
+	class Observer;
+}
+
 namespace Gerenciadores {
+
 	class GerenciadorEntrada {
 	private:
 		static GerenciadorEntrada* pEntrada;

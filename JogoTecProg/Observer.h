@@ -1,6 +1,10 @@
 #pragma once
 #include "GerenciadorEntrada.h"
 
+namespace Gerenciadores {
+	class GerenciadorEntrada;
+}
+
 namespace Controle {
 
 	class Observer {

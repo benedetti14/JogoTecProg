@@ -8,9 +8,13 @@
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEventos.h"
 #include "GerenciadorColisao.h"
+#include "GerenciadorEntrada.h"
 #include "ListaEntidades.h"
 #include "Fundo.h"
 #include "ListaEntidades.h"
+#include "MaquinaEstados.h"
+#include "Estado.h"
+#include "Observer.h"
 
 namespace Fases {
 	class Fase : public Ente {
@@ -21,6 +25,7 @@ namespace Fases {
 		Listas::ListaEntidades listaPersonagens;
 		Listas::ListaEntidades listaObstaculos;
 		Fundo* fundo;
+		bool faseTerminada;
 	public:
 		Fase(IDs::IDs id);
 		virtual ~Fase();
@@ -32,5 +37,6 @@ namespace Fases {
 		virtual void desenhar() = 0;
 		virtual void criarMapa() = 0;
 		void criarEntidades(char letra, sf::Vector2f pos);
+		virtual void terminarFase() = 0;
 	};
 }

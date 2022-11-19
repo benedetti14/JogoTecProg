@@ -1,6 +1,6 @@
 #include "Jogo.h"
 
-Jogo::Jogo() : faseFloresta(), gGrafico(nullptr) {
+Jogo::Jogo() : faseFloresta(), gGrafico(nullptr), MaquinaEstado() {
 	gGrafico = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
 	Ente::setGerenciadorGrafico(Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico());
 	//faseFloresta->setGerenciadorGrafico(gGrafico);
@@ -22,10 +22,15 @@ Jogo::~Jogo(){
 }
 
 void Jogo::criaFase() {
-	faseFloresta = new Fases::FaseFloresta();
+	faseFloresta = new Fases::FaseFloresta(this);
 	
 	fase = static_cast<Fases::Fase*>(faseFloresta);
 	fase->criarMapa();
+
+	Estados::Estado* estado = faseFloresta;
+	estado = static_cast<Estados::Estado*>(faseFloresta);
+	incluiEstado(estado);
+
 }
 
 void Jogo::executar(){
@@ -38,6 +43,7 @@ void Jogo::executar(){
 		//plataforma.atualizar();
 		//colisor.executar();
 		//pGrafico->mostrar();
-		faseFloresta->executar();
+		//faseFloresta->executar();
+		executarEstadoAtual();
 	}
 }

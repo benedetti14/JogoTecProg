@@ -1,10 +1,10 @@
 #pragma once
 #include "FaseFloresta.h"
+#include "MaquinaEstados.h"
+#include "Fase.h"
 
 
-class Jogo {
-
-
+class Jogo : public Estados::MaquinaEstado {
 private:
 	Gerenciadores::GerenciadorGrafico* gGrafico;
 	Fases::FaseFloresta* faseFloresta;
