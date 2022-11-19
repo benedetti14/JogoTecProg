@@ -75,6 +75,17 @@
     <ClCompile Include="Animacao.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+
+    <ClCompile Include="GerenciadorEntrada.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="ControleJogador.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entidade.h">
@@ -140,5 +151,16 @@
     <ClInclude Include="Animacao.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+
+    <ClInclude Include="GerenciadorEntrada.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="ControleJogador.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+
   </ItemGroup>
 </Project>
