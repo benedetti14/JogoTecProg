@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEntrada.h"
-//#include "Jogador.h"
+
 
 namespace Gerenciadores {
 	class GerenciadorEventos {

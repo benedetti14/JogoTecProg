@@ -9,7 +9,8 @@
 namespace Entidades {
 	namespace Personagens {
 
-		Jogador::Jogador(sf::Vector2f posi, sf::Vector2f tam) : Personagem(posi, tam, VELOCIDADE_JOGADOR, IDs::IDs::jogador), noChao(false) {
+		Jogador::Jogador(sf::Vector2f posi, sf::Vector2f tam) : Personagem(posi, tam, VELOCIDADE_JOGADOR, IDs::IDs::jogador),
+			noChao(false), pControle(this) {
 			inicializa();
 		}
 
