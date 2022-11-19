@@ -2,7 +2,7 @@
 #include<iostream>
 #include<SFML/Graphics.hpp>
 #include "Entidade.h"
-#include "Animacao.h"
+#include "AnimacaoPersonagem.h"
 
 #define GRAVIDADE 0.7f;
 
@@ -11,7 +11,7 @@ namespace Entidades {
 		class Personagem : public Entidade
 		{
 		protected:
-			ElementosGraficos::Animacao animacao;
+			ElementosGraficos::AnimacaoPersonagem animacao;
 			sf::Vector2f velocidadeFinal;
 			const float velocidadeMaxima;
 			bool podeAndar;
