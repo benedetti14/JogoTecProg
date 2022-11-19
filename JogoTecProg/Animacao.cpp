@@ -1,52 +1,13 @@
 #include "Animacao.h"
 
-ElementosGraficos::Animacao::Animacao(sf::RectangleShape* pCorpo): 
-corpo(pCorpo), mapaImagem(), imgAtual(parado), relogio()
-{
-}
+namespace ElementosGraficos {
 
-ElementosGraficos::Animacao::~Animacao(){
-	std::map<IdAnimacao, Imagem*>::iterator it = mapaImagem.begin();
-	while (it != mapaImagem.end()) {
-		if (it->second) {
-			delete (it->second); //deleta a Imagem 
-			it->second = nullptr;
-		}
-		it++;
-	}
-	mapaImagem.clear();
-}
+	Gerenciadores::GerenciadorGrafico* Animacao::pGrafico = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
 
-void ElementosGraficos::Animacao::atualizar(IdAnimacao imgAtual, const bool esquerda){
-	if (this->imgAtual != imgAtual) {
-		if (this->imgAtual == 0) {
-			mapaImagem[this->imgAtual]->reseta();
-		}
-		this->imgAtual = imgAtual;
+	ElementosGraficos::Animacao::Animacao(sf::RectangleShape* pCorpo): corpo(pCorpo) {
 	}
 
-	float dT = relogio.getElapsedTime().asSeconds();
-	relogio.restart();
-
-	Imagem* imagem = mapaImagem[this->imgAtual];
-	sf::Vector2f escala = imagem->getEscala();
-	sf::IntRect tamImagem = imagem->getTamanho();
-
-	imagem->atualizar(dT, esquerda);
-	corpo->setTextureRect(tamImagem);
-	corpo->setTexture(imagem->getTexture());
-	corpo->setScale(escala);
-
-}
-
-void ElementosGraficos::Animacao::incluiAnimacao(IdAnimacao id, const char* cTextura, unsigned int qtdImagens, const float tempoTroca, sf::Vector2f escala)
-{
-	Imagem* imagem = new Imagem(cTextura, qtdImagens, tempoTroca, escala);
-
-	if (imagem == nullptr) {
-		std::cout << "Animacao: erro ao incluir animacao!" << std::endl;
-		exit(1);
+	ElementosGraficos::Animacao::~Animacao() {
 	}
-	mapaImagem.insert(std::pair<IdAnimacao, Imagem*>(id, imagem));
 
 }
