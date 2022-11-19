@@ -135,12 +135,14 @@
   <ItemGroup>
     <ClCompile Include="Animacao.cpp" />
     <ClCompile Include="Caixa.cpp" />
+    <ClCompile Include="ControleJogador.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="FaseFloresta.cpp" />
     <ClCompile Include="Fundo.cpp" />
     <ClCompile Include="GerenciadorColisao.cpp" />
+    <ClCompile Include="GerenciadorEntrada.cpp" />
     <ClCompile Include="GerenciadorEventos.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
     <ClCompile Include="Imagem.cpp" />
@@ -149,6 +151,7 @@
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="JogoTecProg.cpp" />
     <ClCompile Include="ListaEntidades.cpp" />
+    <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Plataforma.cpp" />
@@ -156,6 +159,7 @@
   <ItemGroup>
     <ClInclude Include="Animacao.h" />
     <ClInclude Include="Caixa.h" />
+    <ClInclude Include="ControleJogador.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="FaseFloresta.h" />
     <ClInclude Include="Fundo.h" />
@@ -167,10 +171,12 @@
     <ClInclude Include="IDs.h" />
     <ClInclude Include="Imagem.h" />
     <ClInclude Include="Inimigo.h" />
+    <ClInclude Include="GerenciadorEntrada.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidades.h" />
+    <ClInclude Include="Observer.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Plataforma.h" />
