@@ -10,7 +10,8 @@ namespace Entidades {
 	namespace Personagens {
 
 		Jogador::Jogador(sf::Vector2f posi, sf::Vector2f tam) : Personagem(posi, tam, VELOCIDADE_JOGADOR, IDs::IDs::jogador),
-			noChao(false), pControle(this) {
+			noChao(false), pControle() {
+			pControle = new Controle::ControleJogador(this);
 			inicializa();
 		}
 
@@ -58,6 +59,10 @@ namespace Entidades {
 		
 		void Jogador::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
 			
+		}
+
+		void Jogador::empoderar() {
+
 		}
 
 

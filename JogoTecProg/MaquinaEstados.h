@@ -18,9 +18,8 @@ namespace Estados {
 		MaquinaEstado();
 		virtual ~MaquinaEstado();
 		void mudarEstadoAtual(IdEstado id);
-		//void atualizarEstadoAtual();
-		//void desenharEstadoAtual();
-		void executarEstadoAtual();
+		void atualizarEstadoAtual();
+		void desenharEstadoAtual();
 		void incluiEstado(Estado* pEstado);
 		IdEstado getEstadoAtual() const;
 		IdEstado getUltimoEstado() const;

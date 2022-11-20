@@ -2,7 +2,8 @@
 #include "FaseFloresta.h"
 #include "MaquinaEstados.h"
 #include "Fase.h"
-
+#include "MenuPausa.h"
+#include "MenuPrincipal.h"
 
 class Jogo : public Estados::MaquinaEstado {
 private:
@@ -14,4 +15,5 @@ public:
 	~Jogo();
 	void criaFase();
 	void executar();
+	void terminarJogo();
 };

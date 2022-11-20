@@ -15,6 +15,6 @@ void Estados::Estado::mudaEstado(IdEstado id){
 	pMaquinaEstado->mudarEstadoAtual(id);
 }
 
-Estados::IdEstado Estados::Estado::getId() const{
+Estados::IdEstado Estados::Estado::getIDestado() const{
 	return ID;
 }

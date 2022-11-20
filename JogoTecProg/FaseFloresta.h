@@ -7,12 +7,13 @@ namespace Fases {
 
 	public:
 		FaseFloresta(Estados::MaquinaEstado* pME);
-		~FaseFloresta();
+		~FaseFloresta() override;
 		void inicializa();
 		void executar();
 		virtual void desenhar();
 		void criarMapa();
+		void atualizar();
 		void resetarEstado();
-		void terminarFase();
+		//void terminarFase();
 	};
 }

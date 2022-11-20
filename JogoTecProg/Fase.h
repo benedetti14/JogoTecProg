@@ -25,7 +25,8 @@ namespace Fases {
 		Listas::ListaEntidades listaPersonagens;
 		Listas::ListaEntidades listaObstaculos;
 		Fundo* fundo;
-		bool faseTerminada;
+		//bool faseTerminada;
+		bool iniciou;
 	public:
 		Fase(IDs::IDs id);
 		virtual ~Fase();
@@ -37,6 +38,6 @@ namespace Fases {
 		virtual void desenhar() = 0;
 		virtual void criarMapa() = 0;
 		void criarEntidades(char letra, sf::Vector2f pos);
-		virtual void terminarFase() = 0;
+		//virtual void terminarFase() = 0;
 	};
 }

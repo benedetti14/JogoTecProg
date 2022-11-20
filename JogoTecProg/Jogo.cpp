@@ -5,6 +5,20 @@ Jogo::Jogo() : faseFloresta(), gGrafico(nullptr), MaquinaEstado() {
 	Ente::setGerenciadorGrafico(Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico());
 	//faseFloresta->setGerenciadorGrafico(gGrafico);
 	criaFase();
+
+	Estados::Estado* estado;
+
+	estado = static_cast<Estados::Estado*>(faseFloresta);
+	incluiEstado(estado);
+
+	estado = static_cast<Estados::Estado*>(new Menus::MenuPrincipal(this));
+	incluiEstado(estado);
+
+	estado = static_cast<Estados::Estado*>(new Menus::MenuPausa(this, Estados::IdEstado::jogandoFloresta));
+	incluiEstado(estado);
+
+	mudarEstadoAtual(Estados::IdEstado::menuPrincipal);
+
 	executar();
 }
 
@@ -26,24 +40,25 @@ void Jogo::criaFase() {
 	
 	fase = static_cast<Fases::Fase*>(faseFloresta);
 	fase->criarMapa();
-
-	Estados::Estado* estado = faseFloresta;
-	estado = static_cast<Estados::Estado*>(faseFloresta);
-	incluiEstado(estado);
-
 }
 
 void Jogo::executar(){
 	Gerenciadores::GerenciadorEventos* pEventos = Gerenciadores::GerenciadorEventos::getGerenciadorEventos();
 	while (gGrafico->janelaAberta()) {
-		//pEventos->executar();
-		//pGrafico->limpaJanela();
+		pEventos->executar();
+		gGrafico->limpaJanela();
 		//jogador.move();
 		//inimigo.move();
 		//plataforma.atualizar();
 		//colisor.executar();
 		//pGrafico->mostrar();
 		//faseFloresta->executar();
-		executarEstadoAtual();
+		atualizarEstadoAtual();
+		desenharEstadoAtual();
+		gGrafico->mostrar();
 	}
+}
+
+void Jogo::terminarJogo(){
+	gGrafico->fechaJanela();
 }

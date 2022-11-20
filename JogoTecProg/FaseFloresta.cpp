@@ -2,9 +2,9 @@
 #include "Estado.h"
 
 Fases::FaseFloresta::FaseFloresta(Estados::MaquinaEstado* pME) : 
-Fase(IDs::IDs::faseFloresta), Estado(pME, Estados::IdEstado::jogando) {
+Fase(IDs::IDs::faseFloresta), Estado(pME, Estados::IdEstado::jogandoFloresta) {
 	
-	pGrafico = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
+	//pGrafico = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
 	//pEventos = Gerenciadores::GerenciadorEventos::getGerenciadorEventos();
 	inicializa();
 	//pColisor = new Gerenciadores::GerenciadorColisao(listaPersonagens, listaObstaculos);
@@ -16,7 +16,6 @@ Fases::FaseFloresta::~FaseFloresta(){
 }
 
 void Fases::FaseFloresta::desenhar() {
-	fundo->desenhar();
 }
 
 void Fases::FaseFloresta::inicializa(){
@@ -45,18 +44,22 @@ void Fases::FaseFloresta::inicializa(){
 
 }
 
-void Fases::FaseFloresta::executar(){
+void Fases::FaseFloresta::executar() {
+
+}
+
+void Fases::FaseFloresta::atualizar() {
 	//jogador->getPosicao().x < pGrafico->getJanela()->getSize().x
 	while (jogador->estaVivo()) {
-		pEventos->executar();
-		pGrafico->limpaJanela();
-
-		desenhar();
+		//pEventos->executar();
+		//pGrafico->limpaJanela();
+		fundo->desenhar();
+		//desenhar();
 
 		listaPersonagens.executar();
 		listaObstaculos.executar();
 
-		pGrafico->mostrar();
+		//pGrafico->mostrar();
 		pColisor->executar();
 	}
 }
@@ -88,9 +91,6 @@ void Fases::FaseFloresta::criarMapa() {
 }
 
 void Fases::FaseFloresta::resetarEstado(){
-
+	criarMapa();
 }
 
-void Fases::FaseFloresta::terminarFase(){
-	faseTerminada = true;
-}

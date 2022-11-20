@@ -20,24 +20,21 @@ void Estados::MaquinaEstado::mudarEstadoAtual(IdEstado id){
 	mapaEstados[id]->resetarEstado();
 }
 
-/*
+
 void Estados::MaquinaEstado::atualizarEstadoAtual(){
 	mapaEstados[estadoAtual]->atualizar();
 }
 
 void Estados::MaquinaEstado::desenharEstadoAtual(){
 	mapaEstados[estadoAtual]->desenhar();
-}*/
-
-void Estados::MaquinaEstado::executarEstadoAtual(){
-	mapaEstados[estadoAtual]->executar();
 }
 
 void Estados::MaquinaEstado::incluiEstado(Estado* pEstado){
 	if (pEstado == nullptr) {
 		std::cout << "MaquinaEstados: ponteiro para Estado nulo!" << std::endl;
+		exit(1);
 	}
-	mapaEstados.insert(std::pair<IdEstado, Estado*>(pEstado->getId(), pEstado));
+	mapaEstados.insert(std::pair<IdEstado, Estado*>(pEstado->getIDestado(), pEstado));
 }
 
 Estados::IdEstado Estados::MaquinaEstado::getEstadoAtual() const {
