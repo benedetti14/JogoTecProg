@@ -71,7 +71,7 @@ Gerenciadores::GerenciadorEntrada::~GerenciadorEntrada(){
 }
 
 Gerenciadores::GerenciadorEntrada* Gerenciadores::GerenciadorEntrada::getGerenciadorEntrada(){
-	if (pEntrada == nullptr) {
+	if (pEntrada == NULL) {
 		pEntrada = new GerenciadorEntrada();
 	}
 	return pEntrada;
@@ -104,9 +104,9 @@ void Gerenciadores::GerenciadorEntrada::verificaTeclaSolta(sf::Keyboard::Key tec
 }
 
 std::string Gerenciadores::GerenciadorEntrada::getTecla(sf::Keyboard::Key tecla){
-    if (mapaTecla[tecla] == "") {
-        return 0;
-    } else {
+    if (mapaTecla[tecla] != "") {
         return mapaTecla[tecla];
-    }
+    } /*/else {
+        return 0;
+    }*/
 }

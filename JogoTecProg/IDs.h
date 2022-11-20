@@ -10,7 +10,8 @@ namespace IDs {
         faseFloresta,
         faseDeserto,
         fundo,
-        caixa
+        caixa,
+        menu
     };
 
 

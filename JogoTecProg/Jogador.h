@@ -16,7 +16,7 @@ namespace Entidades {
 	namespace Personagens {
 		class Jogador : public Personagem {
 		private:
-			Controle::ControleJogador pControle;
+			Controle::ControleJogador* pControle;
 			bool noChao;
 			void inicializa();
 		public:

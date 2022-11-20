@@ -9,9 +9,11 @@ namespace Estados {
 		vazio = 0,
 		menuPrincipal,
 		menuPausa,
-		jogando,
+		jogandoFloresta,
+		jogandoDeserto,
 		novoJogo,
-		fimJogo
+		fimJogo, 
+		ranking
 	};
 
 	class Estado {
@@ -23,10 +25,9 @@ namespace Estados {
 		virtual ~Estado();
 		void setMaquinaEstado(MaquinaEstado* pME);
 		void mudaEstado(IdEstado id);
-		Estados::IdEstado getId() const;
-		//virtual void atualizar() = 0;
-		//virtual void desenhar() = 0;
-		virtual void executar() = 0;
+		Estados::IdEstado getIDestado() const;
+		virtual void atualizar() = 0;
+		virtual void desenhar() = 0;
 		virtual void resetarEstado() = 0;
 	};
 }

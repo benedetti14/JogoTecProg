@@ -55,7 +55,7 @@ void Gerenciadores::GerenciadorEventos::executar() {
         if (evento.type == sf::Event::Closed) {
             pGrafico->fechaJanela();
         } else if (evento.type == sf::Event::KeyPressed) {
-            pEntrada->verificaTeclaPressionada(evento.key.code);
+           pEntrada->verificaTeclaPressionada(evento.key.code);
         } else if (evento.type == sf::Event::KeyReleased) {
            pEntrada->verificaTeclaSolta(evento.key.code);
         }

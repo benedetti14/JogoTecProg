@@ -3,7 +3,8 @@
 namespace Fases {
 
 	Fase::Fase(IDs::IDs id) : Ente(id), pEventos(Gerenciadores::GerenciadorEventos::getGerenciadorEventos()), jogador(),
-	listaObstaculos(), listaPersonagens(), fundo(), pColisor(new Gerenciadores::GerenciadorColisao(&listaPersonagens, &listaObstaculos)) {
+	listaObstaculos(), listaPersonagens(), fundo(), iniciou(false),
+	pColisor(new Gerenciadores::GerenciadorColisao(&listaPersonagens, &listaObstaculos)) {
 		jogador = new Entidades::Personagens::Jogador({ 90.0f, 0.0f }, { 35.0f, 75.0f });
 		//pEventos->setJogador(jogador);
 
