@@ -14,6 +14,7 @@ namespace Fases {
 		void criarMapa();
 		void atualizar();
 		void resetarEstado();
+		Estados::IdEstado getIDfase() const;
 		//void terminarFase();
 	};
 }

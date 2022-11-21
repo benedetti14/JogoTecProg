@@ -1,7 +1,7 @@
 #include "MenuPausa.h"
 
-Menus::MenuPausa::MenuPausa(Estados::MaquinaEstado* pM, Estados::IdEstado Id): IdFase(Id),
-	Menu(), Estado(pM, Estados::IdEstado::menuPausa)
+Menus::MenuPausa::MenuPausa(Estados::MaquinaEstado* pM, Fases::Fase* pF) :
+    Menu(), Estado(pM, Estados::IdEstado::menuPausa), pFase(pF), pontos(0)
 {
 
     ElementosGraficos::Botao* botao = nullptr;
@@ -10,8 +10,8 @@ Menus::MenuPausa::MenuPausa(Estados::MaquinaEstado* pM, Estados::IdEstado Id): I
     botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, pGrafico->getTamanhoJanela().y / 2), "CONTINUAR");
     botao->selecionar(true);
     botoes.push_back(botao);
-    
-    botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, pGrafico->getTamanhoJanela().y / 2 + 100), "MENU PRINCIPAL");
+
+    botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, pGrafico->getTamanhoJanela().y / 2 + 100), "SAIR");
     botoes.push_back(botao);
 
     maximo = 1;
@@ -27,10 +27,10 @@ void Menus::MenuPausa::executar(){
         ativo = false;
         switch (selecionado) {
         case 0:
-            mudaEstado(IdFase);
+            mudaEstado(pFase->getIDfase());
             break;
         case 1:
-            mudaEstado(Estados::IdEstado::menuPrincipal);
+            mudaEstado(Estados::IdEstado::fimJogo);
             break;
         }
     }
@@ -66,5 +66,12 @@ int Menus::MenuPausa::getPontos() const {
 }
 
 Estados::IdEstado Menus::MenuPausa::getIDfase() const{
-    return IdFase;
+    return pFase->getIDfase();
+}
+
+void Menus::MenuPausa::abreMenuPausa(){
+    if (pMaquinaEstado->getIDEstadoAtual() == Estados::IdEstado::jogandoDeserto || pMaquinaEstado->getIDEstadoAtual() == Estados::IdEstado::jogandoFloresta) {
+        mudaEstado(Estados::IdEstado::menuPausa);
+        pontos = pFase->getPontosJogador();
+    }
 }

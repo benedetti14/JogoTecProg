@@ -1,7 +1,7 @@
 #include "MenuPrincipal.h"
 
 Menus::MenuPrincipal::MenuPrincipal(Jogo* pJ): pJogo(pJ), Menu(), pontos(0),
-Estado(pJogo, Estados::IdEstado::menuPrincipal), titulo(), iniciouFloresta(false), iniciouDeserto(false)
+Estado(pJogo, Estados::IdEstado::menuPrincipal), titulo()//, iniciouFloresta(false), iniciouDeserto(false)
 {
 	ElementosGraficos::Botao* botao;
 
@@ -20,7 +20,7 @@ Estado(pJogo, Estados::IdEstado::menuPrincipal), titulo(), iniciouFloresta(false
 
 	titulo.setInfo("JOGO");
 	titulo.setTamanhoFonte(140);
-	titulo.setCor(77.6, 68.2, 44.3);
+	titulo.setCor(77, 68, 44);
 	titulo.setPosicao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 100.0f));
 	maximo = 3;
 
@@ -37,20 +37,10 @@ void Menus::MenuPrincipal::executar(){
 		ativo = false;
 		switch (selecionado) {
 		case 0:
-			if (iniciouFloresta) {
-				mudaEstado(Estados::IdEstado::jogandoFloresta);
-			} else {
-				iniciouFloresta = true;
-				mudaEstado(Estados::IdEstado::jogandoFloresta);
-			}			
+			mudaEstado(Estados::IdEstado::jogandoFloresta);		
 			break;
 		case 1:
-			if (iniciouDeserto) {
-				mudaEstado(Estados::IdEstado::jogandoDeserto);
-			} else {
-				iniciouDeserto = true;
-				mudaEstado(Estados::IdEstado::jogandoDeserto);
-			}			
+			mudaEstado(Estados::IdEstado::jogandoDeserto);			
 			break;
 		case 2:
 			mudaEstado(Estados::IdEstado::ranking);
@@ -66,7 +56,6 @@ void Menus::MenuPrincipal::resetarEstado(){
 	botoes[selecionado]->selecionar(false);
 	selecionado = 0;
 	botoes[selecionado]->selecionar(true);
-	
 }
 
 Estados::IdEstado Menus::MenuPrincipal::getUltimaFase() const {

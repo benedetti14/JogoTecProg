@@ -21,13 +21,11 @@ namespace Menus {
 		Controle::ControleMenu* controleMenu;
 		bool ativo;
 		Fundo fundo;
-
 	public:
 		Menu();
 		~Menu();
 		void paraBaixo();
 		void paraCima();
 		virtual void executar() = 0;
-
 	};
 }

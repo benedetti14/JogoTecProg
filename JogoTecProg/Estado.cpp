@@ -18,3 +18,4 @@ void Estados::Estado::mudaEstado(IdEstado id){
 Estados::IdEstado Estados::Estado::getIDestado() const{
 	return ID;
 }
+

@@ -13,8 +13,8 @@ namespace Menus {
 	private: 
 		Jogo* pJogo;
 		ElementosGraficos::Texto titulo;
-		bool iniciouFloresta;
-		bool iniciouDeserto;
+		//bool iniciouFloresta;
+		//bool iniciouDeserto;
 		Estados::IdEstado ultimaFase;
 		int pontos;
 	public:
