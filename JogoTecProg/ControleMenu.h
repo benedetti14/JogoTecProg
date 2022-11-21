@@ -2,6 +2,7 @@
 
 #include "Menu.h"
 #include "Observer.h"
+#include "MenuPausa.h"
 
 namespace Menus {
 	class Menu;

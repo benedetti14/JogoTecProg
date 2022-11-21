@@ -62,6 +62,8 @@ void Fases::FaseFloresta::atualizar() {
 		//pGrafico->mostrar();
 		pColisor->executar();
 	}
+	terminarFase();
+	mudaEstado(Estados::IdEstado::fimJogo);
 }
 
 void Fases::FaseFloresta::criarMapa() {
@@ -91,6 +93,13 @@ void Fases::FaseFloresta::criarMapa() {
 }
 
 void Fases::FaseFloresta::resetarEstado(){
-	criarMapa();
+	if (faseTerminada) {
+		Entidades::Personagens::Jogador* jogador = new Entidades::Personagens::Jogador({ 90.0f, 0.0f }, { 35.0f, 75.0f });
+		criarMapa();
+		faseTerminada = false;
+	}
 }
 
+Estados::IdEstado Fases::FaseFloresta::getIDfase() const {
+	return Estados::IdEstado::jogandoFloresta;
+}

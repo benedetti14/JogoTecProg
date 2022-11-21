@@ -19,6 +19,10 @@ void Controle::ControleMenu::notificaTeclaPressionada(std::string tecla){
 		menu->paraCima();
 	} else if (tecla == "Enter") {
 		menu->executar();
+	} else if (tecla == "Escape") {
+		if (dynamic_cast<Menus::MenuPausa*>(menu) != nullptr) {
+			dynamic_cast<Menus::MenuPausa*>(menu)->abreMenuPausa();
+		}
 	}
 }
 

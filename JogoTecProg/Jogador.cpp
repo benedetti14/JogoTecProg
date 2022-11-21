@@ -10,7 +10,7 @@ namespace Entidades {
 	namespace Personagens {
 
 		Jogador::Jogador(sf::Vector2f posi, sf::Vector2f tam) : Personagem(posi, tam, VELOCIDADE_JOGADOR, IDs::IDs::jogador),
-			noChao(false), pControle() {
+			noChao(false), pControle(), pontos(0) {
 			pControle = new Controle::ControleJogador(this);
 			inicializa();
 		}
@@ -63,6 +63,10 @@ namespace Entidades {
 
 		void Jogador::empoderar() {
 
+		}
+
+		int Jogador::getPontos() const {
+			return pontos;
 		}
 
 

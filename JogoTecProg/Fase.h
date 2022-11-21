@@ -20,13 +20,14 @@ namespace Fases {
 	class Fase : public Ente {
 	protected:
 		Gerenciadores::GerenciadorColisao* pColisor;
-		Gerenciadores::GerenciadorEventos* pEventos;
+		//Gerenciadores::GerenciadorEventos* pEventos;
 		Entidades::Personagens::Jogador* jogador;
 		Listas::ListaEntidades listaPersonagens;
 		Listas::ListaEntidades listaObstaculos;
 		Fundo* fundo;
-		//bool faseTerminada;
+		bool faseTerminada;
 		bool iniciou;
+		int pontosJogador;
 	public:
 		Fase(IDs::IDs id);
 		virtual ~Fase();
@@ -38,6 +39,8 @@ namespace Fases {
 		virtual void desenhar() = 0;
 		virtual void criarMapa() = 0;
 		void criarEntidades(char letra, sf::Vector2f pos);
-		//virtual void terminarFase() = 0;
+		void terminarFase();
+		int getPontosJogador()  const;
+		virtual Estados::IdEstado getIDfase() const = 0;
 	};
 }

@@ -37,10 +37,14 @@ void Estados::MaquinaEstado::incluiEstado(Estado* pEstado){
 	mapaEstados.insert(std::pair<IdEstado, Estado*>(pEstado->getIDestado(), pEstado));
 }
 
-Estados::IdEstado Estados::MaquinaEstado::getEstadoAtual() const {
+Estados::IdEstado Estados::MaquinaEstado::getIDEstadoAtual() const {
 	return estadoAtual;
 }
 
-Estados::IdEstado Estados::MaquinaEstado::getUltimoEstado() const {
+Estados::IdEstado Estados::MaquinaEstado::getIDUltimoEstado() const {
 	return ultimoEstado;
+}
+
+Estados::Estado* Estados::MaquinaEstado::getUltimoEstado() const {
+	return mapaEstados.at(ultimoEstado);
 }

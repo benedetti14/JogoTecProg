@@ -2,12 +2,11 @@
 
 namespace Fases {
 
-	Fase::Fase(IDs::IDs id) : Ente(id), pEventos(Gerenciadores::GerenciadorEventos::getGerenciadorEventos()), jogador(),
-	listaObstaculos(), listaPersonagens(), fundo(), iniciou(false),
+	Fase::Fase(IDs::IDs id) : Ente(id), //pEventos(Gerenciadores::GerenciadorEventos::getGerenciadorEventos()), 
+	jogador(), listaObstaculos(), listaPersonagens(), fundo(), iniciou(false), pontosJogador(0), faseTerminada(false),
 	pColisor(new Gerenciadores::GerenciadorColisao(&listaPersonagens, &listaObstaculos)) {
 		jogador = new Entidades::Personagens::Jogador({ 90.0f, 0.0f }, { 35.0f, 75.0f });
 		//pEventos->setJogador(jogador);
-
 	}
 
 	Fase::~Fase() {
@@ -61,4 +60,15 @@ namespace Fases {
 			}
 		}
 }
+	void Fase::terminarFase() {
+		pontosJogador = jogador->getPontos();
+		faseTerminada = true;
+		//listaObstaculos.limparLista();
+		//listaPersonagens.limparLista();
+	}
+
+	int Fase::getPontosJogador() const {
+		return pontosJogador;
+	}
+	
 }

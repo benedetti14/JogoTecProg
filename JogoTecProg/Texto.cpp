@@ -9,7 +9,6 @@ ElementosGraficos::Texto::Texto(std::string info, sf::Vector2f pos, const char* 
 	texto.setFont(pGrafico->setFonte(cFonte));
 	texto.setCharacterSize(TAM_TEXTO);
 	texto.setOrigin(getTamanho().x / 2, getTamanho().y); // alinhamento no centro 
-	//texto.setPosition(sf::Vector2f(pos.x, pos.y));
 	texto.setPosition(pos);
 	texto.setFillColor(sf::Color::White);
 

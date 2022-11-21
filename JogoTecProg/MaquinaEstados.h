@@ -21,8 +21,8 @@ namespace Estados {
 		void atualizarEstadoAtual();
 		void desenharEstadoAtual();
 		void incluiEstado(Estado* pEstado);
-		IdEstado getEstadoAtual() const;
-		IdEstado getUltimoEstado() const;
-
+		IdEstado getIDEstadoAtual() const;
+		IdEstado getIDUltimoEstado() const;
+		Estado* getUltimoEstado() const;
 	};
 }
