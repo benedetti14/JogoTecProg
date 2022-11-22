@@ -29,6 +29,8 @@ namespace Entidades {
 			void atacar(const bool atacar);
 			void atualizar();
 			virtual void atualizarAnimacao();
+			void desenhar();
+			void setPosicao(sf::Vector2f posi);
 			virtual void move() = 0;
 			virtual void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f)) = 0;
 		};

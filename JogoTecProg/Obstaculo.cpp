@@ -2,20 +2,17 @@
 
 namespace Entidades {
 
-    Obstaculos::Obstaculo::Obstaculo(const sf::Vector2f posi, const sf::Vector2f tama, const IDs::IDs ID, const char* cTextura) :
-    Entidade(posi, tama, ID)
-    {
-        textura = pGrafico->setTextura(cTextura);
-        corpo.setTexture(&textura);
+    Obstaculos::Obstaculo::Obstaculo(const sf::Vector2f posi, const sf::Vector2f tama, const IDs::IDs ID) :
+    Entidade(posi, tama, ID), animacao() {
+        //textura = pGrafico->setTextura(cTextura);
+        //corpo.setTexture(&textura);
 
     }
 
-    Obstaculos::Obstaculo::~Obstaculo()
-    {
+    Obstaculos::Obstaculo::~Obstaculo() {
     }
 
-    void Obstaculos::Obstaculo::atualizar()
-    {
+    void Obstaculos::Obstaculo::atualizar() {
         desenhar();
     }
 
@@ -49,6 +46,15 @@ namespace Entidades {
         }
         pPersonagem->setPosicao(posOutro);
         pPersonagem->setVelocidadeFinal(velFinal);
+    }
+
+    void Obstaculos::Obstaculo::desenhar() {
+        animacao.desenhar();
+    }
+
+    void Obstaculos::Obstaculo::setPosicao(sf::Vector2f posi) {
+        posicao = posi;
+        animacao.setPosicao(posicao);
     }
 
 } // namespace Entidades
