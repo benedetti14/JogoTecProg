@@ -1,6 +1,7 @@
 #include "Entidade.h"
 #include <SFML/Graphics.hpp>
 
+
 Entidades::Entidade::Entidade(sf::Vector2f posi, sf::Vector2f tam, const IDs::IDs ID) : Ente(ID), //corpo(sf::RectangleShape(tam))
 posicao(posi), tamanho(tam) {
 	//corpo.setPosition(posicao);

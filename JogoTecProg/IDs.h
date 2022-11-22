@@ -9,7 +9,10 @@ namespace IDs {
 		plataforma,
         faseFloresta,
         faseDeserto,
-        fundo
+        fundo,
+        caixa,
+        menu
     };
+
 
 }

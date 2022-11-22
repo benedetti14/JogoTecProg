@@ -16,6 +16,7 @@ namespace Entidades {
         desenhar();
     }
 
+
     void Obstaculos::Obstaculo::colisaoObstaculo(sf::Vector2f ds, Personagens::Personagem* pPersonagem) {
         sf::Vector2f posOutro = pPersonagem->getPosicao();
         sf::Vector2f tamOutro = pPersonagem->getTamanho();

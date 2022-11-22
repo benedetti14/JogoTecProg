@@ -15,7 +15,10 @@ namespace Listas {
 		~ListaEntidades();
 		void incluiEntidade(Entidade* pEnt);
 		void removeEntidade(Entidade* pEnt);
+		int getTamanho();
+		Entidade* operator[](int pos);
 		void executar();
+		void limparLista();
 	};
 }
 

@@ -18,11 +18,24 @@ void Listas::ListaEntidades::removeEntidade(Entidade* pEnt) {
 	}
 }
 
+int Listas::ListaEntidades::getTamanho() {
+	return listaEntidades.getTamanho();
+}
+
+Entidades::Entidade* Listas::ListaEntidades::operator[](int pos) {
+	return listaEntidades.operator[](pos);
+}
+
 void Listas::ListaEntidades::executar() {
-	Entidade* aux = listaEntidades.inicioLista();
+	Listas::Lista<Entidades::Entidade>::Elemento<Entidades::Entidade>* aux = listaEntidades.getPrimeiro();
 	while (aux != nullptr) {
-		aux->atualizar();
-		aux = listaEntidades.getProximo();
+		aux->getElemento()->move();
+			
+		aux = aux->getProximo();
 	}
+}
+
+void Listas::ListaEntidades::limparLista(){
+	listaEntidades.limpar();
 }
 

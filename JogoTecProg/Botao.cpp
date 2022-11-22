@@ -20,7 +20,7 @@ texturaSelecionado(), Animacao() {
 	texto.setTamanhoFonte(TAM_FONTE);
 	texto.setPosicao(pos);
 	texto.setCor(77, 68, 44);
-   
+
 }
 
 ElementosGraficos::Botao::~Botao()

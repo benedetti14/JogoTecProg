@@ -19,6 +19,7 @@ namespace Entidades {
 			bool atacando;
 			sf::Clock relogio;
 			float dt;
+			bool vivo;
 		public:
 			Personagem(sf::Vector2f posi, sf::Vector2f tam, const float velo, const IDs::IDs ID);
 			~Personagem();
@@ -28,6 +29,7 @@ namespace Entidades {
 			void parar();
 			void atacar(const bool atacar);
 			void atualizar();
+			bool estaVivo();
 			virtual void atualizarAnimacao();
 			void desenhar();
 			void setPosicao(sf::Vector2f posi);

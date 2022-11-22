@@ -2,7 +2,9 @@
 
 Gerenciadores::GerenciadorEventos* Gerenciadores::GerenciadorEventos::pEventos = NULL;
 
-Gerenciadores::GerenciadorEventos::GerenciadorEventos() : pGrafico(pGrafico->getGerenciadorGrafico()), pJogador(NULL) {
+Gerenciadores::GerenciadorEventos::GerenciadorEventos() : pGrafico(pGrafico->getGerenciadorGrafico()), 
+pEntrada(pEntrada->getGerenciadorEntrada()) /*pJogador(NULL)*/ 
+{
 }
 
 Gerenciadores::GerenciadorEventos::~GerenciadorEventos()
@@ -16,10 +18,12 @@ Gerenciadores::GerenciadorEventos* Gerenciadores::GerenciadorEventos::getGerenci
     return pEventos;
 }
 
+/*
 void Gerenciadores::GerenciadorEventos::setJogador(Entidades::Personagens::Jogador* jogador){
 	this->pJogador = jogador;
-}
+}*/
 
+/*
 void Gerenciadores::GerenciadorEventos::verificaTeclaPressionada(sf::Keyboard::Key tecla){
     if (tecla == sf::Keyboard::Right) {
         pJogador->andar(false);
@@ -29,6 +33,12 @@ void Gerenciadores::GerenciadorEventos::verificaTeclaPressionada(sf::Keyboard::K
         pJogador->pular();
     } else if (tecla == sf::Keyboard::Escape) {
         pGrafico->fechaJanela();
+	}
+	else if (tecla == sf::Keyboard::X) {
+		pJogador->atacar(true);
+    }
+    else {
+        pJogador->parar();
     }
 }
 
@@ -36,7 +46,7 @@ void Gerenciadores::GerenciadorEventos::verificaTeclaSolta(sf::Keyboard::Key tec
     if (tecla == sf::Keyboard::Right || tecla == sf::Keyboard::Left) {
         pJogador->parar();
     }
-}
+}*/
 
 void Gerenciadores::GerenciadorEventos::executar() {
     sf::Event evento;
@@ -45,9 +55,9 @@ void Gerenciadores::GerenciadorEventos::executar() {
         if (evento.type == sf::Event::Closed) {
             pGrafico->fechaJanela();
         } else if (evento.type == sf::Event::KeyPressed) {
-            verificaTeclaPressionada(evento.key.code);
+           pEntrada->verificaTeclaPressionada(evento.key.code);
         } else if (evento.type == sf::Event::KeyReleased) {
-            verificaTeclaSolta(evento.key.code);
+           pEntrada->verificaTeclaSolta(evento.key.code);
         }
     }
 }

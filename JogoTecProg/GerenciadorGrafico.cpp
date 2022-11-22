@@ -1,8 +1,8 @@
 #include "GerenciadorGrafico.h"
 #include <iostream>
 
-#define TELA_X 800
-#define TELA_Y 600
+#define TELA_X 800.0f
+#define TELA_Y 600.0f
 
 Gerenciadores::GerenciadorGrafico* Gerenciadores::GerenciadorGrafico::pGrafico = nullptr;
 
@@ -31,6 +31,10 @@ Gerenciadores::GerenciadorGrafico* Gerenciadores::GerenciadorGrafico::getGerenci
 }				
 
 sf::RenderWindow* Gerenciadores::GerenciadorGrafico::getJanela() {
+	if (janela == nullptr) {
+		std::cout << "Erro na criação da janela!";
+		exit(1);
+	}
 	return janela;
 }
 
@@ -53,9 +57,10 @@ void Gerenciadores::GerenciadorGrafico::mostrar() {
 	janela->display();
 }
 
-sf::Vector2f Gerenciadores::GerenciadorGrafico::fimJanela() {
-	return static_cast<sf::Vector2f>(janela->getSize());
+sf::Vector2f Gerenciadores::GerenciadorGrafico::getTamanhoJanela() const {
+	return (sf::Vector2f)janela->getSize();
 }
+
 
 sf::Texture Gerenciadores::GerenciadorGrafico::setTextura(const char* cTextura){
 	sf::Texture textura;
@@ -75,6 +80,22 @@ const sf::View Gerenciadores::GerenciadorGrafico::getCamera()
 
 void Gerenciadores::GerenciadorGrafico::atualizaCamera(sf::Vector2f posJogador){
 	camera.setCenter(posJogador.x, 300.0f);
+	janela->setView(camera);
+}
+
+sf::Font Gerenciadores::GerenciadorGrafico::setFonte(const char* cFonte){
+	sf::Font fonte;
+
+	if (!fonte.loadFromFile(cFonte)) {
+		std::cout << "Gerenciador Grafico: erro ao carregar a fonte!" << std::endl;
+		exit(1);
+	}
+
+	return fonte;
+}
+
+void Gerenciadores::GerenciadorGrafico::centralizaCamera(){
+	camera.setCenter(sf::Vector2f(getTamanhoJanela().x/2.0f, getTamanhoJanela().y/2.0f));
 	janela->setView(camera);
 }
 

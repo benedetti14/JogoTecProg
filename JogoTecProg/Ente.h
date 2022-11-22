@@ -8,11 +8,14 @@
 
 class Ente {
 protected:
-    Gerenciadores::GerenciadorGrafico* pGrafico;
+    static Gerenciadores::GerenciadorGrafico* pGrafico;
+    //Gerenciadores::GerenciadorGrafico* pGrafico;
     const IDs::IDs ID;
 public:
     Ente(const IDs::IDs ID);
     ~Ente();
     const IDs::IDs getID() const;
+    static void setGerenciadorGrafico(Gerenciadores::GerenciadorGrafico* pG);
     virtual void desenhar() = 0;
 };
+

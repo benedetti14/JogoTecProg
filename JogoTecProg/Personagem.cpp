@@ -64,6 +64,7 @@ void Entidades::Personagens::Personagem::atualizarAnimacao(){
 	}
 }
 
+
 void Entidades::Personagens::Personagem::desenhar(){
 	animacao.desenhar();
 }

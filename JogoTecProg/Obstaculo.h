@@ -13,6 +13,7 @@ namespace Entidades {
 			Obstaculo(const sf::Vector2f posi, const sf::Vector2f tama, const IDs::IDs ID);
 			~Obstaculo();
 			void atualizar();
+			void move() = 0;
 			virtual void colisaoObstaculo(sf::Vector2f ds, Personagens::Personagem* pPersonagem);
 			void desenhar();
 			void setPosicao(sf::Vector2f posi);
