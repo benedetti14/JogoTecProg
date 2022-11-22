@@ -18,8 +18,8 @@ ElementosGraficos::Texto::~Texto()
 {
 }
 
-void ElementosGraficos::Texto::setInfo(std::string info){
-	this->info = info;
+void ElementosGraficos::Texto::setInfo(std::string i){
+	this->info = i;
 	texto.setString(info);
 }
 

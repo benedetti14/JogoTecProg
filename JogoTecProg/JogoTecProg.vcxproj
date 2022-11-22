@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animacao.cpp" />
+    <ClCompile Include="AnimacaoObstaculo.cpp" />
     <ClCompile Include="AnimacaoPersonagem.cpp" />
     <ClCompile Include="Botao.cpp" />
     <ClCompile Include="Caixa.cpp" />
@@ -170,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animacao.h" />
+    <ClInclude Include="AnimacaoObstaculo.h" />
     <ClInclude Include="AnimacaoPersonagem.h" />
     <ClInclude Include="Botao.h" />
     <ClInclude Include="Caixa.h" />

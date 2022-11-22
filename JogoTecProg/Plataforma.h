@@ -7,8 +7,7 @@
 
 namespace Entidades {
 	namespace Obstaculos {
-		class Plataforma : public Obstaculo
-		{
+		class Plataforma : public Obstaculo {
 		public:
 			Plataforma(const sf::Vector2f posi, const sf::Vector2f tam);
 			~Plataforma();

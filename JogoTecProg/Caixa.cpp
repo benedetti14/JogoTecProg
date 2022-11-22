@@ -1,7 +1,8 @@
 #include "Caixa.h"
 #define cCaixa "../JogoTecProg/imagens/obstaculos/caixa.png"
 
-Entidades::Obstaculos::Caixa::Caixa(const sf::Vector2f posi, const sf::Vector2f tam) : Obstaculo(posi, tam, IDs::IDs::caixa, cCaixa), lentidao(0.25f) {
+Entidades::Obstaculos::Caixa::Caixa(const sf::Vector2f posi, const sf::Vector2f tam) : Obstaculo(posi, tam, IDs::IDs::caixa), lentidao(0.25f) {
+    animacao.inicializa(posi, tam, cCaixa);
 }
 
 Entidades::Obstaculos::Caixa::~Caixa()

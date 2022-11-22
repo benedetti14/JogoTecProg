@@ -24,7 +24,8 @@ namespace Entidades {
 			animacao.incluiAnimacao(ElementosGraficos::ataca, JOGADOR_ATACA, 10, 0.15f, sf::Vector2f(3, 1.5));
 			animacao.incluiAnimacao(ElementosGraficos::morre, JOGADOR_MORRE, 10, 0.15f, sf::Vector2f(3, 1.5));
 			animacao.incluiAnimacao(ElementosGraficos::parado, JOGADOR_PARADO, 10, 0.15f, sf::Vector2f(3, 1.5));
-			corpo.setOrigin(sf::Vector2f(tamanho.x / 3.0f, tamanho.y / 3.5f));
+			animacao.setOrigin(sf::Vector2f(tamanho.x / 3.0f, tamanho.y / 3.5f));
+
 		}
 
 		void Jogador::move() {
