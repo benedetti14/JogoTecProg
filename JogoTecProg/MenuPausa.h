@@ -1,26 +1,24 @@
 #pragma once
 
 #include "Menu.h"
+#include "Texto.h"
 #include "Estado.h"
-#include "MaquinaEstados.h"
-#include "Fase.h"
-
+#include "Fase.h" 
 
 namespace Menus {
 	class MenuPausa : public Menu, public Estados::Estado {
 	private:
-		Fases::Fase* pFase;
 		int pontos;
+		Fases::Fase* pFase;
 	public:
-		MenuPausa(Estados::MaquinaEstado* pME = nullptr, Fases::Fase* pF = nullptr);
+		MenuPausa(Estados::MaquinaEstado* pME, Fases::Fase* pF = nullptr);
 		~MenuPausa();
-		void executar();
 		void desenhar();
+		void executar();
 		void atualizar();
-		void resetarEstado();
-		void setPontos(int p);
-		int getPontos() const;
 		Estados::IdEstado getIDfase() const;
+		void resetarEstado();
 		void abreMenuPausa();
+		int getPontos() const;
 	};
 }

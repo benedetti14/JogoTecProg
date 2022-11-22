@@ -7,6 +7,7 @@
 #include "Texto.h"
 #include "Botao.h"
 #include "ControleTexto.h"
+#include "MenuPausa.h"
 
 namespace Controle {
 	class ControleTexto;
@@ -21,7 +22,6 @@ namespace Menus {
 		ElementosGraficos::Texto pontos;
 		Controle::ControleTexto* pControle;
 		unsigned int pontosIncrementar;
-		//Estados::IdEstado Idfase;
 		Fases::Fase* pFase;
 
 	public:

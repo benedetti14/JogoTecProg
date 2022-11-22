@@ -15,7 +15,8 @@ namespace ElementosGraficos {
 namespace Menus {
 	class MenuRanking : public Menu, public Estados::Estado {
 	private:
-		std::vector<ElementosGraficos::Texto*> todosPontos;
+		std::vector<ElementosGraficos::Texto*> pontosFloresta;
+		std::vector<ElementosGraficos::Texto*> pontosDeserto;
 		std::vector<ElementosGraficos::Texto*>::iterator it;
 	public:
 		MenuRanking(Estados::MaquinaEstado* pME = nullptr);

@@ -2,10 +2,11 @@
 #include "FaseFloresta.h"
 #include "MaquinaEstados.h"
 #include "Fase.h"
-#include "MenuPausa.h"
+
 #include "MenuPrincipal.h"
 #include "MenuFimJogo.h"
 #include "MenuRanking.h"
+#include "MenuPausa.h"
 
 class Jogo : public Estados::MaquinaEstado {
 private:
