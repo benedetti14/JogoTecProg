@@ -3,6 +3,7 @@
 #include <fstream>
 #include "Jogador.h"
 #include "Inimigo.h"
+#include "Dinossauro.h"
 #include "Plataforma.h"
 #include "Caixa.h"
 #include "GerenciadorGrafico.h"

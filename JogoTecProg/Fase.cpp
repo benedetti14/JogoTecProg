@@ -36,9 +36,9 @@ namespace Fases {
 
 	void Fase::criaInimigo(sf::Vector2f pos, sf::Vector2f tam){
 
-		Entidades::Personagens::Inimigo* inimigo = new Entidades::Personagens::Inimigo(pos, tam, jogador);
-		if (inimigo) {
-			listaPersonagens.incluiEntidade(static_cast<Entidades::Entidade*>(inimigo));
+		Entidades::Personagens::Inimigos::Dinossauro* dino = new Entidades::Personagens::Inimigos::Dinossauro(pos, tam, jogador);
+		if (dino) {
+			listaPersonagens.incluiEntidade(static_cast<Entidades::Entidade*>(dino));
 		}
 		
 	}
