@@ -1,6 +1,6 @@
 #include "AnimacaoPersonagem.h"
 
-ElementosGraficos::AnimacaoPersonagem::AnimacaoPersonagem(sf::RectangleShape* pCorpo): Animacao(pCorpo),
+ElementosGraficos::AnimacaoPersonagem::AnimacaoPersonagem(sf::RectangleShape pCorpo): Animacao(pCorpo),
 mapaImagem(), imgAtual(parado), relogio()
 {
 }
@@ -33,9 +33,9 @@ void ElementosGraficos::AnimacaoPersonagem::atualizar(IdAnimacao imgAtual, const
 	sf::IntRect tamImagem = imagem->getTamanho();
 
 	imagem->atualizar(dT, esquerda);
-	corpo->setTextureRect(tamImagem);
-	corpo->setTexture(imagem->getTexture());
-	corpo->setScale(escala);
+	corpo.setTextureRect(tamImagem);
+	corpo.setTexture(imagem->getTexture());
+	corpo.setScale(escala);
 
 }
 

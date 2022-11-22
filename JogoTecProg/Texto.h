@@ -20,7 +20,7 @@ namespace ElementosGraficos {
 		void setTamanhoFonte(const unsigned int);
 		std::string getInfo() const;
 		sf::Vector2f getPosicao() const;
-		sf::Vector2f getTamanho() const;
+		//sf::Vector2f getTamanho() const;
 		void desenhar();
 		void setCor(const unsigned int R, const unsigned int G, const unsigned int B);
 	};

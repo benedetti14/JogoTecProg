@@ -8,10 +8,10 @@ namespace ElementosGraficos {
 
 	class Animacao {
 	protected:
-		sf::RectangleShape* corpo;
+		sf::RectangleShape corpo;
 		static Gerenciadores::GerenciadorGrafico* pGrafico;
 	public:
-		Animacao(sf::RectangleShape* corpo);
+		Animacao(sf::RectangleShape corpo);
 		virtual ~Animacao();
 
 	};

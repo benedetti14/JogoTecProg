@@ -32,7 +32,7 @@ Menus::MenuFimJogo::MenuFimJogo(Estados::MaquinaEstado* pME, Fases::Fase* pF):
 	nomeLegenda.setTamanhoFonte(40);
 	nomeLegenda.setCor(77, 68, 44);
 
-	nome.setPosicao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f + nomeLegenda.getTamanho().x - 200, pGrafico->getTamanhoJanela().y / 2 + 100 - nomeLegenda.getTamanho().y));
+	nome.setPosicao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f  - 200, pGrafico->getTamanhoJanela().y / 2 + 100 ));
 	nome.setTamanhoFonte(100);
 	nome.setCor(77, 68, 44);
 

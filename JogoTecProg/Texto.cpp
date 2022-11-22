@@ -4,11 +4,11 @@
 
 Gerenciadores::GerenciadorGrafico* ElementosGraficos::Texto::pGrafico = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
 
-ElementosGraficos::Texto::Texto(std::string info, sf::Vector2f pos, const char* cFonte) : info(info){
+ElementosGraficos::Texto::Texto(std::string info, sf::Vector2f pos, const char* cFonte) : info(info), texto() {
 	texto.setString(info);
-	texto.setFont(pGrafico->setFonte(cFonte));
+	texto.setFont(pGrafico->setFonte(C_FONTE));
 	texto.setCharacterSize(TAM_TEXTO);
-	texto.setOrigin(getTamanho().x / 2, getTamanho().y); // alinhamento no centro 
+	//texto.setOrigin(getTamanho().x / 2, getTamanho().y); // alinhamento no centro 
 	texto.setPosition(pos);
 	texto.setFillColor(sf::Color::White);
 
@@ -39,11 +39,12 @@ sf::Vector2f ElementosGraficos::Texto::getPosicao() const {
 	return sf::Vector2f();
 }
 
-sf::Vector2f ElementosGraficos::Texto::getTamanho() const {
-
-	sf::FloatRect tamTexto = texto.getLocalBounds();
-	return sf::Vector2f(tamTexto.width, tamTexto.height);
-}
+//sf::Vector2f ElementosGraficos::Texto::getTamanho() const {
+//
+//	sf::FloatRect tamTexto = texto.getLocalBounds();
+//	sf::Vector2f returnText = sf::Vector2f(tamTexto.width, tamTexto.height);
+//	return returnText;
+//}
 
 void ElementosGraficos::Texto::desenhar(){
 	pGrafico->getJanela()->draw(texto);

@@ -3,7 +3,7 @@
 
 Entidades::Personagens::Personagem::Personagem(sf::Vector2f posi, sf::Vector2f tam, const float velo, const IDs::IDs ID) :
 	Entidade(posi, tam, ID), podeAndar(false), esquerda(false), atacando(false), relogio(), dt(0.0f), 
-	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(&corpo), vivo(true)
+	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(corpo), vivo(true)
 {
 
 }
