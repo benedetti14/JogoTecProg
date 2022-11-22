@@ -1,4 +1,5 @@
 #include "ControleMenu.h"
+#include "MenuPausa.h"
 
 Controle::ControleMenu::ControleMenu(Menus::Menu* pM) : Observer(), menu(pM) {
 }

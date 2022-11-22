@@ -1,10 +1,12 @@
 #include "MenuFimJogo.h"
 
-#define C_RANKING "..JogoTecProg/arquivos/Ranking.txt"
+#define C_RANKING1 "..JogoTecProg/arquivos/Ranking1.txt"
+#define C_RANKING2 "..JogoTecProg/arquivos/Ranking2.txt"
 
 Menus::MenuFimJogo::MenuFimJogo(Estados::MaquinaEstado* pME, Fases::Fase* pF):
-	Menu(), Estado(pME, Estados::IdEstado::fimJogo), titulo(), nome(), pControle(new Controle::ControleTexto()), 
-	pontosIncrementar(0), pFase(pF), pontos(), nomeLegenda()
+	Menu(), Estado(pME, Estados::IdEstado::fimJogo), pControle(new Controle::ControleTexto()),
+	titulo("FIM DE JOGO"), nome(""), nomeLegenda("Nome:"), pontos(),
+	pontosIncrementar(0), pFase(pF)
 {
 	ElementosGraficos::Botao* botao = nullptr;
 
@@ -54,10 +56,11 @@ void Menus::MenuFimJogo::atualizar(){
 			pontosIncrementar += 10;
 		}
 		pontos.setInfo("Pontos: " + std::to_string(pFase->getPontosJogador()));
+
 	}
 }
 
-void Menus::MenuFimJogo::desenhar(){
+void Menus::MenuFimJogo::desenhar() {
 	pGrafico->centralizaCamera();
 	fundo.desenhar();
 	for (int i = 0; i < botoes.size(); i++) {
@@ -94,26 +97,40 @@ void Menus::MenuFimJogo::resetarEstado(){
 }
 
 void Menus::MenuFimJogo::incluirNoRanking(){
+
 	unsigned int pontosJogador;
+	std::string caminho;
+
+	// vê qual fase estava rodando
 
 	if (pMaquinaEstado->getIDUltimoEstado() == Estados::IdEstado::menuPausa) {
 		Menus::MenuPausa* menu = dynamic_cast<Menus::MenuPausa*>(pMaquinaEstado->getUltimoEstado());
 		pontosJogador = menu->getPontos();
-	}
-	else {
+		if (menu->getIDfase() == Estados::IdEstado::jogandoDeserto) {
+			caminho = C_RANKING1;
+		} else {
+			caminho = C_RANKING2;
+		}
+	} else {
 		pontosJogador = pFase->getPontosJogador();
+		if (pFase->getIDfase() == Estados::IdEstado::jogandoDeserto) {
+			caminho = C_RANKING1;
+		} else {
+			caminho = C_RANKING2;
+		}
 	}
 
-	// ler o arquivo
+
+	/* ---------------- lendo arquivo ----------------*/
 
 	std::ifstream lerArquivo;
 
-	lerArquivo.open(C_RANKING, std::ios::in);
+	lerArquivo.open(caminho, std::ios::in);
 
 	std::multimap<int, std::string> mapaPontosNome;
 
 	if (lerArquivo) {
-		unsigned int pontos;
+		//unsigned int pontos = 0;
 		std::string nome;
 		std::string stringPontos;
 
@@ -127,13 +144,15 @@ void Menus::MenuFimJogo::incluirNoRanking(){
 		lerArquivo.close();
 	}
 
-	// escrevendo no arquivo
+	//insere o jogador atual
 	if (pontosJogador != 0 && pControle->getString().length() > 1) {
 		mapaPontosNome.insert(std::pair<int, std::string>(pontosJogador, pControle->getString()));
 	}
 
+	/* ---------------- escrevendo no arquivo ----------------*/
+
 	std::ofstream escreveArquivo;
-	escreveArquivo.open(C_RANKING, std::ios::out | std::ios::trunc);
+	escreveArquivo.open(caminho, std::ios::out | std::ios::trunc);
 
 	if (!escreveArquivo) {
 		std::cout << "Menu FimJogo: erro ao escrever no arquivo " << std::endl;
