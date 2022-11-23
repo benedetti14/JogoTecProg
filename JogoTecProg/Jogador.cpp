@@ -29,8 +29,6 @@ namespace Entidades {
 		}
 
 		void Jogador::move() {
-			std::cout << getPosicao().x << std::endl;
-
 			atualizar();
 
 			atualizarAnimacao();

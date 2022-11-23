@@ -21,3 +21,7 @@ namespace Controle {
 		void setMenu(Menus::Menu* pM);
 	};
 }
+
+class ControleMenu
+{
+};

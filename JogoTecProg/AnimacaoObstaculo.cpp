@@ -11,8 +11,8 @@ void ElementosGraficos::AnimacaoObstaculo::inicializa(sf::Vector2f pos, sf::Vect
 	
 	textura = pGrafico->setTextura(cTextura);
 
-	corpo.setTexture(&textura);
-	corpo.setPosition(pos);
-	corpo.setSize(tam);
+	corpo->setTexture(&textura);
+	corpo->setPosition(pos);
+	corpo->setSize(tam);
 
 }

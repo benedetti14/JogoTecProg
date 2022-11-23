@@ -12,7 +12,13 @@ void Estados::Estado::setMaquinaEstado(MaquinaEstado* pME){
 }
 
 void Estados::Estado::mudaEstado(IdEstado id){
-	pMaquinaEstado->mudarEstadoAtual(id);
+	if (pMaquinaEstado == nullptr) {
+		std::cout << "deu ruim" << std::endl;
+	}
+	else {
+
+		pMaquinaEstado->mudarEstadoAtual(id);
+	}
 }
 
 Estados::IdEstado Estados::Estado::getIDestado() const{

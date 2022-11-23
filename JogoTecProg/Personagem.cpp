@@ -3,7 +3,7 @@
 
 Entidades::Personagens::Personagem::Personagem(sf::Vector2f posi, sf::Vector2f tam, const float velo, const IDs::IDs ID) :
 	Entidade(posi, tam, ID), podeAndar(false), esquerda(false), atacando(false), relogio(), dt(0.0f), 
-	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(), vivo(true)
+	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(posi, tam), vivo(true)
 {
 
 }
@@ -48,8 +48,8 @@ void Entidades::Personagens::Personagem::atualizar() {
 	velocidadeFinal.y += dt * GRAVIDADE;
 	ds.y = velocidadeFinal.y * GRAVIDADE;
 
-	//setPosicao(sf::Vector2f(posicao.x + ds.x, posicao.y + ds.y));
-	animacao.setPosicao(sf::Vector2f(posicao.x + ds.x, posicao.y + ds.y));
+	setPosicao(sf::Vector2f(posicao.x + ds.x, posicao.y + ds.y));
+	//animacao.setPosicao(sf::Vector2f(posicao.x + ds.x, posicao.y + ds.y));
 
 	velocidadeFinal.x = velocidadeMaxima;
 

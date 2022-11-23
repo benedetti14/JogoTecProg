@@ -11,7 +11,10 @@ Jogo::Jogo() : faseFloresta(), gGrafico(nullptr), MaquinaEstado() {
 	estado = static_cast<Estados::Estado*>(faseFloresta);
 	incluiEstado(estado);
 
-	mudarEstadoAtual(Estados::IdEstado::jogandoFloresta);
+	estado = static_cast<Estados::Estado*>(new Menus::MenuPrincipal(this));
+	incluiEstado(estado);
+
+	mudarEstadoAtual(Estados::IdEstado::menuPrincipal);
 
 	executar();
 }
@@ -50,7 +53,6 @@ void Jogo::executar(){
 		//pGrafico->mostrar();
 		//faseFloresta->executar();
 		atualizarEstadoAtual();
-
 		//desenharEstadoAtual();
 		//gGrafico->mostrar();
 

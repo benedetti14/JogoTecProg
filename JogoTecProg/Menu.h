@@ -29,3 +29,7 @@ namespace Menus {
 		virtual void executar() = 0;
 	};
 }
+
+class Menu
+{
+};

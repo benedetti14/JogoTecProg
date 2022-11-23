@@ -1,5 +1,5 @@
 #include "ControleMenu.h"
-#include "MenuPausa.h"
+
 
 Controle::ControleMenu::ControleMenu(Menus::Menu* pM) : Observer(), menu(pM) {
 }
@@ -21,9 +21,9 @@ void Controle::ControleMenu::notificaTeclaPressionada(std::string tecla){
 	} else if (tecla == "Enter") {
 		menu->executar();
 	} else if (tecla == "Escape") {
-		if (dynamic_cast<Menus::MenuPausa*>(menu) != nullptr) {
+		/*if (dynamic_cast<Menus::MenuPausa*>(menu) != nullptr) {
 			dynamic_cast<Menus::MenuPausa*>(menu)->abreMenuPausa();
-		}
+		}*/
 	}
 }
 

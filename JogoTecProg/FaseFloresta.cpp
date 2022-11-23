@@ -56,14 +56,15 @@ void Fases::FaseFloresta::atualizar() {
 		fundo->desenhar();
 		//desenhar();
 
+		//jogador->move();
 		listaPersonagens.executar();
 
 		listaObstaculos.executar();
 
 		//pGrafico->mostrar();
+		pColisor->executar();
 		pGrafico->mostrar();
 		
-		pColisor->executar();
 		
 	}
 	//terminarFase();

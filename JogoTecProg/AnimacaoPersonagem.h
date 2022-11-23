@@ -24,7 +24,7 @@ namespace ElementosGraficos {
 		sf::Clock relogio;
 		IdAnimacao imgAtual;
 	public:
-		AnimacaoPersonagem();
+		AnimacaoPersonagem(sf::Vector2f pos, sf::Vector2f tam);
 		~AnimacaoPersonagem();
 		void atualizar(IdAnimacao imgAtual, const bool esquerda);
 		void incluiAnimacao(IdAnimacao id, const char* cTextura, unsigned int qtdImagens, const float tempoTroca, sf::Vector2f escala);
