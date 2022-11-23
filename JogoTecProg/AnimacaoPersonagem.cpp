@@ -1,9 +1,12 @@
 #include "AnimacaoPersonagem.h"
 
-ElementosGraficos::AnimacaoPersonagem::AnimacaoPersonagem(): Animacao(),
+ElementosGraficos::AnimacaoPersonagem::AnimacaoPersonagem(sf::Vector2f pos, sf::Vector2f tam): Animacao(),
 mapaImagem(), imgAtual(parado), relogio()
 {
+	corpo->setPosition(pos);
+	corpo->setSize(tam);
 }
+
 
 ElementosGraficos::AnimacaoPersonagem::~AnimacaoPersonagem(){
 	std::map<IdAnimacao, Imagem*>::iterator it = mapaImagem.begin();
@@ -33,10 +36,9 @@ void ElementosGraficos::AnimacaoPersonagem::atualizar(IdAnimacao imgAtual, const
 	sf::IntRect tamImagem = imagem->getTamanho();
 
 	imagem->atualizar(dT, esquerda);
-	corpo.setTextureRect(tamImagem);
-	corpo.setTexture(imagem->getTexture());
-	corpo.setScale(escala);
-
+	corpo->setTextureRect(tamImagem);
+	corpo->setTexture(imagem->getTexture());
+	corpo->setScale(escala);
 }
 
 void ElementosGraficos::AnimacaoPersonagem::incluiAnimacao(IdAnimacao id, const char* cTextura, unsigned int qtdImagens, const float tempoTroca, sf::Vector2f escala)
@@ -52,5 +54,5 @@ void ElementosGraficos::AnimacaoPersonagem::incluiAnimacao(IdAnimacao id, const 
 }
 
 void ElementosGraficos::AnimacaoPersonagem::setOrigin(sf::Vector2f origem){
-	corpo.setOrigin(origem);
+	corpo->setOrigin(origem);
 }

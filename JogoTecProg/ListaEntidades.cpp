@@ -29,7 +29,9 @@ Entidades::Entidade* Listas::ListaEntidades::operator[](int pos) {
 void Listas::ListaEntidades::executar() {
 	Listas::Lista<Entidades::Entidade>::Elemento<Entidades::Entidade>* aux = listaEntidades.getPrimeiro();
 	while (aux != nullptr) {
-		aux->getElemento()->move();
+		if (aux->getElemento() != nullptr) {
+			aux->getElemento()->move();
+		}
 			
 		aux = aux->getProximo();
 	}

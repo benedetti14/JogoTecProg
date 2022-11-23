@@ -5,15 +5,16 @@ namespace ElementosGraficos {
 	Gerenciadores::GerenciadorGrafico* Animacao::pGrafico = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
 
 	ElementosGraficos::Animacao::Animacao(): corpo() {
+		corpo = new sf::RectangleShape();
 	}
 
 	ElementosGraficos::Animacao::~Animacao() {
 	}
 	
 	void ElementosGraficos::Animacao::desenhar() {
-		pGrafico->getJanela()->draw(corpo);
+		pGrafico->getJanela()->draw(*corpo);
 	}
 	void Animacao::setPosicao(sf::Vector2f pos)	{
-		corpo.setPosition(pos);
+		corpo->setPosition(pos);
 	}
 }

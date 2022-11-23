@@ -28,3 +28,7 @@ namespace Menus {
 		int getPontos() const;
 	};
 }
+
+class MenuPrincipal
+{
+};

@@ -1,7 +1,7 @@
 #include "MenuPrincipal.h"
 
 Menus::MenuPrincipal::MenuPrincipal(Jogo* pJ): pJogo(pJ), Menu(), pontos(0),
-Estado(pJogo, Estados::IdEstado::menuPrincipal), titulo()//, iniciouFloresta(false), iniciouDeserto(false)
+Estado(pJ, Estados::IdEstado::menuPrincipal), titulo()//, iniciouFloresta(false), iniciouDeserto(false)
 {
 	ElementosGraficos::Botao* botao;
 
@@ -18,10 +18,10 @@ Estado(pJogo, Estados::IdEstado::menuPrincipal), titulo()//, iniciouFloresta(fal
 	botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 200.0f + 300), "SAIR");
 	botoes.push_back(botao);
 
-	titulo.setInfo("JOGO");
+	/*titulo.setInfo("JOGO");
 	titulo.setTamanhoFonte(140);
 	titulo.setCor(77, 68, 44);
-	titulo.setPosicao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 100.0f));
+	titulo.setPosicao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 100.0f));*/
 	maximo = 3;
 
 	ultimaFase = Estados::IdEstado::vazio;
@@ -37,7 +37,13 @@ void Menus::MenuPrincipal::executar(){
 		ativo = false;
 		switch (selecionado) {
 		case 0:
+			if (pJogo == nullptr) {
+				std::cout << "deu ruim 1" << std::endl;
+			}
+			else {
+
 			mudaEstado(Estados::IdEstado::jogandoFloresta);		
+			}
 			break;
 		case 1:
 			mudaEstado(Estados::IdEstado::jogandoDeserto);			
@@ -73,9 +79,11 @@ void Menus::MenuPrincipal::desenhar(){
 	for (int i = 0; i < (int)botoes.size(); i++) {
 		botoes[i]->desenhar();
 	}
-	titulo.desenhar();
+	//titulo.desenhar();
 }
 
 void Menus::MenuPrincipal::atualizar(){
 	ativo = true;
+	desenhar();
+	pGrafico->mostrar();
 }

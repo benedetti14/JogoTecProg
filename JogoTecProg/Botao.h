@@ -7,7 +7,7 @@ namespace ElementosGraficos {
 
 	class Botao : public Animacao {
 	private:
-		Texto texto;
+		//Texto texto;
 		sf::Texture texturaOriginal;
 		sf::Texture texturaSelecionado;
 	public:

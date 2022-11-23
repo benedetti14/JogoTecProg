@@ -14,15 +14,6 @@ Jogo::Jogo() : faseFloresta(), gGrafico(nullptr), MaquinaEstado() {
 	estado = static_cast<Estados::Estado*>(new Menus::MenuPrincipal(this));
 	incluiEstado(estado);
 
-	estado = static_cast<Estados::Estado*>(new Menus::MenuFimJogo(this, fase));
-	incluiEstado(estado);
-
-	estado = static_cast<Estados::Estado*>(new Menus::MenuRanking(this));
-	incluiEstado(estado);
-
-	estado = static_cast<Estados::Estado*>(new Menus::MenuPausa(this, fase));
-	incluiEstado(estado);
-
 	mudarEstadoAtual(Estados::IdEstado::menuPrincipal);
 
 	executar();
@@ -52,7 +43,9 @@ void Jogo::executar(){
 	Gerenciadores::GerenciadorEventos* pEventos = Gerenciadores::GerenciadorEventos::getGerenciadorEventos();
 	while (gGrafico->janelaAberta()) {
 		pEventos->executar();
+		
 		gGrafico->limpaJanela();
+		
 		//jogador.move();
 		//inimigo.move();
 		//plataforma.atualizar();
@@ -60,8 +53,9 @@ void Jogo::executar(){
 		//pGrafico->mostrar();
 		//faseFloresta->executar();
 		atualizarEstadoAtual();
-		desenharEstadoAtual();
-		gGrafico->mostrar();
+		//desenharEstadoAtual();
+		//gGrafico->mostrar();
+
 	}
 }
 

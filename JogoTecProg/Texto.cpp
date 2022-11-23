@@ -41,8 +41,9 @@ sf::Vector2f ElementosGraficos::Texto::getPosicao() const {
 
 sf::Vector2f ElementosGraficos::Texto::getTamanho() const {
 
-	sf::FloatRect tamTexto = texto.getLocalBounds();
-	return sf::Vector2f(tamTexto.width, tamTexto.height);
+	/*sf::FloatRect tamTexto = texto.getLocalBounds();
+	return sf::Vector2f(tamTexto.width, tamTexto.height);*/
+	return sf::Vector2f(0, 0);
 }
 
 void ElementosGraficos::Texto::desenhar(){

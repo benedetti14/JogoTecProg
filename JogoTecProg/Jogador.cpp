@@ -30,8 +30,11 @@ namespace Entidades {
 
 		void Jogador::move() {
 			atualizar();
+
 			atualizarAnimacao();
+			
 			pGrafico->atualizaCamera(posicao);
+			
 		}
 
 		void Jogador::atualizarAnimacao() {

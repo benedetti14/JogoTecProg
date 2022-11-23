@@ -50,20 +50,25 @@ void Fases::FaseFloresta::executar() {
 
 void Fases::FaseFloresta::atualizar() {
 	//jogador->getPosicao().x < pGrafico->getJanela()->getSize().x
-	while (jogador->estaVivo()) {
+	if (jogador->estaVivo()) {
 		//pEventos->executar();
 		//pGrafico->limpaJanela();
 		fundo->desenhar();
 		//desenhar();
 
+		//jogador->move();
 		listaPersonagens.executar();
+
 		listaObstaculos.executar();
 
 		//pGrafico->mostrar();
 		pColisor->executar();
+		pGrafico->mostrar();
+		
+		
 	}
-	terminarFase();
-	mudaEstado(Estados::IdEstado::fimJogo);
+	//terminarFase();
+	//mudaEstado(Estados::IdEstado::fimJogo);
 }
 
 void Fases::FaseFloresta::criarMapa() {
@@ -72,9 +77,9 @@ void Fases::FaseFloresta::criarMapa() {
 	std::ifstream arquivo;
 	std::string linha;
 	
-	arquivo.open("../JogoTecProg/mapa/faseFloresta/mapa.txt");
 
 	listaPersonagens.incluiEntidade(jogador);
+	arquivo.open("../JogoTecProg/mapa/faseFloresta/mapa.txt");
 
 	if (!arquivo.is_open()) {
 		std::cout << "nao foi possivel abrir o arquivo" << std::endl;
