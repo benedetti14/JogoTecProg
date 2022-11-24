@@ -10,21 +10,19 @@
 #define RAIO_PERSEGUIR_X 200.0f
 #define RAIO_PERSEGUIR_Y 200.0f
 
-#define VELOCIDADE_INIMIGO 60.0f
-
 
 namespace Entidades {
 
     namespace Personagens {
 
         class Inimigo : public Personagem {
-        private:
+        protected:
             Jogador* jogador;
             short moveAleatorio;
             float dtAux;
-            void inicializa();
+			virtual void inicializa() = 0;
         public:
-            Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogador);
+            Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogador, int v, float veloI);
             ~Inimigo();
             void move();
             void atualizaMovimentoAleatorio();

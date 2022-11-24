@@ -5,8 +5,6 @@
 #include "Personagem.h"
 #include  "ControleJogador.h"
 
-#define VELOCIDADE_JOGADOR 200.0f
-#define TAMANHO_PULO 0.18f
 
 namespace Controle {
 	class ControleJogador;

@@ -3,6 +3,7 @@
 #include <fstream>
 #include "Jogador.h"
 #include "Inimigo.h"
+#include "Dinossauro.h"
 #include "Plataforma.h"
 #include "Caixa.h"
 #include "GerenciadorGrafico.h"
@@ -28,17 +29,13 @@ namespace Fases {
 		bool faseTerminada;
 		bool iniciou;
 		int pontosJogador;
+		sf::Vector2f proximaPosicao;
 	public:
 		Fase(IDs::IDs id);
 		virtual ~Fase();
-		void criaPlataforma(sf::Vector2f pos, sf::Vector2f tam);
-		void criaCaixa(sf::Vector2f pos, sf::Vector2f tam);
-		void criaInimigo(sf::Vector2f pos, sf::Vector2f tam);
 		virtual void inicializa() = 0;
 		virtual void executar() = 0;
 		virtual void desenhar() = 0;
-		virtual void criarMapa() = 0;
-		void criarEntidades(char letra, sf::Vector2f pos);
 		void terminarFase();
 		int getPontosJogador()  const;
 		virtual Estados::IdEstado getIDfase() const = 0;

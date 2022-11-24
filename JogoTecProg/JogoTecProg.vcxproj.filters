@@ -111,6 +111,13 @@
     <ClCompile Include="ControleMenu.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="Dinossauro.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="CriaMundo.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Cowboy.cpp">
     <ClCompile Include="MenuPausa.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
@@ -215,6 +222,13 @@
     <ClInclude Include="ControleMenu.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="Dinossauro.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="CriaMundo.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Cowboy.h">
     <ClInclude Include="MenuPausa.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>

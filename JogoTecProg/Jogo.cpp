@@ -39,8 +39,7 @@ Jogo::~Jogo(){
 void Jogo::criaFase() {
 	faseFloresta = new Fases::FaseFloresta(this);
 	
-	fase = static_cast<Fases::Fase*>(faseFloresta);
-	fase->criarMapa();
+	faseFloresta->inicializa();
 }
 
 void Jogo::executar(){
@@ -57,7 +56,7 @@ void Jogo::executar(){
 		//pGrafico->mostrar();
 		//faseFloresta->executar();
 		atualizarEstadoAtual();
-		//desenharEstadoAtual();
+		desenharEstadoAtual();
 		//gGrafico->mostrar();
 
 	}

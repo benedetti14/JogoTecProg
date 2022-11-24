@@ -5,11 +5,15 @@
 #define JOGADOR_ATACA "../JogoTecProg/imagens/jogador/Jogador_Ataca.png"
 #define JOGADOR_MORRE "../JogoTecProg/imagens/jogador/Jogador_Morre.png"
 #define JOGADOR_PARADO "../JogoTecProg/imagens/jogador/Jogador_Parado.png"
+#define VELOCIDADE_JOGADOR 200.0f
+#define TAMANHO_PULO 0.18f
+#define VIDA_JOGADOR 50
+#define DANO_JOGADOR 10
 
 namespace Entidades {
 	namespace Personagens {
 
-		Jogador::Jogador(sf::Vector2f posi, sf::Vector2f tam) : Personagem(posi, tam, VELOCIDADE_JOGADOR, IDs::IDs::jogador),
+		Jogador::Jogador(sf::Vector2f posi, sf::Vector2f tam) : Personagem(posi, tam, VIDA_JOGADOR, VELOCIDADE_JOGADOR, IDs::IDs::jogador),
 			noChao(false), pControle(), pontos(0) {
 			pControle = new Controle::ControleJogador(this);
 			inicializa();
@@ -62,7 +66,14 @@ namespace Entidades {
 		}
 		
 		void Jogador::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
-			
+			if (outraEntidade->getID() == IDs::IDs::inimigo) {
+				Personagem* pInimigo = dynamic_cast<Personagem*>(outraEntidade);
+				if (pInimigo != nullptr) {
+					if (atacando) {
+						pInimigo->danoRecebido(DANO_JOGADOR);
+					}
+				}
+			}
 		}
 
 		void Jogador::empoderar() {
