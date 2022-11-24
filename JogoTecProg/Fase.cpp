@@ -14,8 +14,8 @@ namespace Fases {
 			delete pColisor;
 			pColisor = nullptr;
 		}
-		listaObstaculos.limparLista();
-		listaPersonagens.limparLista();
+		//listaObstaculos.limparLista();
+		//listaPersonagens.limparLista();
 	}
 
 	void Fase::criaPlataforma(sf::Vector2f pos, sf::Vector2f tam){
@@ -63,8 +63,8 @@ namespace Fases {
 	void Fase::terminarFase() {
 		pontosJogador = jogador->getPontos();
 		faseTerminada = true;
-		//listaObstaculos.limparLista();
-		//listaPersonagens.limparLista();
+		listaObstaculos.limparLista();
+		listaPersonagens.limparLista();
 	}
 
 	int Fase::getPontosJogador() const {

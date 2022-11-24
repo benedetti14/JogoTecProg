@@ -98,6 +98,7 @@ void Fases::FaseFloresta::criarMapa() {
 }
 
 void Fases::FaseFloresta::resetarEstado(){
+	// só reseta se o jogador perdeu, se não, continua de onde parou
 	if (faseTerminada) {
 		Entidades::Personagens::Jogador* jogador = new Entidades::Personagens::Jogador({ 90.0f, 0.0f }, { 35.0f, 75.0f });
 		criarMapa();
