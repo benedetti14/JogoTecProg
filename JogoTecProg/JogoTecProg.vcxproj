@@ -141,6 +141,8 @@
     <ClCompile Include="ControleJogador.cpp" />
     <ClCompile Include="ControleMenu.cpp" />
     <ClCompile Include="ControleTexto.cpp" />
+    <ClCompile Include="Cowboy.cpp" />
+    <ClCompile Include="CriaMundo.cpp" />
     <ClCompile Include="Dinossauro.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
@@ -176,6 +178,8 @@
     <ClInclude Include="ControleJogador.h" />
     <ClInclude Include="ControleMenu.h" />
     <ClInclude Include="ControleTexto.h" />
+    <ClInclude Include="Cowboy.h" />
+    <ClInclude Include="CriaMundo.h" />
     <ClInclude Include="Dinossauro.h" />
     <ClInclude Include="Estado.h" />
     <ClInclude Include="Fase.h" />

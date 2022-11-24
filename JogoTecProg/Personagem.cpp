@@ -3,7 +3,7 @@
 
 Entidades::Personagens::Personagem::Personagem(sf::Vector2f posi, sf::Vector2f tam, int v,const float velo, const IDs::IDs ID) :
 	Entidade(posi, tam, ID), podeAndar(false), esquerda(false), atacando(false), relogio(), dt(0.0f), 
-	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(&corpo), vivo(true), vida(v)
+	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(posi, tam), vivo(true), vida(v)
 {
 
 }
@@ -81,7 +81,9 @@ void Entidades::Personagens::Personagem::atualizarAnimacao(){
 
 
 void Entidades::Personagens::Personagem::desenhar(){
-	animacao.desenhar();
+	if (vivo) {
+		animacao.desenhar();
+	}
 }
 
 void Entidades::Personagens::Personagem::setPosicao(sf::Vector2f posi){

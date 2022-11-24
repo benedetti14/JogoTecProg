@@ -3,7 +3,6 @@
 
 Entidades::Personagens::Inimigo::Inimigo::Inimigo(const sf::Vector2f posi, const sf::Vector2f tam, Jogador* jogador, int v, float veloI) : 
 Personagem(posi, tam, v, veloI,IDs::IDs::inimigo), jogador(jogador), dtAux(0.0f) {
-	inicializa();
 
     srand(time(NULL));
 	
@@ -65,7 +64,10 @@ void Entidades::Personagens::Inimigo::colisao(Entidade* outraEntidade, sf::Vecto
 void Entidades::Personagens::Inimigo::atualizarAnimacao() {
     if (podeAndar) {
         animacao.atualizar(ElementosGraficos::anda, esquerda);
-    }  else {
+    } /*else if (!estaVivo()) {
+        animacao.atualizar(ElementosGraficos::morre, esquerda);
+    }*/
+    else {
         animacao.atualizar(ElementosGraficos::parado, esquerda);
     }
 }
