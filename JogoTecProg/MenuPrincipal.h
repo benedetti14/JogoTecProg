@@ -12,6 +12,7 @@ namespace Menus {
 	class MenuPrincipal : public Menu, public Estados::Estado {
 	private: 
 		Jogo* pJogo;
+		sf::Text texto;
 		ElementosGraficos::Texto titulo;
 		//bool iniciouFloresta;
 		//bool iniciouDeserto;

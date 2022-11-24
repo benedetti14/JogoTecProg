@@ -5,8 +5,8 @@
 
 Menus::MenuFimJogo::MenuFimJogo(Estados::MaquinaEstado* pME, Fases::Fase* pF):
 	Menu(), Estado(pME, Estados::IdEstado::fimJogo), pControle(new Controle::ControleTexto()),
-	titulo("FIM DE JOGO"), nome(""), nomeLegenda("Nome:"), pontos(),
-	pontosIncrementar(0), pFase(pF)
+	//titulo("FIM DE JOGO"), nome(""), nomeLegenda("Nome:"), pontos(),
+	pFase(pF)
 {
 	ElementosGraficos::Botao* botao = nullptr;
 
@@ -20,6 +20,7 @@ Menus::MenuFimJogo::MenuFimJogo(Estados::MaquinaEstado* pME, Fases::Fase* pF):
 	selecionado = 0;
 	maximo = 1;
 
+	/*
 	titulo.setPosicao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, pGrafico->getTamanhoJanela().y / 2 - 200));
 	titulo.setTamanhoFonte(100);
 	titulo.setCor(77, 68, 44);
@@ -34,7 +35,41 @@ Menus::MenuFimJogo::MenuFimJogo(Estados::MaquinaEstado* pME, Fases::Fase* pF):
 
 	nome.setPosicao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f + nomeLegenda.getTamanho().x - 200, pGrafico->getTamanhoJanela().y / 2 + 100 - nomeLegenda.getTamanho().y));
 	nome.setTamanhoFonte(100);
-	nome.setCor(77, 68, 44);
+	nome.setCor(77, 68, 44);*/
+
+	sf::FloatRect tamTexto = titulo1.getLocalBounds();
+
+	titulo1.setString("FIM DE JOGO");
+	titulo1.setFont(pGrafico->setFonte(C_FONTE));
+	titulo1.setCharacterSize(100);
+	titulo1.setOrigin(sf::Vector2f(tamTexto.width / 2, tamTexto.height)); // alinhamento no centro 
+	titulo1.setPosition(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, pGrafico->getTamanhoJanela().y / 2 - 200));
+	titulo1.setFillColor(sf::Color::White);
+
+	tamTexto = pontos1.getLocalBounds();
+	pontos1.setString("FIM DE JOGO");
+	pontos1.setFont(pGrafico->setFonte(C_FONTE));
+	pontos1.setCharacterSize(40);
+	pontos1.setOrigin(sf::Vector2f(tamTexto.width / 2, tamTexto.height)); // alinhamento no centro 
+	pontos1.setPosition(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f - 100, pGrafico->getTamanhoJanela().y / 2));
+	pontos1.setFillColor(sf::Color::White);
+
+	tamTexto = nomeLegenda1.getLocalBounds();
+	nomeLegenda1.setString("Nome: ");
+	nomeLegenda1.setFont(pGrafico->setFonte(C_FONTE));
+	nomeLegenda1.setCharacterSize(40);
+	nomeLegenda1.setOrigin(sf::Vector2f(tamTexto.width / 2, tamTexto.height)); // alinhamento no centro 
+	nomeLegenda1.setPosition(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f - 200, pGrafico->getTamanhoJanela().y / 2 + 100));
+	nomeLegenda1.setFillColor(sf::Color::White);
+
+	tamTexto = nome1.getLocalBounds();
+	nome1.setString("");
+	nome1.setFont(pGrafico->setFonte(C_FONTE));
+	nome1.setCharacterSize(80);
+	nome1.setOrigin(sf::Vector2f(tamTexto.width / 2, tamTexto.height)); // alinhamento no centro 
+	nome1.setPosition(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f - 100, pGrafico->getTamanhoJanela().y / 2 + 50));
+	nome1.setFillColor(sf::Color::White);
+
 
 }
 
@@ -43,21 +78,22 @@ Menus::MenuFimJogo::~MenuFimJogo()
 }
 
 void Menus::MenuFimJogo::atualizar(){
-	nome.setInfo(pControle->getString());
+	//nome.setInfo(pControle->getString());
+	nome1.setString(pControle->getString());
+
 	if (pMaquinaEstado->getIDUltimoEstado() == Estados::IdEstado::menuPausa) {
 		Menus::MenuPausa* menu = dynamic_cast<Menus::MenuPausa*>(pMaquinaEstado->getUltimoEstado());
-		if (pontosIncrementar < menu->getPontos()) {
-			pontosIncrementar += 10;
-		}
-		pontos.setInfo("Pontos: " + std::to_string(menu->getPontos()));
+		//pontos.setInfo("Pontos: " + std::to_string(menu->getPontos()));
+		pontos1.setString("Pontos: " + std::to_string(menu->getPontos()));
 	}
 	else {
-		if (pontosIncrementar < pFase->getPontosJogador()) {
-			pontosIncrementar += 10;
-		}
-		pontos.setInfo("Pontos: " + std::to_string(pFase->getPontosJogador()));
+		//pontos.setInfo("Pontos: " + std::to_string(pFase->getPontosJogador()));
+		pontos1.setString("Pontos: " + std::to_string(pFase->getPontosJogador()));
 
 	}
+
+	desenhar();
+	pGrafico->mostrar();
 }
 
 void Menus::MenuFimJogo::desenhar() {
@@ -66,10 +102,15 @@ void Menus::MenuFimJogo::desenhar() {
 	for (int i = 0; i < botoes.size(); i++) {
 		botoes[i]->desenhar();
 	}
-	titulo.desenhar();
-	pontos.desenhar();
-	nome.desenhar();
-	nomeLegenda.desenhar();
+	//titulo.desenhar();
+	//pontos.desenhar();
+	//nome.desenhar();
+	//nomeLegenda.desenhar();
+
+	pGrafico->getJanela()->draw(titulo1);
+	pGrafico->getJanela()->draw(pontos1);
+	pGrafico->getJanela()->draw(nome1);
+	pGrafico->getJanela()->draw(nomeLegenda1);
 }
 
 void Menus::MenuFimJogo::executar(){

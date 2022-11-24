@@ -34,8 +34,8 @@ void Menus::MenuPausa::executar(){
 			mudaEstado(pFase->getIDfase());
 			break;
 		case 1:
-			//mudaEstado(Estados::IdEstado::fimJogo);
-			mudaEstado(Estados::IdEstado::menuPrincipal);
+			mudaEstado(Estados::IdEstado::fimJogo);
+			//mudaEstado(Estados::IdEstado::menuPrincipal);
 			break;
 		default:
 			break;

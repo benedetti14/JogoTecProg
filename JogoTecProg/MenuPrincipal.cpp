@@ -1,7 +1,9 @@
 #include "MenuPrincipal.h"
 
+#define C_FONTE "../JogoTecProg/imagens/fontes/Fonte.ttf"
+
 Menus::MenuPrincipal::MenuPrincipal(Jogo* pJ): pJogo(pJ), Menu(), pontos(0),
-Estado(pJ, Estados::IdEstado::menuPrincipal), titulo()//, iniciouFloresta(false), iniciouDeserto(false)
+Estado(pJ, Estados::IdEstado::menuPrincipal), titulo(), texto()//, iniciouFloresta(false), iniciouDeserto(false)
 {
 	ElementosGraficos::Botao* botao;
 
@@ -22,6 +24,17 @@ Estado(pJ, Estados::IdEstado::menuPrincipal), titulo()//, iniciouFloresta(false)
 	titulo.setTamanhoFonte(140);
 	titulo.setCor(77, 68, 44);
 	titulo.setPosicao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 100.0f));*/
+
+	/*
+	sf::FloatRect tamTexto = texto.getLocalBounds();
+
+	texto.setString("JOGO");
+	texto.setFont(pGrafico->setFonte(C_FONTE));
+	texto.setCharacterSize(140);
+	texto.setOrigin(sf::Vector2f(tamTexto.width / 2, tamTexto.height)); // alinhamento no centro 
+	texto.setPosition(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 100.0f));
+	texto.setFillColor(sf::Color::White);*/
+
 	maximo = 3;
 
 	ultimaFase = Estados::IdEstado::vazio;
@@ -82,6 +95,7 @@ void Menus::MenuPrincipal::desenhar(){
 		botoes[i]->desenhar();
 	}
 	//titulo.desenhar();
+	//pGrafico->getJanela()->draw(texto);
 }
 
 void Menus::MenuPrincipal::atualizar(){

@@ -16,12 +16,17 @@ namespace Controle {
 namespace Menus {
 	class MenuFimJogo: public Menu, public Estados::Estado{
 	private:
-		ElementosGraficos::Texto titulo;
-		ElementosGraficos::Texto nome;
-		ElementosGraficos::Texto nomeLegenda;
-		ElementosGraficos::Texto pontos;
+		//ElementosGraficos::Texto titulo;
+		//ElementosGraficos::Texto nome;
+		//ElementosGraficos::Texto nomeLegenda;
+		//ElementosGraficos::Texto pontos;
+
+		sf::Text titulo1;
+		sf::Text pontos1;
+		sf::Text nomeLegenda1;
+		sf::Text nome1;
+
 		Controle::ControleTexto* pControle;
-		unsigned int pontosIncrementar;
 		Fases::Fase* pFase;
 
 	public:
