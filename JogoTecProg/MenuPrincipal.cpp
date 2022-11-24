@@ -59,7 +59,9 @@ void Menus::MenuPrincipal::executar(){
 }
 
 void Menus::MenuPrincipal::resetarEstado(){
-	botoes[selecionado]->selecionar(false);
+	for (int i = 0; i < botoes.size(); i++) {
+		botoes[i]->selecionar(false);
+	}
 	selecionado = 0;
 	botoes[selecionado]->selecionar(true);
 }

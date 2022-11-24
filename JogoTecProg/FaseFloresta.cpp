@@ -52,6 +52,7 @@ void Fases::FaseFloresta::atualizar() {
 }
 
 void Fases::FaseFloresta::resetarEstado(){
+	// só reseta se o jogador perdeu, se não, continua de onde parou
 	if (faseTerminada) {
 		inicializa();
 		faseTerminada = false;

@@ -22,3 +22,4 @@ namespace Menus {
 		int getPontos() const;
 	};
 }
+
