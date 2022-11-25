@@ -74,10 +74,10 @@ void Menus::MenuRanking::resetarEstado(){
 	}*/
 
 	for (it1 = pontosFloresta1.begin(); it1 != pontosFloresta1.end(); ++it1) {
-		delete (*it1);
+		delete (&it1);
 	}
 	for (it1 = pontosDeserto1.begin(); it1 != pontosDeserto1.end(); ++it1) {
-		delete (*it1);
+		delete (&it1);
 	}
 	//pontosFloresta.clear();
 	//pontosDeserto.clear();
@@ -144,7 +144,7 @@ void Menus::MenuRanking::criarRanking(){
 		texto1->setFillColor(sf::Color::White);
 
 		//pontosFloresta.push_back(texto);
-		pontosFloresta1.push_back(texto1);
+		pontosFloresta1.push_back(*texto1);
 	}
 
 	arquivo.close();
@@ -197,7 +197,7 @@ void Menus::MenuRanking::criarRanking(){
 		texto1->setPosition(sf::Vector2f(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 100 + 10 * i)));
 		texto1->setFillColor(sf::Color::White);
 
-		pontosDeserto1.push_back(texto1);
+		pontosDeserto1.push_back(*texto1);
 	}
 
 	arquivo.close();

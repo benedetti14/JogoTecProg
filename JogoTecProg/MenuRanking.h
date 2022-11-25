@@ -20,9 +20,9 @@ namespace Menus {
 		std::vector<ElementosGraficos::Texto*> pontosDeserto;
 		std::vector<ElementosGraficos::Texto*>::iterator it;*/
 
-		std::vector<sf::Text*> pontosFloresta1;
-		std::vector<sf::Text*> pontosDeserto1;
-		std::vector<sf::Text*>::iterator it1;
+		std::vector<sf::Text> pontosFloresta1;
+		std::vector<sf::Text> pontosDeserto1;
+		std::vector<sf::Text>::iterator it1;
 	public:
 		MenuRanking(Estados::MaquinaEstado* pME = nullptr);
 		~MenuRanking();
