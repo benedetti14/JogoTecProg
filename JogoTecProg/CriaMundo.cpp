@@ -5,6 +5,7 @@
 #include "Caixa.h"
 #include "Dinossauro.h"
 #include "Cowboy.h"
+#include "Pedra.h"
 
 #include <fstream>
 #include <stdlib.h>
@@ -132,6 +133,13 @@ void CriaMundo::criaCaixa(sf::Vector2f pos, sf::Vector2f tam) {
 	Entidades::Obstaculos::Caixa* caixa = new Entidades::Obstaculos::Caixa(pos, tam);
 	if (caixa) {
 		listaObstaculos->incluiEntidade(static_cast<Entidades::Entidade*>(caixa));
+	}
+}
+
+void CriaMundo::criaPedra(sf::Vector2f pos, sf::Vector2f tam) {
+	Entidades::Obstaculos::Pedra* pedra = new Entidades::Obstaculos::Pedra(pos, tam);
+	if (pedra) {
+		listaObstaculos->incluiEntidade(static_cast<Entidades::Entidade*>(pedra));
 	}
 }
 

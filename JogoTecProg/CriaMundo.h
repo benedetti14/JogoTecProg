@@ -13,7 +13,6 @@ private:
 	sf::Vector2f ultimaPosicaoCriada;
 	sf::Vector2f limiteTela;
 	int sequencia;
-
 public: 
 	CriaMundo(Listas::ListaEntidades* listaPersonagens, Listas::ListaEntidades* listaObstaculos, const unsigned int distanciaRenderizacao = 20);
 	~CriaMundo();
@@ -25,5 +24,6 @@ public:
 	void criaCowboy(sf::Vector2f pos, sf::Vector2f tam, Entidades::Personagens::Jogador* jogador);
 	void criaDino(sf::Vector2f pos, sf::Vector2f tam, Entidades::Personagens::Jogador* jogador);
 	void criaCaixa(sf::Vector2f pos, sf::Vector2f tam);
+	void criaPedra(sf::Vector2f pos, sf::Vector2f tam);
 };
 
