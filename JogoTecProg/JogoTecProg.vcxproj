@@ -160,10 +160,12 @@
     <ClCompile Include="MaquinaEstados.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
+    <ClCompile Include="Ninja.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Plataforma.cpp" />
+    <ClCompile Include="Projetil.cpp" />
     <ClCompile Include="Texto.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -195,10 +197,12 @@
     <ClInclude Include="MaquinaEstados.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuPrincipal.h" />
+    <ClInclude Include="Ninja.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Plataforma.h" />
+    <ClInclude Include="Projetil.h" />
     <ClInclude Include="Texto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

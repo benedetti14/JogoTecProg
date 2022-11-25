@@ -74,6 +74,11 @@ void Entidades::Personagens::Personagem::setPosicao(sf::Vector2f posi){
 	animacao.setPosicao(posicao);
 }
 
+bool Entidades::Personagens::Personagem::getEsquerda() const
+{
+	return esquerda;
+}
+
 bool Entidades::Personagens::Personagem::estaVivo() {
 	if (vivo) {
 		return true;

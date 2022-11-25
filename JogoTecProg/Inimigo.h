@@ -26,7 +26,7 @@ namespace Entidades {
         public:
             Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogador);
             ~Inimigo();
-            void move();
+            virtual void move();
             void atualizaMovimentoAleatorio();
             void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f));
             void atualizarAnimacao();
