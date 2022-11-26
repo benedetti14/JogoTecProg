@@ -11,7 +11,8 @@ namespace IDs {
         faseDeserto,
         fundo,
         caixa,
-        menu
+        menu, 
+        projetil
     };
 
 

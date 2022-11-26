@@ -23,6 +23,7 @@ public:
 	void voltaPraOrigem();
 	void criaPlataforma(sf::Vector2f pos, sf::Vector2f tam);
 	void criaCowboy(sf::Vector2f pos, sf::Vector2f tam, Entidades::Personagens::Jogador* jogador);
+	void criaNinja(sf::Vector2f pos, sf::Vector2f tam, Entidades::Personagens::Jogador* jogador);
 	void criaDino(sf::Vector2f pos, sf::Vector2f tam, Entidades::Personagens::Jogador* jogador);
 	void criaCaixa(sf::Vector2f pos, sf::Vector2f tam);
 };

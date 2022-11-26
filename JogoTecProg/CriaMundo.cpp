@@ -5,6 +5,7 @@
 #include "Caixa.h"
 #include "Dinossauro.h"
 #include "Cowboy.h"
+#include "Ninja.h"
 
 #include <fstream>
 #include <stdlib.h>
@@ -149,6 +150,15 @@ void CriaMundo::criaCowboy(sf::Vector2f pos, sf::Vector2f tam, Entidades::Person
 	Entidades::Personagens::Inimigos::Cowboy* cowboy = new Entidades::Personagens::Inimigos::Cowboy(pos, tam, jogador);
 	if (cowboy) {
 		listaPersonagens->incluiEntidade(static_cast<Entidades::Entidade*>(cowboy));
+	}
+
+}
+
+void CriaMundo::criaNinja(sf::Vector2f pos, sf::Vector2f tam, Entidades::Personagens::Jogador* jogador) {
+
+	Entidades::Personagens::Inimigos::Ninja* ninja = new Entidades::Personagens::Inimigos::Ninja(pos, tam, jogador, listaObstaculos);
+	if (ninja) {
+		listaPersonagens->incluiEntidade(static_cast<Entidades::Entidade*>(ninja));
 	}
 
 }
