@@ -34,7 +34,8 @@ void Menus::MenuPausa::executar(){
 			mudaEstado(pFase->getIDfase());
 			break;
 		case 1:
-			mudaEstado(Estados::IdEstado::fimJogo);
+			//mudaEstado(Estados::IdEstado::fimJogo);
+			mudaEstado(Estados::IdEstado::menuPrincipal);
 			break;
 		default:
 			break;
@@ -44,6 +45,8 @@ void Menus::MenuPausa::executar(){
 
 void Menus::MenuPausa::atualizar(){
 	ativo = true;
+	desenhar();
+	pGrafico->mostrar();
 }
 
 Estados::IdEstado Menus::MenuPausa::getIDfase() const {

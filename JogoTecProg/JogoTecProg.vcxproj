@@ -141,6 +141,9 @@
     <ClCompile Include="ControleJogador.cpp" />
     <ClCompile Include="ControleMenu.cpp" />
     <ClCompile Include="ControleTexto.cpp" />
+    <ClCompile Include="Cowboy.cpp" />
+    <ClCompile Include="CriaMundo.cpp" />
+    <ClCompile Include="Dinossauro.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Estado.cpp" />
@@ -159,6 +162,7 @@
     <ClCompile Include="ListaEntidades.cpp" />
     <ClCompile Include="MaquinaEstados.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuPausa.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
     <ClCompile Include="Ninja.cpp" />
     <ClCompile Include="Observer.cpp" />
@@ -177,6 +181,9 @@
     <ClInclude Include="ControleJogador.h" />
     <ClInclude Include="ControleMenu.h" />
     <ClInclude Include="ControleTexto.h" />
+    <ClInclude Include="Cowboy.h" />
+    <ClInclude Include="CriaMundo.h" />
+    <ClInclude Include="Dinossauro.h" />
     <ClInclude Include="Estado.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="FaseFloresta.h" />
@@ -196,6 +203,7 @@
     <ClInclude Include="ListaEntidades.h" />
     <ClInclude Include="MaquinaEstados.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuPausa.h" />
     <ClInclude Include="MenuPrincipal.h" />
     <ClInclude Include="Ninja.h" />
     <ClInclude Include="Observer.h" />

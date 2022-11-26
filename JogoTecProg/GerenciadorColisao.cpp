@@ -31,8 +31,7 @@ const sf::Vector2f Gerenciadores::GerenciadorColisao::calculaColisao(Entidades::
     return sf::Vector2f(distanciaEntreCentros.x - somaMetadeRectangulo.x, distanciaEntreCentros.y - somaMetadeRectangulo.y);
 }
 
-void Gerenciadores::GerenciadorColisao::executar() {
-
+void Gerenciadores::GerenciadorColisao::colisaoEntrePersonagens() {
     for (int i = 0; i < listaPersonagem->getTamanho() - 1; i++) {
         Entidades::Entidade* ent1 = listaPersonagem->operator[](i);
         for (int j = i + 1; j < listaPersonagem->getTamanho(); j++) {
@@ -43,20 +42,24 @@ void Gerenciadores::GerenciadorColisao::executar() {
             }
         }
     }
+}
 
+void Gerenciadores::GerenciadorColisao::colisaoEntrePersonagemObstaculo() {
     for (int i = 0; i < listaPersonagem->getTamanho(); i++) {
         Entidades::Entidade* ent1 = listaPersonagem->operator[](i);
         for (int j = 0; j < listaObstaculo->getTamanho(); j++) {
             Entidades::Entidade* ent2 = listaObstaculo->operator[](j);
             sf::Vector2f ds = calculaColisao(ent1, ent2);
             if (ds.x < 0.0f && ds.y < 0.0f) {
-				if (ent2->getID() == IDs::IDs::plataforma || ent2->getID() == IDs::IDs::caixa) {
+                if (ent2->getID() == IDs::IDs::plataforma || ent2->getID() == IDs::IDs::caixa) {
                     ent2->colisao(ent1, ds);
-                }
-                else {
-                    // outro obstáculo 
                 }
             }
         }
     }
+}
+
+void Gerenciadores::GerenciadorColisao::executar() {
+    colisaoEntrePersonagens();
+    colisaoEntrePersonagemObstaculo();
 }

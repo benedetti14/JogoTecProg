@@ -1,9 +1,9 @@
 #include "Personagem.h"
 
 
-Entidades::Personagens::Personagem::Personagem(sf::Vector2f posi, sf::Vector2f tam, const float velo, const IDs::IDs ID) :
+Entidades::Personagens::Personagem::Personagem(sf::Vector2f posi, sf::Vector2f tam, int v,const float velo, const IDs::IDs ID) :
 	Entidade(posi, tam, ID), podeAndar(false), esquerda(false), atacando(false), relogio(), dt(0.0f), 
-	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(posi, tam), vivo(true)
+	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(posi, tam), vivo(true), vida(v)
 {
 
 }
@@ -12,6 +12,10 @@ Entidades::Personagens::Personagem::~Personagem() {}
 
 sf::Vector2f Entidades::Personagens::Personagem::getVelocidadeFinal() {
 	return velocidadeFinal;
+}
+
+const int Entidades::Personagens::Personagem::getVida() const {
+	return vida;
 }
 
 void Entidades::Personagens::Personagem::setVelocidadeFinal(sf::Vector2f veloFinal) {
@@ -31,6 +35,10 @@ void Entidades::Personagens::Personagem::parar(){
 void Entidades::Personagens::Personagem::atacar(const bool atacando) {
 	podeAndar = false;
 	this->atacando = atacando;
+}
+
+const bool Entidades::Personagens::Personagem::estaAtacando() {
+	return atacando;
 }
 
 void Entidades::Personagens::Personagem::atualizar() {
@@ -56,6 +64,13 @@ void Entidades::Personagens::Personagem::atualizar() {
 	desenhar();
 }
 
+void Entidades::Personagens::Personagem::danoRecebido(const int dano) {
+	vida -= dano;
+	if (vida <= 0) {
+		vivo = false;
+	}
+}
+
 void Entidades::Personagens::Personagem::atualizarAnimacao(){
 	if (podeAndar) {
 		animacao.atualizar(ElementosGraficos::anda, esquerda);
@@ -66,7 +81,9 @@ void Entidades::Personagens::Personagem::atualizarAnimacao(){
 
 
 void Entidades::Personagens::Personagem::desenhar(){
-	animacao.desenhar();
+	if (vivo) {
+		animacao.desenhar();
+	}
 }
 
 void Entidades::Personagens::Personagem::setPosicao(sf::Vector2f posi){

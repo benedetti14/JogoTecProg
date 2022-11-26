@@ -4,6 +4,7 @@
 #include "Entidade.h"
 #include "AnimacaoPersonagem.h"
 
+
 #define GRAVIDADE 0.7f;
 
 namespace Entidades {
@@ -20,15 +21,19 @@ namespace Entidades {
 			sf::Clock relogio;
 			float dt;
 			bool vivo;
+			int vida;
 		public:
-			Personagem(sf::Vector2f posi, sf::Vector2f tam, const float velo, const IDs::IDs ID);
+			Personagem(sf::Vector2f posi, sf::Vector2f tam, int v, const float velo, const IDs::IDs ID);
 			~Personagem();
 			sf::Vector2f getVelocidadeFinal();
+			const int getVida() const;
 			void setVelocidadeFinal(sf::Vector2f veloFinal);
 			void andar(const bool esquerda);
 			void parar();
 			void atacar(const bool atacar);
+			const bool estaAtacando();
 			void atualizar();
+			void danoRecebido(const int dano);
 			bool estaVivo();
 			virtual void atualizarAnimacao();
 			void desenhar();
