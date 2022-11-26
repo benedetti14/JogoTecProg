@@ -9,7 +9,7 @@ namespace Entidades {
 	namespace Obstaculos {
 		class Plataforma : public Obstaculo {
 		public:
-			Plataforma(const sf::Vector2f posi, const sf::Vector2f tam);
+			Plataforma(const sf::Vector2f posi, const sf::Vector2f tam /*, IDs::IDs IdFase*/);
 			~Plataforma();
 			virtual void move();
 			void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f));

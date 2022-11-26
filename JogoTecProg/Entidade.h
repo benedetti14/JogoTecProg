@@ -7,7 +7,6 @@ namespace Entidades {
 	class Entidade : public Ente
 	{
 	protected:
-		//sf::RectangleShape corpo;
 		sf::Vector2f posicao;
 		sf::Vector2f tamanho;
 	public:
