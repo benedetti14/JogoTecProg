@@ -164,11 +164,13 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuPausa.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
+    <ClCompile Include="Ninja.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Pedra.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Plataforma.cpp" />
+    <ClCompile Include="Projetil.cpp" />
     <ClCompile Include="Texto.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -204,11 +206,13 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuPausa.h" />
     <ClInclude Include="MenuPrincipal.h" />
+    <ClInclude Include="Ninja.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Pedra.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Plataforma.h" />
+    <ClInclude Include="Projetil.h" />
     <ClInclude Include="Texto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

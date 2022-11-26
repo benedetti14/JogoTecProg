@@ -73,6 +73,9 @@ void Menus::MenuRanking::criarRanking(){
 
 	ElementosGraficos::Texto* texto;
 	// fase 1
+	sf::Text* texto1;
+	texto1 = new sf::Text;
+	
 
 	arquivo.open(C_RANKING1, std::ios::binary | std::ios::in);
 

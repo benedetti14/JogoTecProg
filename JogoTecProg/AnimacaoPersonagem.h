@@ -15,7 +15,8 @@ namespace ElementosGraficos {
 		pula,
 		parado,
 		ataca,
-		morre
+		morre, 
+		atira
 	};
 
 	class AnimacaoPersonagem: public Animacao {
