@@ -43,7 +43,7 @@ void Gerenciadores::GerenciadorColisao::colisaoEntrePersonagens() {
             sf::Vector2f ds = calculaColisao(ent1, ent2);
             if (ds.x < 0.0f && ds.y < 0.0f) {
                 ent1->colisao(ent2);
-                if (ent1->getID() == IDs::IDs::jogador)
+                if (ent1->getID() == IDs::IDs::jogador && ent2->estaVivo())
                     ent2->colisao(ent1);
             }
         }
@@ -57,7 +57,7 @@ void Gerenciadores::GerenciadorColisao::colisaoEntrePersonagemObstaculo() {
             Entidades::Entidade* ent2 = listaObstaculo->operator[](j);
             sf::Vector2f ds = calculaColisao(ent1, ent2);
             if (ds.x < 0.0f && ds.y < 0.0f) {
-				if (ent2->getID() == IDs::IDs::plataforma || ent2->getID() == IDs::IDs::caixa || ent2->getID() == IDs::IDs::pedra) {
+				if (ent2->getID() == IDs::IDs::plataforma || ent2->getID() == IDs::IDs::caixa || ent2->getID() == IDs::IDs::pedra || ent2->getID() == IDs::IDs::projetil) {
                     ent2->colisao(ent1, ds);
                 }
             }

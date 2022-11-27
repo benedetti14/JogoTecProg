@@ -47,13 +47,17 @@ void Fases::FaseDeserto::atualizar() {
 		pColisor->executar();
 		pGrafico->mostrar();
 	}
+	else {
+		faseTerminada = true;
+		mudaEstado(Estados::IdEstado::menuPrincipal);
+	}
 	//terminarFase();
-	//mudaEstado(Estados::IdEstado::fimJogo);
 }
 
 void Fases::FaseDeserto::resetarEstado() {
 	// só reseta se o jogador perdeu, se não, continua de onde parou
 	if (faseTerminada) {
+		jogador = new Entidades::Personagens::Jogador({ 200.0f, 300.0f }, { 35.0f, 75.0f });
 		inicializa();
 		faseTerminada = false;
 	}

@@ -70,7 +70,7 @@ void CriaMundo::criar(sf::Vector2f* posicaoVista, Entidades::Personagens::Jogado
 					criaCowboy(sf::Vector2f(ultimaPosicaoCriada.x, 300.0f), sf::Vector2f(50.0f, 50.0f), jogador);
 				} 
 				else {
-					criaNinja(sf::Vector2f(ultimaPosicaoCriada.x, 300.0f), sf::Vector2f(50.0f, 50.0f), jogador);
+					criaNinja(sf::Vector2f(ultimaPosicaoCriada.x, 300.0f), sf::Vector2f(50.0f, 50.0f), jogador, listaObstaculos);
 				}
 			}
 		}
@@ -170,7 +170,7 @@ void CriaMundo::criaCowboy(sf::Vector2f pos, sf::Vector2f tam, Entidades::Person
 
 }
 
-void CriaMundo::criaNinja(sf::Vector2f pos, sf::Vector2f tam, Entidades::Personagens::Jogador* jogador) {
+void CriaMundo::criaNinja(sf::Vector2f pos, sf::Vector2f tam, Entidades::Personagens::Jogador* jogador, Listas::ListaEntidades* listaObstaculos) {
 
 	Entidades::Personagens::Inimigos::Ninja* ninja = new Entidades::Personagens::Inimigos::Ninja(pos, tam, jogador, listaObstaculos);
 	if (ninja) {
