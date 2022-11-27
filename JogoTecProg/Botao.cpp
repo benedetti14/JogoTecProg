@@ -8,10 +8,10 @@
 #define BOTAO_Y 50.f
 #define TAM_FONTE 30
 
-ElementosGraficos::Botao::Botao(sf::Vector2f pos, std::string info): texturaOriginal(), 
-texturaSelecionado(), Animacao() {
-	texturaOriginal = pGrafico->setTextura(C_BOTAO_ORIGINAL);
-	texturaSelecionado = pGrafico->setTextura(C_BOTAO_SELECIONADO);
+ElementosGraficos::Botao::Botao(sf::Vector2f pos, std::string info, const char* original, const char* selecionado):
+texturaOriginal(), texturaSelecionado(), Animacao() {
+	texturaOriginal = pGrafico->setTextura(original);
+	texturaSelecionado = pGrafico->setTextura(selecionado);
 
 	corpo->setSize(sf::Vector2f(BOTAO_X, BOTAO_Y));
 	corpo->setOrigin(sf::Vector2f(BOTAO_X / 2, BOTAO_Y / 2));

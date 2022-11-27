@@ -1,28 +1,34 @@
 #include "MenuPrincipal.h"
+#define fase1 "..\JogoTecProg\imagens\menu\Fase1.jpeg"
+#define fase1S "..\JogoTecProg\imagens\menu\Fase1_Selecionada.jpeg"
+#define fase2 "..\JogoTecProg\imagens\menu\Fase2.jpeg"
+#define fase2S "..\JogoTecProg\imagens\menu\Fase2_Selecionada.jpeg"
+#define sair "..\JogoTecProg\imagens\menu\Sair.jpeg"
+#define sairS "..\JogoTecProg\imagens\menu\Sair_Selecionado.jpeg"
 
 Menus::MenuPrincipal::MenuPrincipal(Jogo* pJ): pJogo(pJ), Menu(), pontos(0),
 Estado(pJ, Estados::IdEstado::menuPrincipal), titulo()//, iniciouFloresta(false), iniciouDeserto(false)
 {
 	ElementosGraficos::Botao* botao;
 
-	botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x/2.0f, 200.0f), "FASE 1");
+	botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x/2.0f, 200.0f), fase1, fase1S);
 	botao->selecionar(true);
 	botoes.push_back(botao);
 
-	botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 200.0f + 100), "FASE 2");
+	botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 200.0f + 100), fase2, fase2S);
 	botoes.push_back(botao);
 
-	botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 200.0f + 200), "RANKING");
-	botoes.push_back(botao);
+	//botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 200.0f + 200), "RANKING");
+	//botoes.push_back(botao);
 
-	botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 200.0f + 300), "SAIR");
+	botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 200.0f + 300), sair, sairS);
 	botoes.push_back(botao);
 
 	/*titulo.setInfo("JOGO");
 	titulo.setTamanhoFonte(140);
 	titulo.setCor(77, 68, 44);
 	titulo.setPosicao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 100.0f));*/
-	maximo = 3;
+	maximo = 2;
 
 	ultimaFase = Estados::IdEstado::vazio;
 }
@@ -42,10 +48,10 @@ void Menus::MenuPrincipal::executar(){
 		case 1:
 			mudaEstado(Estados::IdEstado::jogandoDeserto);			
 			break;
+		//case 2:
+			//mudaEstado(Estados::IdEstado::ranking);
+			//break;
 		case 2:
-			mudaEstado(Estados::IdEstado::ranking);
-			break;
-		case 3:
 			pJogo->terminarJogo();
 			break;
 		}
