@@ -65,9 +65,19 @@ void Entidades::Personagens::Personagem::atualizar() {
 }
 
 void Entidades::Personagens::Personagem::danoRecebido(const int dano) {
-	vida -= dano;
-	if (vida <= 0) {
-		vivo = false;
+	if (recebeuDano == false) {
+		vida -= dano;
+		recebeuDano = true;
+		relogioAtaque.restart();
+		if (esquerda) {
+			setPosicao(sf::Vector2f(posicao.x + 100.f, posicao.y));
+		}
+		else {
+			setPosicao(sf::Vector2f(posicao.x - 100.f, posicao.y));
+		}
+		if (vida <= 0) {
+			vivo = false;
+		}
 	}
 }
 
