@@ -3,7 +3,7 @@
 
 Entidades::Personagens::Personagem::Personagem(sf::Vector2f posi, sf::Vector2f tam, int v,const float velo, const IDs::IDs ID) :
 	Entidade(posi, tam, ID), podeAndar(false), esquerda(false), atacando(false), relogio(), dt(0.0f), 
-	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(posi, tam), vivo(true), vida(v)
+	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(posi, tam), vida(v), recebeuDano(false)
 {
 
 }
@@ -50,6 +50,12 @@ void Entidades::Personagens::Personagem::atualizar() {
 		ds.x = velocidadeFinal.x * dt;
 		if (esquerda) {
 			ds.x *= -1;
+		}
+	}
+
+	if (recebeuDano) {
+		if (relogioAtaque.getElapsedTime().asSeconds() > 1.5) {
+			recebeuDano = false;
 		}
 	}
 

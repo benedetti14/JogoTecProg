@@ -6,7 +6,7 @@
 #define JOGADOR_MORRE "../JogoTecProg/imagens/jogador/Jogador_Morre.png"
 #define JOGADOR_PARADO "../JogoTecProg/imagens/jogador/Jogador_Parado.png"
 #define VELOCIDADE_JOGADOR 200.0f
-#define TAMANHO_PULO 0.18f
+#define TAMANHO_PULO 0.38f
 #define VIDA_JOGADOR 50
 #define DANO_JOGADOR 10
 

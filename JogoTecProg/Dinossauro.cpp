@@ -12,8 +12,12 @@
 #define DINOSSAURO_CORRE "../JogoTecProg/imagens/inimigos/dinossauro/Dinossauro_Corre.png"
 #define DINOSSAURO_MORRE "../JogoTecProg/imagens/inimigos/dinossauro/Dinossauro_Morre.png"
 
-Entidades::Personagens::Inimigos::Dinossauro::Dinossauro(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogador) : Inimigo(pos, tam, jogador, 1, VELOCIDADE_DINOSSAURO) {
+Entidades::Personagens::Inimigos::Dinossauro::Dinossauro(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogador) : Inimigo(pos, tam, jogador, VIDA_DINOSSAURO, VELOCIDADE_DINOSSAURO) {
 	inicializa();
+}
+
+Entidades::Personagens::Inimigos::Dinossauro::~Dinossauro() {
+
 }
 
 void Entidades::Personagens::Inimigos::Dinossauro::inicializa() {
@@ -25,6 +29,15 @@ void Entidades::Personagens::Inimigos::Dinossauro::inicializa() {
     //corpo.setFillColor(sf::Color::Red);
 }
 
-Entidades::Personagens::Inimigos::Dinossauro::~Dinossauro() {
-
+void Entidades::Personagens::Inimigos::Dinossauro::colisao(Entidade* outraEntidade, sf::Vector2f ds) {
+	Personagem* pPersonagem = dynamic_cast<Personagem*>(outraEntidade);
+	if (pPersonagem->getID() == IDs::IDs::jogador) {
+		if (pPersonagem != nullptr) {
+			if (!pPersonagem->estaAtacando()) {
+				pPersonagem->danoRecebido(DANO_DINOSSAURO);
+			}
+		}
+	}
 }
+
+

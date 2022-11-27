@@ -2,8 +2,11 @@
 #include "Inimigo.h"
 #include "Projetil.h"
 #include "ListaEntidades.h"
+#include "Entidade.h"
+
 
 namespace Entidades {
+	class Projetil;
 	namespace Personagens {
 		namespace Inimigos {
 			class Ninja : public Inimigo {

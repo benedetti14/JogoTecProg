@@ -21,6 +21,10 @@ const sf::Vector2f Gerenciadores::GerenciadorColisao::calculaColisao(Entidades::
 
     sf::Vector2f tam1 = ent1->getTamanho();
     sf::Vector2f tam2 = ent2->getTamanho();
+    
+    if (ent1->getID() == IDs::IDs::jogador) {
+		tam1.x += 20.0f;
+    }
 
     sf::Vector2f distanciaEntreCentros(
         fabs((pos1.x + tam1.x / 2.0f) - (pos2.x + tam2.x / 2.0f)),
@@ -39,6 +43,8 @@ void Gerenciadores::GerenciadorColisao::colisaoEntrePersonagens() {
             sf::Vector2f ds = calculaColisao(ent1, ent2);
             if (ds.x < 0.0f && ds.y < 0.0f) {
                 ent1->colisao(ent2);
+                if (ent1->getID() == IDs::IDs::jogador && ent2->estaVivo())
+                    ent2->colisao(ent1);
             }
         }
     }
@@ -51,9 +57,22 @@ void Gerenciadores::GerenciadorColisao::colisaoEntrePersonagemObstaculo() {
             Entidades::Entidade* ent2 = listaObstaculo->operator[](j);
             sf::Vector2f ds = calculaColisao(ent1, ent2);
             if (ds.x < 0.0f && ds.y < 0.0f) {
-                if (ent2->getID() == IDs::IDs::plataforma || ent2->getID() == IDs::IDs::caixa) {
+				if (ent2->getID() == IDs::IDs::plataforma || ent2->getID() == IDs::IDs::caixa || ent2->getID() == IDs::IDs::pedra || ent2->getID() == IDs::IDs::projetil) {
                     ent2->colisao(ent1, ds);
                 }
+            }
+        }
+    }
+}
+
+void Gerenciadores::GerenciadorColisao::colisaoEntreObstaculos() {
+    for (int i = 0; i < listaObstaculo->getTamanho(); i++) {
+        Entidades::Entidade* ent1 = listaObstaculo->operator[](i);
+        for (int j = i + 1; j < listaObstaculo->getTamanho(); j++) {
+            Entidades::Entidade* ent2 = listaObstaculo->operator[](j);
+            sf::Vector2f ds = calculaColisao(ent1, ent2);
+            if (ds.x < 0.0f && ds.y < 0.0f) {
+                ent2->colisao(ent1, ds);
             }
         }
     }
@@ -62,4 +81,5 @@ void Gerenciadores::GerenciadorColisao::colisaoEntrePersonagemObstaculo() {
 void Gerenciadores::GerenciadorColisao::executar() {
     colisaoEntrePersonagens();
     colisaoEntrePersonagemObstaculo();
+    colisaoEntreObstaculos();
 }

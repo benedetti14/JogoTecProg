@@ -21,6 +21,7 @@ namespace Gerenciadores {
         const sf::Vector2f calculaColisao(Entidades::Entidade* ent1, Entidades::Entidade* ent2);
         void colisaoEntrePersonagens();
 		void colisaoEntrePersonagemObstaculo();
+		void colisaoEntreObstaculos();
         void executar();
     };
 
