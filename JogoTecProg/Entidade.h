@@ -9,12 +9,14 @@ namespace Entidades {
 	protected:
 		sf::Vector2f posicao;
 		sf::Vector2f tamanho;
+		bool vivo;
 	public:
 		Entidade(sf::Vector2f posi, sf::Vector2f tam, const IDs::IDs ID);
 		~Entidade();
 		//sf::RectangleShape getCorpo();
 		const sf::Vector2f getPosicao();
 		const sf::Vector2f getTamanho();
+		bool estaVivo();
 		virtual void atualizar() = 0;
 		virtual void move() = 0;
 		virtual void desenhar() = 0;

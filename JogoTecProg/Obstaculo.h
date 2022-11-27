@@ -14,7 +14,8 @@ namespace Entidades {
 			~Obstaculo();
 			void atualizar();
 			void move() = 0;
-			virtual void colisaoObstaculo(sf::Vector2f ds, Personagens::Personagem* pPersonagem);
+			virtual void reageColisaoPersonagem(sf::Vector2f ds, Personagens::Personagem* pPersonagem);
+			void reageColisaoObstaculo(sf::Vector2f ds, Entidades::Obstaculos::Obstaculo* pObstaculo);
 			void desenhar();
 			void setPosicao(sf::Vector2f posi);
 			virtual void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f)) = 0;

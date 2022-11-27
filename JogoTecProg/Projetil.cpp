@@ -1,9 +1,9 @@
 #include "Projetil.h"
 
-#define cProjetil "..\JogoTecProg\imagens\inimigos\ninja\Kunai.png"
+#define cProjetil "../JogoTecProg/imagens/inimigos/ninja/Kunai.png"
 #define GRAVIDADE 0.7f;
-#define VELO_NINJA {7.0f, 7.0f}
-#define TAM_PROJETIL {10.0f, 5.0f}
+#define VELO_NINJA {100.0f, 100.0f}
+#define TAM_PROJETIL {30.0f, 15.0f}
 #define DANO_PROJETIL 10
 
 Entidades::Projetil::Projetil(sf::Vector2f posi, const IDs::IDs ID, const bool esquerda):
@@ -26,8 +26,8 @@ void Entidades::Projetil::atualizar(){
 		} else {
 			posicao.x += velocidade.x * dt;
 		}
-		velocidade.y += dt * GRAVIDADE;
-		posicao.y = velocidade.y * GRAVIDADE;
+		/*velocidade.y += dt * GRAVIDADE;
+		posicao.y = velocidade.y * GRAVIDADE;*/
 	}
 	else if (caindo) {
 		float g = 2 * GRAVIDADE;
@@ -66,4 +66,8 @@ void Entidades::Projetil::setPosicao(sf::Vector2f posi){
 
 void Entidades::Projetil::ativar(const bool a){
 	ativo = a;
+}
+
+bool Entidades::Projetil::getAtivo() {
+	return ativo;
 }

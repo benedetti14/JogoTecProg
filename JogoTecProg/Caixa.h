@@ -14,8 +14,9 @@ namespace Entidades {
 			~Caixa();
 			virtual void move();
 			void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f));
-			void colisaoObstaculo(sf::Vector2f ds, Entidades::Personagens::Personagem* pPersonagem);
+			void reageColisaoPersonagem(sf::Vector2f ds, Entidades::Personagens::Personagem* pPersonagem);
+			void reageColisaoObstaculo(sf::Vector2f ds, Entidades::Obstaculos::Obstaculo* pObstaculo);
 		};
 	}
 }
-
+ 

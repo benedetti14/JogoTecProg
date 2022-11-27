@@ -37,13 +37,7 @@ void Menus::MenuPrincipal::executar(){
 		ativo = false;
 		switch (selecionado) {
 		case 0:
-			if (pJogo == nullptr) {
-				std::cout << "deu ruim 1" << std::endl;
-			}
-			else {
-
 			mudaEstado(Estados::IdEstado::jogandoFloresta);		
-			}
 			break;
 		case 1:
 			mudaEstado(Estados::IdEstado::jogandoDeserto);			

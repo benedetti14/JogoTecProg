@@ -31,7 +31,7 @@ CriaMundo::~CriaMundo()
 {
 }
 
-void CriaMundo::criar(sf::Vector2f* posicaoVista, Entidades::Personagens::Jogador* jogador)
+void CriaMundo::criar(sf::Vector2f* posicaoVista, Entidades::Personagens::Jogador* jogador, IDs::IDs fase)
 {
 	*posicaoVista = ultimaPosicaoCriada;
 
@@ -51,10 +51,13 @@ void CriaMundo::criar(sf::Vector2f* posicaoVista, Entidades::Personagens::Jogado
 		
 		sequencia--;
 
-		criaPlataforma(ultimaPosicaoCriada, sf::Vector2f(100.0f,100.0f));
+		criaPlataforma(ultimaPosicaoCriada, sf::Vector2f(100.0f, 100.0f), fase);
 		
 		if (rand() % 3 && sequencia > 1 && sequencia < 4) {
-			criaCaixa(sf::Vector2f(ultimaPosicaoCriada.x + 100.0f / 2, ultimaPosicaoCriada.y - 50.0f / 2 - 50.0f / 2), sf::Vector2f(50.0f, 50.0f));
+			if (rand() % 2)
+				criaCaixa(sf::Vector2f(ultimaPosicaoCriada.x + 25.0f, ultimaPosicaoCriada.y - 25.0f - 25.0f), sf::Vector2f(50.0f, 50.0f));
+			else
+				criaPedra(sf::Vector2f(ultimaPosicaoCriada.x + 25.0f, ultimaPosicaoCriada.y - 25.0f - 25.0f), sf::Vector2f(50.0f, 50.0f));
 		}
 
 
@@ -63,7 +66,12 @@ void CriaMundo::criar(sf::Vector2f* posicaoVista, Entidades::Personagens::Jogado
 			if (rand() % 3) {
 				criaDino(sf::Vector2f(ultimaPosicaoCriada.x, 300.0f), sf::Vector2f(50.0f, 50.0f), jogador);
 			} else {
-				criaCowboy(sf::Vector2f(ultimaPosicaoCriada.x, 300.0f), sf::Vector2f(50.0f, 50.0f), jogador);
+				if (fase == IDs::IDs::faseFloresta) {
+					criaCowboy(sf::Vector2f(ultimaPosicaoCriada.x, 300.0f), sf::Vector2f(50.0f, 50.0f), jogador);
+				} 
+				else {
+					criaNinja(sf::Vector2f(ultimaPosicaoCriada.x, 300.0f), sf::Vector2f(50.0f, 50.0f), jogador, listaObstaculos);
+				}
 			}
 		}
 	}
@@ -121,9 +129,9 @@ void CriaMundo::voltaPraOrigem()
 	ultimaPosicaoCriada = sf::Vector2f(0, 0);
 }
 
-void CriaMundo::criaPlataforma(sf::Vector2f pos, sf::Vector2f tam) {
+void CriaMundo::criaPlataforma(sf::Vector2f pos, sf::Vector2f tam, IDs::IDs id) {
 
-	Entidades::Obstaculos::Plataforma* plataforma = new Entidades::Obstaculos::Plataforma(pos, tam);
+	Entidades::Obstaculos::Plataforma* plataforma = new Entidades::Obstaculos::Plataforma(pos, tam, id);
 	if (plataforma) {
 		listaObstaculos->incluiEntidade(static_cast<Entidades::Entidade*>(plataforma));
 	}
@@ -162,7 +170,7 @@ void CriaMundo::criaCowboy(sf::Vector2f pos, sf::Vector2f tam, Entidades::Person
 
 }
 
-void CriaMundo::criaNinja(sf::Vector2f pos, sf::Vector2f tam, Entidades::Personagens::Jogador* jogador) {
+void CriaMundo::criaNinja(sf::Vector2f pos, sf::Vector2f tam, Entidades::Personagens::Jogador* jogador, Listas::ListaEntidades* listaObstaculos) {
 
 	Entidades::Personagens::Inimigos::Ninja* ninja = new Entidades::Personagens::Inimigos::Ninja(pos, tam, jogador, listaObstaculos);
 	if (ninja) {

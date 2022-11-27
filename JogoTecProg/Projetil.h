@@ -22,6 +22,7 @@ namespace Entidades {
 		void desenhar();
 		void setPosicao(sf::Vector2f posi);
 		void ativar(const bool a);
+		bool getAtivo();
 	};
 	
 

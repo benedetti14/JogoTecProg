@@ -1,14 +1,16 @@
 #include "Jogo.h"
 
-Jogo::Jogo() : faseFloresta(), gGrafico(nullptr), MaquinaEstado() {
+Jogo::Jogo() : faseFloresta(), faseDeserto(), gGrafico(nullptr), MaquinaEstado() {
 	gGrafico = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
 	Ente::setGerenciadorGrafico(Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico());
-	//faseFloresta->setGerenciadorGrafico(gGrafico);
 	criaFase();
 
 	Estados::Estado* estado;
 
 	estado = static_cast<Estados::Estado*>(faseFloresta);
+	incluiEstado(estado);
+
+	estado = static_cast<Estados::Estado*>(faseDeserto);
 	incluiEstado(estado);
 
 	estado = static_cast<Estados::Estado*>(new Menus::MenuPrincipal(this));
@@ -29,6 +31,11 @@ Jogo::~Jogo(){
 		faseFloresta = nullptr;
 	}
 
+	if (faseDeserto) {
+		delete (faseDeserto);
+		faseDeserto = nullptr;
+	}
+
 	if (gGrafico) {
 		delete gGrafico;
 		gGrafico = nullptr;
@@ -38,8 +45,10 @@ Jogo::~Jogo(){
 
 void Jogo::criaFase() {
 	faseFloresta = new Fases::FaseFloresta(this);
+	faseDeserto = new Fases::FaseDeserto(this);
 	
 	faseFloresta->inicializa();
+	faseDeserto->inicializa();
 }
 
 void Jogo::executar(){
@@ -49,16 +58,8 @@ void Jogo::executar(){
 		
 		gGrafico->limpaJanela();
 		
-		//jogador.move();
-		//inimigo.move();
-		//plataforma.atualizar();
-		//colisor.executar();
-		//pGrafico->mostrar();
-		//faseFloresta->executar();
 		atualizarEstadoAtual();
 		desenharEstadoAtual();
-		//gGrafico->mostrar();
-
 	}
 }
 

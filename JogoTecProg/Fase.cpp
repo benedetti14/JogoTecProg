@@ -20,7 +20,6 @@ namespace Fases {
 
 
 	void Fase::terminarFase() {
-		pontosJogador = jogador->getPontos();
 		faseTerminada = true;
 		listaObstaculos.limparLista();
 		listaPersonagens.limparLista();
