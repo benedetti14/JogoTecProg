@@ -30,7 +30,12 @@ void Listas::ListaEntidades::executar() {
 	Listas::Lista<Entidades::Entidade>::Elemento<Entidades::Entidade>* aux = listaEntidades.getPrimeiro();
 	while (aux != nullptr) {
 		if (aux->getElemento() != nullptr) {
-			aux->getElemento()->move();
+			if (aux->getElemento()->estaVivo()) {
+				aux->getElemento()->move();
+			}
+			else {
+				listaEntidades.removeElemento(aux->getElemento());
+			}
 		}
 			
 		aux = aux->getProximo();

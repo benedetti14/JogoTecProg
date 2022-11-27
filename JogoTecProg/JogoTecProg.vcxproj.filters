@@ -38,6 +38,9 @@
     <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="Texto.cpp" />
     <ClCompile Include="Pedra.cpp" />
+    <ClCompile Include="Ninja.cpp" />
+    <ClCompile Include="Projetil.cpp" />
+    <ClCompile Include="FaseDeserto.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animacao.h" />
@@ -78,5 +81,8 @@
     <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Texto.h" />
     <ClInclude Include="Pedra.h" />
+    <ClInclude Include="Ninja.h" />
+    <ClInclude Include="Projetil.h" />
+    <ClInclude Include="FaseDeserto.h" />
   </ItemGroup>
 </Project>

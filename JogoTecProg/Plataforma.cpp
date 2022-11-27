@@ -1,12 +1,17 @@
 #include "Plataforma.h"
 
 #define cPlataforma "../JogoTecProg/imagens/fase1/plataforma.png"
-#define cPlataformaFloresta "..\JogoTecProg\imagens\obstaculos\plataforma1.png"
-#define cPlataformaDeserto "..\JogoTecProg\imagens\obstaculos\plataforma2.png"
+#define cPlataformaFloresta "../JogoTecProg/imagens/fase1/plataforma.png"
+#define cPlataformaDeserto "../JogoTecProg/imagens/fase2/plataforma.png"
 
-Entidades::Obstaculos::Plataforma::Plataforma(const sf::Vector2f posi, const sf::Vector2f tam /*, IDs::IDs IdFase*/) : Obstaculo(posi, tam, IDs::IDs::plataforma)
+Entidades::Obstaculos::Plataforma::Plataforma(const sf::Vector2f posi, const sf::Vector2f tam , IDs::IDs IdFase) : Obstaculo(posi, tam, IDs::IDs::plataforma)
 {
-    animacao.inicializa(posi, tam, cPlataforma);
+    if (IdFase == IDs::IDs::faseFloresta) {
+        animacao.inicializa(posi, tam, cPlataformaFloresta);
+    }
+    else if (IdFase == IDs::IDs::faseDeserto) {
+        animacao.inicializa(posi, tam, cPlataformaDeserto);
+    }
 
     /*
     if (IdFase == IDs::IDs::faseFloresta) {
@@ -33,6 +38,9 @@ void Entidades::Obstaculos::Plataforma::colisao(Entidade* outraEntidade, sf::Vec
     sf::Vector2f tamOutro = outraEntidade->getTamanho();
 
     if (outraEntidade->getID() == IDs::IDs::jogador || outraEntidade->getID() == IDs::IDs::inimigo) {
-        colisaoObstaculo(ds, static_cast<Personagens::Personagem*>(outraEntidade));
+        reageColisaoPersonagem(ds, static_cast<Personagens::Personagem*>(outraEntidade));
+    }
+    else {
+        reageColisaoObstaculo(ds, static_cast<Obstaculos::Obstaculo*>(outraEntidade));
     }
 }

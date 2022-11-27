@@ -3,7 +3,7 @@
 
 Entidades::Personagens::Personagem::Personagem(sf::Vector2f posi, sf::Vector2f tam, int v,const float velo, const IDs::IDs ID) :
 	Entidade(posi, tam, ID), podeAndar(false), esquerda(false), atacando(false), relogio(), dt(0.0f), 
-	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(posi, tam), vivo(true), vida(v)
+	velocidadeFinal(sf::Vector2f(velo, 0.0f)), velocidadeMaxima(velo), animacao(posi, tam), vida(v), recebeuDano(false)
 {
 
 }
@@ -53,6 +53,12 @@ void Entidades::Personagens::Personagem::atualizar() {
 		}
 	}
 
+	if (recebeuDano) {
+		if (relogioAtaque.getElapsedTime().asSeconds() > 1.5) {
+			recebeuDano = false;
+		}
+	}
+
 	velocidadeFinal.y += dt * GRAVIDADE;
 	ds.y = velocidadeFinal.y * GRAVIDADE;
 
@@ -65,9 +71,20 @@ void Entidades::Personagens::Personagem::atualizar() {
 }
 
 void Entidades::Personagens::Personagem::danoRecebido(const int dano) {
-	vida -= dano;
-	if (vida <= 0) {
-		vivo = false;
+	if (recebeuDano == false) {
+		vida -= dano;
+		std::cout << "Vida: " << vida << std::endl;
+		recebeuDano = true;
+		relogioAtaque.restart();
+		if (esquerda) {
+			setPosicao(sf::Vector2f(posicao.x + 100.f, posicao.y));
+		}
+		else {
+			setPosicao(sf::Vector2f(posicao.x - 100.f, posicao.y));
+		}
+		if (vida <= 0) {
+			vivo = false;
+		}
 	}
 }
 

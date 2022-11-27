@@ -1,9 +1,9 @@
 #include "Ninja.h"
 
-#define NINJA_CORRE "..\JogoTecProg\JogoTecProg\imagens\inimigos\ninja\Ninja_Corre.png"
-#define NINJA_ATACA "..\JogoTecProg\JogoTecProg\imagens\inimigos\ninja\Ninja_Ataca.png"
-#define NINJA_ATIRA "..\JogoTecProg\JogoTecProg\imagens\inimigos\ninja\Ninja_Atira.png"
-#define NINJA_PARADO "..\JogoTecProg\JogoTecProg\imagens\inimigos\ninja\Ninja_Parado.png"
+#define NINJA_CORRE "../JogoTecProg/imagens/inimigos/ninja/Ninja_Corre.png"
+#define NINJA_ATACA "../JogoTecProg/imagens/inimigos/ninja/Ninja_Ataca.png"
+#define NINJA_ATIRA "../JogoTecProg/imagens/inimigos/ninja/Ninja_Atira.png"
+#define NINJA_PARADO "../JogoTecProg/imagens/inimigos/ninja/Ninja_Parado.png"
 
 #define VELO_NINJA 60.0f
 #define VIDA_NINJA 20
@@ -30,7 +30,7 @@ void Entidades::Personagens::Inimigos::Ninja::inicializa(){
 	animacao.incluiAnimacao(ElementosGraficos::corre, NINJA_CORRE, 10, 0.15f, sf::Vector2f(3, 1.5));
 	animacao.incluiAnimacao(ElementosGraficos::ataca, NINJA_ATACA, 10, 0.15f, sf::Vector2f(3, 1.5));
 	animacao.incluiAnimacao(ElementosGraficos::atira, NINJA_ATIRA, 10, 0.15f, sf::Vector2f(3, 1.5));
-	animacao.incluiAnimacao(ElementosGraficos::parado, NINJA_PARADO, 10, 0.15f, sf::Vector2f(3, 1.5));
+	animacao.incluiAnimacao(ElementosGraficos::parado, NINJA_PARADO, 5, 0.15f, sf::Vector2f(3, 1.5));
 	animacao.setOrigin(sf::Vector2f(tamanho.x / 3.0f, tamanho.y / 3.5f));
 }
 

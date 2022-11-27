@@ -19,8 +19,9 @@ namespace Entidades {
 			bool esquerda;
 			bool atacando;
 			sf::Clock relogio;
+			sf::Clock relogioAtaque;
 			float dt;
-			bool vivo;
+			bool recebeuDano;
 			int vida;
 		public:
 			Personagem(sf::Vector2f posi, sf::Vector2f tam, int v, const float velo, const IDs::IDs ID);

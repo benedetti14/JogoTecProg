@@ -17,15 +17,14 @@ Fases::FaseFloresta::~FaseFloresta(){
 
 void Fases::FaseFloresta::desenhar() {
 	if (jogador->getPosicao().x >= proximaPosicao.x) {
-		mundo.criar(&proximaPosicao, jogador);
+		mundo.criar(&proximaPosicao, jogador, IDs::IDs::faseFloresta);
 	}
 }
 
 void Fases::FaseFloresta::inicializa(){
-	//Entidades::Personagens::Jogador* jogador = new Entidades::Personagens::Jogador({ 200.0f, 300.0f }, { 35.0f, 75.0f });
 	listaPersonagens.incluiEntidade(jogador);
 	mundo.voltaPraOrigem();
-	mundo.criar(&proximaPosicao, jogador);
+	mundo.criar(&proximaPosicao, jogador, IDs::IDs::faseFloresta);
 }
 
 void Fases::FaseFloresta::executar() {
