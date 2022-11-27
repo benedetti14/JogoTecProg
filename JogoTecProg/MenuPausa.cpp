@@ -1,14 +1,18 @@
 #include "MenuPausa.h"
+#define continuar "..\JogoTecProg\imagens\menu\Continuar.jpeg"
+#define continuarS "..\JogoTecProg\imagens\menu\Continuar_Selecionado.jpeg"
+#define sair "..\JogoTecProg\imagens\menu\Sair.jpeg"
+#define sairS "..\JogoTecProg\imagens\menu\Sair_Selecionado.jpeg"
 
 Menus::MenuPausa::MenuPausa(Estados::MaquinaEstado* pME, Fases::Fase* pF): Menu(), Estado(pME,Estados::IdEstado::menuPausa),
 pFase(pF), pontos(0) {
 	ElementosGraficos::Botao* botao = nullptr;
 
-	botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f - 200, pGrafico->getTamanhoJanela().y - 100), "CONTINUAR");
+	botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f - 200, pGrafico->getTamanhoJanela().y - 100), continuar, continuarS);
 	botao->selecionar(true);
 	botoes.push_back(botao);
 
-	botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f + 200, pGrafico->getTamanhoJanela().y - 100), "SAIR");
+	botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f + 200, pGrafico->getTamanhoJanela().y - 100), sair, sairS);
 	botoes.push_back(botao);
 
 	selecionado = 0;
