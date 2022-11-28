@@ -18,6 +18,9 @@ namespace Entidades {
 			bool noChao;
 			void inicializa();
 			int pontos;
+			int dano;
+			bool empoderado;
+			sf::Clock tempoEmpoderado;
 		public:
 			Jogador(sf::Vector2f posi, sf::Vector2f tam);
 			~Jogador();
@@ -28,6 +31,8 @@ namespace Entidades {
 			void colisao(Entidade* outraEntidade, sf::Vector2f ds = sf::Vector2f(0.0f, 0.0f));
 			void empoderar();
 			int getPontos() const;
+			void podeEmpoderar();
+			void operator++();
 		};
 	}
 };

@@ -14,7 +14,7 @@ namespace Entidades {
 	namespace Personagens {
 
 		Jogador::Jogador(sf::Vector2f posi, sf::Vector2f tam) : Personagem(posi, tam, VIDA_JOGADOR, VELOCIDADE_JOGADOR, IDs::IDs::jogador),
-			noChao(false), pControle(), pontos(0) {
+			noChao(false), pControle(), pontos(0), dano(DANO_JOGADOR) {
 			pControle = new Controle::ControleJogador(this);
 			inicializa();
 		}
@@ -36,7 +36,7 @@ namespace Entidades {
 			atualizar();
 
 			atualizarAnimacao();
-			
+			podeEmpoderar();
 			pGrafico->atualizaCamera(posicao);
 			
 		}
@@ -70,18 +70,34 @@ namespace Entidades {
 				Personagem* pInimigo = dynamic_cast<Personagem*>(outraEntidade);
 				if (pInimigo != nullptr) {
 					if (atacando) {
-						pInimigo->danoRecebido(DANO_JOGADOR);
+						pInimigo->danoRecebido(dano);
 					}
 				}
 			}
 		}
 
-		void Jogador::empoderar() {
+		void Jogador::podeEmpoderar() {
+			if (empoderado) {
+				if (tempoEmpoderado.getElapsedTime().asSeconds() > 10.0) {
+					empoderado = false;
+					dano = DANO_JOGADOR;
+					tempoEmpoderado.restart();
+				}
+			}
+		}
 
+		void Jogador::empoderar() {
+			empoderado = true;
+			operator++();
+			tempoEmpoderado.restart();
 		}
 
 		int Jogador::getPontos() const {
 			return pontos;
+		}
+
+		void Jogador::operator++() {
+			dano += 10;
 		}
 
 

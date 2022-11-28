@@ -36,7 +36,6 @@ void Controle::ControleJogador::notificaTeclaPressionada(std::string tecla){
 	} else {
 		pJogador->parar();
 	}
-
 }
 
 void Controle::ControleJogador::notificaTeclaSolta(std::string tecla){
