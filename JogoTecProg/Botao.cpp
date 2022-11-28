@@ -8,7 +8,7 @@
 #define BOTAO_Y 50.f
 #define TAM_FONTE 30
 
-ElementosGraficos::Botao::Botao(sf::Vector2f pos, std::string info, const char* original, const char* selecionado):
+ElementosGraficos::Botao::Botao(sf::Vector2f pos, const char* original, const char* selecionado):
 texturaOriginal(), texturaSelecionado(), Animacao() {
 	texturaOriginal = pGrafico->setTextura(original);
 	texturaSelecionado = pGrafico->setTextura(selecionado);

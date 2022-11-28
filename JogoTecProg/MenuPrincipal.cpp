@@ -1,10 +1,10 @@
 #include "MenuPrincipal.h"
-#define fase1 "..\JogoTecProg\imagens\menu\Fase1.jpeg"
-#define fase1S "..\JogoTecProg\imagens\menu\Fase1_Selecionada.jpeg"
-#define fase2 "..\JogoTecProg\imagens\menu\Fase2.jpeg"
-#define fase2S "..\JogoTecProg\imagens\menu\Fase2_Selecionada.jpeg"
-#define sair "..\JogoTecProg\imagens\menu\Sair.jpeg"
-#define sairS "..\JogoTecProg\imagens\menu\Sair_Selecionado.jpeg"
+#define fase1 "../JogoTecProg/imagens/menu/Fase1.jpeg"
+#define fase1S "../JogoTecProg/imagens/menu/Fase1_Selecionada.jpeg"
+#define fase2 "../JogoTecProg/imagens/menu/Fase2.jpeg"
+#define fase2S "../JogoTecProg/imagens/menu/Fase2_Selecionada.jpeg"
+#define sair "../JogoTecProg/imagens/menu/Sair.jpeg"
+#define sairS "../JogoTecProg/imagens/menu/Sair_Selecionado.jpeg"
 
 Menus::MenuPrincipal::MenuPrincipal(Jogo* pJ): pJogo(pJ), Menu(), pontos(0),
 Estado(pJ, Estados::IdEstado::menuPrincipal), titulo()//, iniciouFloresta(false), iniciouDeserto(false)

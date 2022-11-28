@@ -72,8 +72,7 @@ void Entidades::Personagens::Personagem::atualizar() {
 
 void Entidades::Personagens::Personagem::danoRecebido(const int dano) {
 	if (recebeuDano == false) {
-		vida -= dano;
-		std::cout << "Vida: " << vida << std::endl;
+		operator--(dano);
 		recebeuDano = true;
 		relogioAtaque.restart();
 		if (esquerda) {
@@ -119,5 +118,9 @@ bool Entidades::Personagens::Personagem::estaVivo() {
 	} else {
 		return false;
 	}
+}
+
+void Entidades::Personagens::Personagem::operator--(const int dano) {
+	vida -= dano;
 }
 

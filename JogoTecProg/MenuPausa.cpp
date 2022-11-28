@@ -1,8 +1,8 @@
 #include "MenuPausa.h"
-#define continuar "..\JogoTecProg\imagens\menu\Continuar.jpeg"
-#define continuarS "..\JogoTecProg\imagens\menu\Continuar_Selecionado.jpeg"
-#define sair "..\JogoTecProg\imagens\menu\Sair.jpeg"
-#define sairS "..\JogoTecProg\imagens\menu\Sair_Selecionado.jpeg"
+#define continuar "../JogoTecProg/imagens/menu/Continuar.jpeg"
+#define continuarS "../JogoTecProg/imagens/menu/Continuar_Selecionado.jpeg"
+#define sair "../JogoTecProg/imagens/menu/Sair.jpeg"
+#define sairS "../JogoTecProg/imagens/menu/Sair_Selecionado.jpeg"
 
 Menus::MenuPausa::MenuPausa(Estados::MaquinaEstado* pME, Fases::Fase* pF): Menu(), Estado(pME,Estados::IdEstado::menuPausa),
 pFase(pF), pontos(0) {
