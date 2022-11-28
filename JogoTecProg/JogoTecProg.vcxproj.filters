@@ -8,7 +8,6 @@
     <ClCompile Include="Caixa.cpp" />
     <ClCompile Include="ControleJogador.cpp" />
     <ClCompile Include="ControleMenu.cpp" />
-    <ClCompile Include="ControleTexto.cpp" />
     <ClCompile Include="Cowboy.cpp" />
     <ClCompile Include="CriaMundo.cpp" />
     <ClCompile Include="Dinossauro.cpp" />
@@ -36,7 +35,6 @@
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="Plataforma.cpp" />
-    <ClCompile Include="Texto.cpp" />
     <ClCompile Include="Pedra.cpp" />
     <ClCompile Include="Ninja.cpp" />
     <ClCompile Include="Projetil.cpp" />
@@ -50,7 +48,6 @@
     <ClInclude Include="Caixa.h" />
     <ClInclude Include="ControleJogador.h" />
     <ClInclude Include="ControleMenu.h" />
-    <ClInclude Include="ControleTexto.h" />
     <ClInclude Include="Cowboy.h" />
     <ClInclude Include="CriaMundo.h" />
     <ClInclude Include="Dinossauro.h" />
@@ -79,7 +76,6 @@
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Plataforma.h" />
-    <ClInclude Include="Texto.h" />
     <ClInclude Include="Pedra.h" />
     <ClInclude Include="Ninja.h" />
     <ClInclude Include="Projetil.h" />

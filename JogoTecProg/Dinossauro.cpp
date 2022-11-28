@@ -2,7 +2,8 @@
 
 
 #define VELOCIDADE_DINOSSAURO 60.0f
-#define DANO_DINOSSAURO 5
+#define DANO_DINOSSAURO_0 5
+#define DANO_DINOSSAURO_1 8
 #define VIDA_DINOSSAURO 10
 #define RAIO_PERSEGUIR_X 200.0f
 #define RAIO_PERSEGUIR_Y 200.0f
@@ -12,7 +13,12 @@
 #define DINOSSAURO_CORRE "../JogoTecProg/imagens/inimigos/dinossauro/Dinossauro_Corre.png"
 #define DINOSSAURO_MORRE "../JogoTecProg/imagens/inimigos/dinossauro/Dinossauro_Morre.png"
 
-Entidades::Personagens::Inimigos::Dinossauro::Dinossauro(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogador) : Inimigo(pos, tam, jogador, VIDA_DINOSSAURO, VELOCIDADE_DINOSSAURO) {
+Entidades::Personagens::Inimigos::Dinossauro::Dinossauro(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogador) : 
+	Inimigo(pos, tam, jogador, VIDA_DINOSSAURO, VELOCIDADE_DINOSSAURO), forca() {
+
+	srand(time(NULL));
+	forca = rand() % 2;
+
 	inicializa();
 }
 
@@ -34,7 +40,12 @@ void Entidades::Personagens::Inimigos::Dinossauro::colisao(Entidade* outraEntida
 	if (pPersonagem->getID() == IDs::IDs::jogador) {
 		if (pPersonagem != nullptr) {
 			if (!pPersonagem->estaAtacando()) {
-				pPersonagem->danoRecebido(DANO_DINOSSAURO);
+				if (forca == 0) {
+					pPersonagem->danoRecebido(DANO_DINOSSAURO_0);
+				}
+				else {
+					pPersonagem->danoRecebido(DANO_DINOSSAURO_1);
+				}
 			}
 		}
 	}

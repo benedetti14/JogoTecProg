@@ -1,7 +1,8 @@
 #include "Cowboy.h"
 
 #define VELOCIDADE_COWBOY 60.0f
-#define DANO_COWBOY 5
+#define DANO_COWBOY_0 5
+#define DANO_COWBOY_1 8
 #define VIDA_COWBOY 20
 #define RAIO_PERSEGUIR_X 400.0f
 #define RAIO_PERSEGUIR_Y 400.0f
@@ -14,7 +15,12 @@
 #define COWBOY_CORRE "../JogoTecProg/imagens/inimigos/cowboy/Cowboy_Corre.png"
 #define COWBOY_MORRE "../JogoTecProg/imagens/inimigos/cowboy/Cowboy_Morre.png"
 
-Entidades::Personagens::Inimigos::Cowboy::Cowboy(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogador) : Inimigo(pos, tam, jogador, VIDA_COWBOY, VELOCIDADE_COWBOY) {
+Entidades::Personagens::Inimigos::Cowboy::Cowboy(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogador) : 
+	Inimigo(pos, tam, jogador, VIDA_COWBOY, VELOCIDADE_COWBOY), idade() {
+
+	srand(time(NULL));
+	idade = rand() % 2;
+
     inicializa();
 }
 
@@ -33,7 +39,12 @@ void Entidades::Personagens::Inimigos::Cowboy::colisao(Entidade* outraEntidade, 
     if (pPersonagem->getID() == IDs::IDs::jogador) {
         if (pPersonagem != nullptr) {
 			if (!pPersonagem->estaAtacando() && atacando) {
-                pPersonagem->danoRecebido(DANO_COWBOY);
+				if (idade == 0) {
+					pPersonagem->danoRecebido(DANO_COWBOY_0);
+				}
+				else {
+					pPersonagem->danoRecebido(DANO_COWBOY_1);
+				}
             }
         }
     }
