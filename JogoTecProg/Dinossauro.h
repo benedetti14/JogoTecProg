@@ -5,6 +5,8 @@ namespace Entidades {
 	namespace Personagens {
 		namespace Inimigos {
 			class Dinossauro : public Inimigo {
+			private:
+				int forca;
 			public:
 				Dinossauro(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogador);
 				~Dinossauro();
