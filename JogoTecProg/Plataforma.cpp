@@ -12,15 +12,6 @@ Entidades::Obstaculos::Plataforma::Plataforma(const sf::Vector2f posi, const sf:
     else if (IdFase == IDs::IDs::faseDeserto) {
         animacao.inicializa(posi, tam, cPlataformaDeserto);
     }
-
-    /*
-    if (IdFase == IDs::IDs::faseFloresta) {
-        animacao.inicializa(posi, tam, cPedraFloresta);
-    }
-    else (IdFase == IDs::IDs::faseDeserto) {
-        animacao.inicializa(posi, tam, cPedraDeserto);
-    }*/
-
 }
 
 Entidades::Obstaculos::Plataforma::~Plataforma()

@@ -4,10 +4,6 @@
 Fases::FaseFloresta::FaseFloresta(Estados::MaquinaEstado* pME) : 
 	Fase(IDs::IDs::faseFloresta), Estado(pME, Estados::IdEstado::jogandoFloresta), mundo(&listaPersonagens, &listaObstaculos) {
 	fundo = new Fundo("../JogoTecProg/imagens/fase1/fundo.png", (sf::Vector2f)pGrafico->getJanela()->getSize());
-
-	//pGrafico = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
-	//pEventos = Gerenciadores::GerenciadorEventos::getGerenciadorEventos();
-	//pColisor = new Gerenciadores::GerenciadorColisao(listaPersonagens, listaObstaculos);
 	
 }
 
@@ -32,17 +28,13 @@ void Fases::FaseFloresta::executar() {
 }
 
 void Fases::FaseFloresta::atualizar() {
-	//jogador->getPosicao().x < pGrafico->getJanela()->getSize().x
 	if (jogador->estaVivo()) {
-		//pEventos->executar();
-		//pGrafico->limpaJanela();
 		fundo->desenhar();
 		
 		listaPersonagens.executar();
 
 		listaObstaculos.executar();
 
-		//pGrafico->mostrar();
 		pColisor->executar();
 		pGrafico->mostrar();
 	}
@@ -50,7 +42,6 @@ void Fases::FaseFloresta::atualizar() {
 		faseTerminada = true;
 		mudaEstado(Estados::IdEstado::menuPrincipal);
 	}
-	//terminarFase();
 }
 
 void Fases::FaseFloresta::resetarEstado(){

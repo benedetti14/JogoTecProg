@@ -39,9 +39,7 @@ namespace Listas {
 		void removeElemento(TIPO* pE);
 		void limpar();
 		Elemento<TIPO>* getPrimeiro() { return pPrimeiro; };
-		Elemento<TIPO>* getUltimo() { return pUltimo; };/*
-		TIPO* inicioLista();
-		TIPO* getProximo();*/
+		Elemento<TIPO>* getUltimo() { return pUltimo; };
 		TIPO* operator[](int pos);
 		int getTamanho();
 
@@ -125,17 +123,6 @@ namespace Listas {
 			tamanho--;
 		}
 	}
-	
-
-	/*template <class TIPO>
-	TIPO* Lista<TIPO>::inicioLista() {
-		pAtual = pPrimeiro;
-		if (pAtual) {
-			return pAtual->getElemento();
-		} else {
-			return nullptr;
-		}
-	}*/
 
 	template<class TIPO>
 	int Lista<TIPO>::getTamanho() {
@@ -154,15 +141,4 @@ namespace Listas {
 		}
 		return aux->getElemento();
 	}
-
-
-	/*template <class TIPO>
-	TIPO* Lista<TIPO>::getProximo() {
-		pAtual = pAtual->getProximo();
-		if (pAtual) {
-			return pAtual->getElemento();
-		} else {
-			return nullptr;
-		}
-	}*/
 }

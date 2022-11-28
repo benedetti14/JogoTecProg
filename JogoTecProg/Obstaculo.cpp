@@ -4,9 +4,6 @@ namespace Entidades {
 
     Obstaculos::Obstaculo::Obstaculo(const sf::Vector2f posi, const sf::Vector2f tama, const IDs::IDs ID) :
     Entidade(posi, tama, ID), animacao() {
-        //textura = pGrafico->setTextura(cTextura);
-        //corpo.setTexture(&textura);
-
     }
 
     Obstaculos::Obstaculo::~Obstaculo() {

@@ -17,9 +17,6 @@ texturaOriginal(), texturaSelecionado(), Animacao() {
 	corpo->setOrigin(sf::Vector2f(BOTAO_X / 2, BOTAO_Y / 2));
 	corpo->setPosition(pos);
 	corpo->setTexture(&texturaOriginal);
-	/*texto.setTamanhoFonte(TAM_FONTE);
-	texto.setPosicao(pos);
-	texto.setCor(77, 68, 44);*/
 
 }
 
@@ -38,5 +35,4 @@ void ElementosGraficos::Botao::selecionar(const bool selecionado){
 void ElementosGraficos::Botao::desenhar(){
 
 	pGrafico->getJanela()->draw(*corpo);
-	//texto.desenhar();
 }

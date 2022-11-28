@@ -17,7 +17,6 @@ Jogo::Jogo() : faseFloresta(), faseDeserto(), gGrafico(nullptr), MaquinaEstado()
 	incluiEstado(estado);
 
 	estado = static_cast<Estados::Estado*>(new Menus::MenuPausa(this, faseFloresta));
-	//estado = static_cast<Estados::Estado*>(new Menus::MenuPausa(this, fase));
 	incluiEstado(estado);
 
 	mudarEstadoAtual(Estados::IdEstado::menuPrincipal);

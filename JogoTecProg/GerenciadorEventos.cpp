@@ -3,7 +3,7 @@
 Gerenciadores::GerenciadorEventos* Gerenciadores::GerenciadorEventos::pEventos = NULL;
 
 Gerenciadores::GerenciadorEventos::GerenciadorEventos() : pGrafico(pGrafico->getGerenciadorGrafico()), 
-pEntrada(pEntrada->getGerenciadorEntrada()) /*pJogador(NULL)*/ 
+pEntrada(pEntrada->getGerenciadorEntrada()) 
 {
 }
 
@@ -17,36 +17,6 @@ Gerenciadores::GerenciadorEventos* Gerenciadores::GerenciadorEventos::getGerenci
     }
     return pEventos;
 }
-
-/*
-void Gerenciadores::GerenciadorEventos::setJogador(Entidades::Personagens::Jogador* jogador){
-	this->pJogador = jogador;
-}*/
-
-/*
-void Gerenciadores::GerenciadorEventos::verificaTeclaPressionada(sf::Keyboard::Key tecla){
-    if (tecla == sf::Keyboard::Right) {
-        pJogador->andar(false);
-    } else if (tecla == sf::Keyboard::Left) {
-        pJogador->andar(true);
-    } else if (tecla == sf::Keyboard::Up) {
-        pJogador->pular();
-    } else if (tecla == sf::Keyboard::Escape) {
-        pGrafico->fechaJanela();
-	}
-	else if (tecla == sf::Keyboard::X) {
-		pJogador->atacar(true);
-    }
-    else {
-        pJogador->parar();
-    }
-}
-
-void Gerenciadores::GerenciadorEventos::verificaTeclaSolta(sf::Keyboard::Key tecla) {
-    if (tecla == sf::Keyboard::Right || tecla == sf::Keyboard::Left) {
-        pJogador->parar();
-    }
-}*/
 
 void Gerenciadores::GerenciadorEventos::executar() {
     sf::Event evento;

@@ -24,4 +24,3 @@ namespace Gerenciadores {
 		void centralizaCamera();
 	};
 }
-

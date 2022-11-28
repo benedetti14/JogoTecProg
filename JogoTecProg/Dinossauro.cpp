@@ -28,11 +28,8 @@ Entidades::Personagens::Inimigos::Dinossauro::~Dinossauro() {
 
 void Entidades::Personagens::Inimigos::Dinossauro::inicializa() {
     animacao.incluiAnimacao(ElementosGraficos::anda, DINOSSAURO_ANDA, 10, 0.15f, sf::Vector2f(3, 1.5));
-    //animacao.incluiAnimacao(ElementosGraficos::corre, DINOSSAURO_CORRE, 8, 0.15f, sf::Vector2f(6, 3));
     animacao.incluiAnimacao(ElementosGraficos::parado, DINOSSAURO_PARADO, 5, 0.15f, sf::Vector2f(3, 1.5));
-    //animacao.incluiAnimacao(ElementosGraficos::morre, DINOSSAURO_MORRE, 5, 0.15f, sf::Vector2f(3, 1.5));
     animacao.setOrigin(sf::Vector2f(tamanho.x / 2.8f, tamanho.y / 3.5f));
-    //corpo.setFillColor(sf::Color::Red);
 }
 
 void Entidades::Personagens::Inimigos::Dinossauro::colisao(Entidade* outraEntidade, sf::Vector2f ds) {

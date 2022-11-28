@@ -15,7 +15,6 @@ Estados::MaquinaEstado::~MaquinaEstado(){
 }
 
 void Estados::MaquinaEstado::mudarEstadoAtual(IdEstado id){
-	std::cout << "Mudando estado atual para: " << std::endl;
 	ultimoEstado = estadoAtual;
 	estadoAtual = id;
 	mapaEstados[id]->resetarEstado();

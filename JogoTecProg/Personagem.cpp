@@ -63,7 +63,6 @@ void Entidades::Personagens::Personagem::atualizar() {
 	ds.y = velocidadeFinal.y * GRAVIDADE;
 
 	setPosicao(sf::Vector2f(posicao.x + ds.x, posicao.y + ds.y));
-	//animacao.setPosicao(sf::Vector2f(posicao.x + ds.x, posicao.y + ds.y));
 
 	velocidadeFinal.x = velocidadeMaxima;
 

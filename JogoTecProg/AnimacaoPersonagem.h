@@ -1,7 +1,4 @@
 #pragma once
-
-//#include <SFML\Graphics.hpp>
-//#include <iostream>
 #include <map>
 #include "Animacao.h"
 #include "Imagem.h"

@@ -9,7 +9,6 @@
 class Ente {
 protected:
     static Gerenciadores::GerenciadorGrafico* pGrafico;
-    //Gerenciadores::GerenciadorGrafico* pGrafico;
     const IDs::IDs ID;
 public:
     Ente(const IDs::IDs ID);

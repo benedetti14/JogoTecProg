@@ -26,7 +26,6 @@ namespace Estados {
 		void setMaquinaEstado(MaquinaEstado* pME);
 		void mudaEstado(IdEstado id);
 		Estados::IdEstado getIDestado() const;
-		//Estado* getEstado() const;
 		virtual void atualizar() = 0;
 		virtual void desenhar() = 0;
 		virtual void resetarEstado() = 0;

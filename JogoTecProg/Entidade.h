@@ -13,7 +13,6 @@ namespace Entidades {
 	public:
 		Entidade(sf::Vector2f posi, sf::Vector2f tam, const IDs::IDs ID);
 		~Entidade();
-		//sf::RectangleShape getCorpo();
 		const sf::Vector2f getPosicao();
 		const sf::Vector2f getTamanho();
 		bool estaVivo();
