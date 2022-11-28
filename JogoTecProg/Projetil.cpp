@@ -26,8 +26,6 @@ void Entidades::Projetil::atualizar(){
 		} else {
 			posicao.x += velocidade.x * dt;
 		}
-		velocidade.y += dt * GRAVIDADE;
-		posicao.y = velocidade.y * GRAVIDADE;
 	}
 	else if (caindo) {
 		float g = 2 * GRAVIDADE;
