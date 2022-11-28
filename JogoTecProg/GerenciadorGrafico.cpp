@@ -65,9 +65,13 @@ sf::Vector2f Gerenciadores::GerenciadorGrafico::getTamanhoJanela() const {
 sf::Texture Gerenciadores::GerenciadorGrafico::setTextura(const char* cTextura){
 	sf::Texture textura;
 	
-	if (!textura.loadFromFile(cTextura)){
-		std::cout << "Gerenciador Grafico:: erro ao carregar textura " << cTextura << std::endl;
-		exit(1);
+	try {
+		textura.loadFromFile(cTextura);
+	} catch(int erro){
+		if (erro == 1) {
+			std::cout << "Gerenciador Grafico:: erro ao carregar textura " << cTextura << std::endl;
+			exit(1);
+		}
 	}
 
 	return textura;
@@ -81,17 +85,6 @@ const sf::View Gerenciadores::GerenciadorGrafico::getCamera()
 void Gerenciadores::GerenciadorGrafico::atualizaCamera(sf::Vector2f posJogador){
 	camera.setCenter(posJogador.x, 300.0f);
 	janela->setView(camera);
-}
-
-sf::Font Gerenciadores::GerenciadorGrafico::setFonte(const char* cFonte){
-	sf::Font fonte;
-
-	if (!fonte.loadFromFile(cFonte)) {
-		std::cout << "Gerenciador Grafico: erro ao carregar a fonte!" << std::endl;
-		exit(1);
-	}
-
-	return fonte;
 }
 
 void Gerenciadores::GerenciadorGrafico::centralizaCamera(){

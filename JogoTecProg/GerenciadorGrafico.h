@@ -21,7 +21,6 @@ namespace Gerenciadores {
 		sf::Texture setTextura(const char* cTextura);
 		const sf::View getCamera();
 		void atualizaCamera(sf::Vector2f posJogador);
-		sf::Font setFonte(const char* cFonte);
 		void centralizaCamera();
 	};
 }
