@@ -21,7 +21,6 @@ namespace Fases {
 	class Fase : public Ente {
 	protected:
 		Gerenciadores::GerenciadorColisao* pColisor;
-		//Gerenciadores::GerenciadorEventos* pEventos;
 		Entidades::Personagens::Jogador* jogador;
 		Listas::ListaEntidades listaPersonagens;
 		Listas::ListaEntidades listaObstaculos;

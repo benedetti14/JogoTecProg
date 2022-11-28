@@ -1,7 +1,8 @@
 #include "Ente.h"
 
-Ente::Ente(const IDs::IDs ID) : /*pGrafico(pGrafico->getGerenciadorGrafico()),*/
-    ID(ID){
+Ente::Ente(const IDs::IDs ID) :
+    ID(ID) 
+{
 }
 
 Ente::~Ente() {

@@ -11,12 +11,6 @@ Obstaculo(posi, tam, IDs::IDs::pedra), dureza() {
 	srand(time(NULL));
 	dureza = rand() % 2;
 	animacao.inicializa(posi, tam, cPedraFloresta);
-
-	/* if(IdFase == faseFloresta){
-		animacao.inicializa(posi, tam, cPedraFloresta);
-	} else {
-		animacao.inicializa(posi, tam, cPedraDeserto);
-	}*/
 }
 
 Entidades::Obstaculos::Pedra::~Pedra()

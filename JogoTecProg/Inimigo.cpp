@@ -64,9 +64,7 @@ void Entidades::Personagens::Inimigo::colisao(Entidade* outraEntidade, sf::Vecto
 void Entidades::Personagens::Inimigo::atualizarAnimacao() {
     if (podeAndar) {
         animacao.atualizar(ElementosGraficos::anda, esquerda);
-    } /*else if (!estaVivo()) {
-        animacao.atualizar(ElementosGraficos::morre, esquerda);
-    }*/
+    }
     else {
         animacao.atualizar(ElementosGraficos::parado, esquerda);
     }

@@ -17,6 +17,5 @@ namespace Fases {
 		void resetarEstado();
 		Estados::IdEstado getIDfase() const;
 		CriaMundo mundo;
-		//void terminarFase();
 	};
 }

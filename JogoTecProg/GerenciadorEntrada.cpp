@@ -106,7 +106,5 @@ void Gerenciadores::GerenciadorEntrada::verificaTeclaSolta(sf::Keyboard::Key tec
 std::string Gerenciadores::GerenciadorEntrada::getTecla(sf::Keyboard::Key tecla){
     if (mapaTecla[tecla] != "") {
         return mapaTecla[tecla];
-    } /*/else {
-        return 0;
-    }*/
+    }
 }

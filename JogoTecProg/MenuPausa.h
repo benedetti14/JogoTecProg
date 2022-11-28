@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Menu.h"
-#include "Texto.h"
 #include "Estado.h"
 #include "Fase.h" 
 

@@ -4,8 +4,6 @@
 #include "MaquinaEstados.h"
 #include "Fase.h"
 #include "MenuPrincipal.h"
-#include "MenuFimJogo.h"
-#include "MenuRanking.h"
 #include "MenuPausa.h"
 
 class Jogo : public Estados::MaquinaEstado {

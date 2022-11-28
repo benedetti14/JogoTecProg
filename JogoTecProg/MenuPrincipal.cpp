@@ -7,7 +7,7 @@
 #define sairS "../JogoTecProg/imagens/menu/Sair_Selecionado.jpeg"
 
 Menus::MenuPrincipal::MenuPrincipal(Jogo* pJ): pJogo(pJ), Menu(), pontos(0),
-Estado(pJ, Estados::IdEstado::menuPrincipal), titulo()//, iniciouFloresta(false), iniciouDeserto(false)
+Estado(pJ, Estados::IdEstado::menuPrincipal)
 {
 	ElementosGraficos::Botao* botao;
 
@@ -18,16 +18,9 @@ Estado(pJ, Estados::IdEstado::menuPrincipal), titulo()//, iniciouFloresta(false)
 	botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 200.0f + 100), fase2, fase2S);
 	botoes.push_back(botao);
 
-	//botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 200.0f + 200), "RANKING");
-	//botoes.push_back(botao);
-
 	botao = new ElementosGraficos::Botao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 200.0f + 300), sair, sairS);
 	botoes.push_back(botao);
 
-	/*titulo.setInfo("JOGO");
-	titulo.setTamanhoFonte(140);
-	titulo.setCor(77, 68, 44);
-	titulo.setPosicao(sf::Vector2f(pGrafico->getTamanhoJanela().x / 2.0f, 100.0f));*/
 	maximo = 2;
 
 	ultimaFase = Estados::IdEstado::vazio;
@@ -48,9 +41,6 @@ void Menus::MenuPrincipal::executar(){
 		case 1:
 			mudaEstado(Estados::IdEstado::jogandoDeserto);			
 			break;
-		//case 2:
-			//mudaEstado(Estados::IdEstado::ranking);
-			//break;
 		case 2:
 			pJogo->terminarJogo();
 			break;
@@ -81,7 +71,6 @@ void Menus::MenuPrincipal::desenhar(){
 	for (int i = 0; i < (int)botoes.size(); i++) {
 		botoes[i]->desenhar();
 	}
-	//titulo.desenhar();
 }
 
 void Menus::MenuPrincipal::atualizar(){

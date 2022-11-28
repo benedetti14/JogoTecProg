@@ -21,7 +21,6 @@ namespace Controle {
 		std::string pula;
 		std::string empodera;
 		std::string ataca;
-		//std::string corre;
 		std::map<std::string, bool> mapaTeclas;
 		
 	public:
